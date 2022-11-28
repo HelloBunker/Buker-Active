@@ -1,318 +1,123 @@
+<!-- This example requires Tailwind CSS v3.0+ -->
 <template>
-    <div class="">
-        <!-- nav bar component -->
-        <NavBar />
-
-        <!-- header component -->
-        <Header />
-        <!-- body -->
-        <main class="mb-0 ">
-            <div class="flex flex-col justify-between mt-5 mb-0">
-                <!-- about us section -->
-                <div id="about" class="flex md:flex-row flex-col justify-between mb-14 py-5 pb-8 px-5 mx-auto">
-                    <div class="md:w-1/2 w-full  md:h-[300px] md:mx-4 pl-8 mx-auto">
-                        <img src="@/assets/about-img.jpeg" class="h-[300px]" alt="" srcset="">
-                    </div>
-                    <div class="md:w-1/2 w-full md:h-[500px] md:mx-6 ml-6 mx-auto  my-3 md:my-0">
-                        <h1 class="md:text-6xl text-3xl font-extrabold pl-7">About Us</h1>
-                        <hr class="dash text-primary w-1/4 my-2 mr-6 mb-10" />
-                        <p class="text-xl text-black-100 mb-8 text-bold  px-4 text-justify">
-                            We see how you are paying more and more for less and less when you go buy foodstuff in the
-                            market.
-                        </p>
-
-                        <p class="text-xl text-black-100 mb-10 text-bold px-4 text-justify">
-                            We see how the onslaught of rising food prices is severely affecting your budget… And in
-                            response we are offering you the opportunity to take cover in our bunker an online community
-                            where many like you will be saving as much as 30% of what you spend on foodstuff and other
-                            essential commodities.
-                        </p>
-
-                        <router-link to="/shop"><button class="banner mx-4"> Place Order</button></router-link>
-
-                    </div>
-                </div>
-                <!-- how we operate section -->
-                <div class="flex flex-col md:justify-between justify-between gap-2 md:mb-12 mx-8 mb-2 mt-10 px-4  lg:flex-row ">
-                    <div class="md:flex md:items-center lg:w-1/6">
-                        <div>
-                            <h3 class="text-3xl md:text-4xl font-bold md:text-center text-left pl-7">How Bunker Works
-                            </h3>
-                            <hr class="dash text-primary w-1/6 my-2 md:mx-auto " />
-                        </div>
-
-
-                    </div>
-                    <div class="md:mt-20  lg:mb-3 mt-2 how-to lg:w-[34%] w-full mb-7  flex md:items-center">
-                        <img src="@/assets/how-3.jpg" alt="" class="object-cover object-center h-full">
-                    </div>
-
-                    <div class=" flex flex-col md:w-[50%] w-full justify-center md:justify-between ">
-                        <div class="flex md:flex-row flex-col w-full justify-center">
-                            <div class=" flex  icon h-1/2 md:mx-4 bg-secondary 
-                             mx-auto p-6 mb-3 md:mb-2">
-                                <i class="bi bi-house  text-primary md:text-7xl text-5xl "></i>
-                                <!-- <img src="../../assets/home2.png" alt="" class="md:h-[auto] h-[70px] w-50% md:w-full"> -->
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold ml-4 mb-3 text-left md:text-left"> Subscribe To Our Store</h3>
-                                <p class="text-lg text-secondary-100 leading-8 ml-4 mb-6 md:px-0  text-justify md:text-left">
-                                    Begin by paying a Quarterly Membership Fee of just N5,000 (or Annual Membership fee of N15,000) and become a Bunker Wholesale Club member with exclusive access to so many cost-cutting, time saving and stress-reducing benefits.</p>
-                            </div>
-                        </div>
-                        <div class="flex md:flex-row flex-col w-full justify-center">
-                            <div class=" flex icon h-3/5 bg-secondary mb-3 md:mb-2
-                            md:mx-4 mx-auto p-6">
-                                <i class="bi bi-laptop text-primary md:text-7xl text-5xl "></i>
-                                <!-- <img src="../../assets/home2.png" alt="" class="md:h-[auto] h-[70px] w-50% md:w-full"> -->
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-extrabold ml-4 mb-3 text-left md:text-left"> Order Online</h3>
-                                <p class="text-lg text-secondary-100 leading-8 ml-4 mb-6 md:px-0 text-justify md:text-left">
-                                    Place your order from the comfort of your home by simply visiting our online warehouse or by calling any of our hotlines 07010287897, 08099224421 or 08099224425.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex md:flex-row flex-col w-full justify-center">
-                            <div class=" flex h-1/2 mb-3 icon bg-secondary md:mx-4 
-                             mx-auto p-6">
-                                <i class="bi bi-truck text-primary  md:text-7xl text-5xl "></i>
-                                <!-- <img src="../../assets/home2.png" alt="" class="md:h-[auto] h-[70px] w-50% md:w-full"> -->
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-extrabold ml-4 mb-3 md:mb-2 text-left md:text-left"> Quality Free Delivery</h3>
-                                <p class="text-lg text-secondary-100 leading-8 ml-4 mb-6 md:px-0  text-justify md:text-left">
-                                    Once order has been confirmed, expect delivery within 3 hours for FREE. We deliver between 7am to 7pm, 7 Days/Week (Yes, including Sundays and public holidays...you thought we were joking when we said we've got you covered? 😀</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- plans section -->
-                <div class="flex md:flex-col flex-col  mb-12 py-5 mx-auto px-4" id="plan">
-                    <div class="md:flex md:items-center  items-start">
-                        <div>
-                            <h3 class="text-3xl md:text-4xl font-bold md:text-center text-left pl-7">Join the Warehouse Club
-                            </h3>
-                            <hr class="dash text-primary w-1/6 mt-2 md:mx-auto mb-3" />
-                        </div>
-
-
-                    </div>
-                    <div class="flex flex-col gap-14 md:flex-row">
-                        <!-- card1 -->
-                        <div class="">
-                            <div class="flip-card ">
-                                <div class="flip-card-inner p-2 relative w-full h-full ">
-                                    <div
-                                        class="flip-card-front p-8 absolute flex-col bg-secondary flex items-center  justify-center text-secondary-100 w-full h-full ">
-                                        <i class="bi bi-credit-card text-7xl text-primary mx-auto mb-2"></i>
-                                        <h1 class="text-3xl font-bolder text-secondary-100 mb-2 text-center"> Quarterly
-                                            Memebership
-                                            Plan</h1>
-                                        <h2 class="text-2xl font-bolder text-primary mb-2 text-center">Pay &#8358;12,000
-                                            for 3
-                                            Months</h2>
-
-                                    </div>
-                                    <div class="flip-card-back bg-secondary text-secondary-100 p-8">
-                                        <h2 class="text-4xl font-bolder text-primary-100 mb-2 text-center">Benefits</h2>
-                                        <ul class="list-disk">
-                                            <li class="text-sm text-secondary-100 mb-3 ">
-                                                <p>Buy up to N100k worth of groceries at wholesale prices and save at
-                                                    least N30, 000.
-                                                </p>
-                                            </li>
-                                            <li class="text-sm text-secondary-100 mb-3">
-                                                <p>Get free express delivery on your order which will be delivered
-                                                    within 3 hours.
-                                                </p>
-                                            </li>
-                                            <li class="text-sm text-secondary-100 mb-3">
-                                                <p>
-                                                    Enjoy the option to pay flexibly after
-                                                    receiving your order
-                                                </p>
-                                            </li>
-                                        </ul>
-                                        <router-link to="/shop" class="mx-auto"><Button content="Subscribe Now"
-                                                theme="primary" /></router-link>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- card2
-                        <div class="">
-                            <div class="flip-card ">
-                                <div class="flip-card-inner p-2 relative w-full h-full ">
-                                    <div
-                                        class="flip-card-front p-8 absolute flex-col bg-secondary flex items-center  justify-center text-secondary-100 w-full h-full ">
-                                        <i class="bi bi-credit-card text-7xl text-primary mx-auto mb-2"></i>
-                                        <h1 class="text-3xl font-bolder text-secondary-100 mb-2 text-center"> Aunnual
-                                            Memebership
-                                            Plan</h1>
-                                        <h2 class="text-2xl font-bolder text-primary mb-2 text-center">Pay &#8358;35,000
-                                            for 12
-                                            Months</h2>
-
-                                    </div>
-                                    <div class="flip-card-back bg-secondary text-secondary-100 p-8">
-                                        <h2 class="text-4xl font-bolder text-primary-100 mb-2 text-center">Benefits</h2>
-                                        <ul class="list-disk">
-                                            <li class="text-sm text-secondary-100 mb-3 ">
-                                                <p>Buy up to N100k worth of groceries at wholesale prices and save at
-                                                    least N30, 000.
-                                                </p>
-                                            </li>
-                                            <li class="text-sm text-secondary-100 mb-3">
-                                                <p>Get free express delivery on your order which will be delivered
-                                                    within 3 hours.
-                                                </p>
-                                            </li>
-                                            <li class="text-sm text-secondary-100 mb-3">
-                                                <p>
-                                                    Enjoy the option to pay flexibly after
-                                                    receiving your order
-                                                </p>
-                                            </li>
-                                        </ul>
-                                        <router-link to="/shop" class="mx-auto"><Button content="Subscribe Now"
-                                                theme="primary" /></router-link>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        
-                    </div>
-                </div>
-
-                <!-- credit section -->
-
-                <div>
-                    <div class="credit-bg bg-cover mx-0 w-full mb-0 ">
-                        <div class="flex  flex-col   md:p-20 p-7">
-                            <i class="bi bi-cash text-secondary text-5xl md:text-6xl"></i>
-                            <h1 class="text-xl text-secondary font-bolder mb-3">
-                                Buy Now And Pay Later Conveniently
-                                .</h1>
-                            <h1 class="text-5xl mb-3 text-secondary font-extrabold ">Get Bunker Foodstuff On Credit</h1>
-                            <p class="text-lg text-secondary-100 mb-3 font-bold">
-                                Now you can get your foodstuff delivered to your doorstep and pay later conveniently.
-
-                            </p>
-                            <router-link to="/shop"> <Button content="See More.." theme="banner" /></router-link>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </main>
-
-
-        <Footer />
+  <div class="isolate bg-white">
+    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+        <defs>
+          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#9089FC" />
+            <stop offset="1" stop-color="#FF80B5" />
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
-
-
-
-
+    <div class="px-6 pt-6 lg:px-8">
+      <div>
+        <nav class="flex h-9 items-center justify-between" aria-label="Global">
+          <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
+              <span class="sr-only">Open main menu</span>
+              <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+            <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-semibold text-gray-900 hover:text-gray-900">{{ item.name }}</a>
+          </div>
+          <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+            <a href="#" class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Log in</a>
+          </div>
+        </nav>
+        <Dialog as="div" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+          <DialogPanel focus="true" class="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
+            <div class="flex h-9 items-center justify-between">
+              <div class="flex">
+                <a href="#" class="-m-1.5 p-1.5">
+                  <span class="sr-only">Your Company</span>
+                  <img class="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                </a>
+              </div>
+              <div class="flex">
+                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+                  <span class="sr-only">Close menu</span>
+                  <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">{{ item.name }}</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">Log in</a>
+                </div>
+              </div>
+            </div>
+          </DialogPanel>
+        </Dialog>
+      </div>
+    </div>
+    <main>
+      <div class="relative px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+          <div>
+            <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+              <div class="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                <span class="text-gray-600">
+                  Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true" />Read more <span aria-hidden="true">&rarr;</span></a>
+                </span>
+              </div>
+            </div>
+            <div>
+              <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Data to enrich your online business</h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+              <div class="mt-8 flex gap-x-4 sm:justify-center">
+                <a href="#" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
+                  Get started
+                  <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="#" class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  Live demo
+                  <span class="text-gray-400" aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+              <svg class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+                <defs>
+                  <linearGradient id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#9089FC" />
+                    <stop offset="1" stop-color="#FF80B5" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </template>
 
-<script>
-import Button from '@/components/utilities/Button.vue'
+<script setup>
+import { ref } from 'vue'
+import { Dialog, DialogPanel } from '@headlessui/vue'
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
-import Footer from '@/components/layouts/Footer.vue'
-import NavBar from '@/components/layouts/NavBar.vue'
-import Header from '@/components/layouts/Header.vue'
-export default {
-    name: 'Home',
-    components: { Header, Button, NavBar, Footer }
-}
+const navigation = [
+  { name: 'Product', href: '#' },
+  { name: 'Features', href: '#' },
+  { name: 'Marketplace', href: '#' },
+  { name: 'Company', href: '#' },
+]
 
+const mobileMenuOpen = ref(false)
 </script>
-
-<style lang="scss" scoped>
-// $primary-color : #7DAB2E;
-
-.dash {
-    border-bottom-width: 4px;
-    border-bottom-color: #7DAB2E;
-
-}
-
-.how-to {
-
-    width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-
-}
-
-.flip-card {
-    width: 100%;
-    height: 400px;
-    background: transparent;
-    perspective: 1000px;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-
-
-
-
-    /* Style the back side */
-
-
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
-}
-
-.flip-card-back {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    height: 100%;
-    // width:300px;
-    transform: rotateY(180deg);
-}
-
-.flip-card-inner {
-
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card-front {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-}
-
-.credit-bg {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.8)),
-        url('~@/assets/how-to.jpg');
-    min-height: 600px;
-
-    height: auto;
-    background-position: top center;
-    background-size: cover;
-
-
-}
-
-.icon {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border-radius: 50%;
-}
-</style>
