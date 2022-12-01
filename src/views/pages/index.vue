@@ -105,10 +105,7 @@
                 <h2 class="text-3xl font-bold mb-6">About Us</h2>
                 <p class="text-gray-500 mb-6 pb-2 lg:pb-0">
                   We see how you are paying more and more for less and less when you go buy foodstuff in the market.
-
-We see how the onslaught of rising food prices is severely affecting your budget… And in response we
-are offering you the opportunity to take cover in our bunker an online community where many like you
-will be saving as much as 30% of what you spend on foodstuff and other essential commodities.
+                  We see how the onslaught of rising food prices is severely affecting your budget… And in response we are offering you the opportunity to take cover in our bunker an online community where many like you will be saving as much as 30% of what you spend on foodstuff and other essential commodities.
                 </p>
 
                 <div class="flex flex-col md:flex-row md:justify-around lg:justify-between mb-6 mx-auto">
@@ -147,7 +144,7 @@ will be saving as much as 30% of what you spend on foodstuff and other essential
             </div>
 
             <div>
-              <img src="../../assets/about.jpg" class="w-full rounded-lg shadow-lg" alt="" />
+              <img src="../../assets/Delivery.svg" class="w-full rounded-lg shadow-lg" alt="" />
             </div>
           </div>
         </div>
@@ -170,14 +167,14 @@ will be saving as much as 30% of what you spend on foodstuff and other essential
         <h1 class="text-3xl">Happy Shoping</h1>
       </div>
       <section
-        class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+        class="w-fit grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-2 mt-10 mx-10 mb-5">
 
 
         <div v-for="prod in Products" :key="prod.id"
           class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
           <router-link :to="prod.Link">
             <img :src="prod.Img" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
-            <div class="px-4 py-3 w-72">
+            <div class="px-5 py-3 w-72">
               <span class="text-gray-400 mr-3 uppercase text-xs">{{ prod.Brand }}</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Product Name</p>
               <div class="flex items-center">
@@ -196,17 +193,6 @@ will be saving as much as 30% of what you spend on foodstuff and other essential
             </div>
           </router-link>
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

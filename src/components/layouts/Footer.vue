@@ -1,6 +1,6 @@
 <template>
   <footer class="flex flex-col mt-0">
-    <div class="contact flex md:flex-row flex-col   p-4 ">
+    <div class="contact flex md:flex-row flex-col   py-10 px-10 ">
       <div class="md:w-1/2 my-auto">
         <h1 class="md:text-4xl text-2xl font-extrabold pl-7 text-secondary">Interested In Partnership?</h1>
         <hr class="dash text-primary w-1/4 my-2 mr-6" />
@@ -55,7 +55,7 @@
           <span class="text-secondary-100 font-semibold">Sunday:</span> 12pm - 10pm</p>
       </div>
      </div>
-      <div class="bg-secondary flex flex-col md:flex-row md:justify-between p-4 justify-center ">
+      <div class="bg-secondary flex flex-col md:flex-row md:justify-between py-4 px-10 justify-center ">
 
         <div class="text-lg font-bold text-center">Copyright © 2022 Bunker</div>
         <div class="text-primary text-lg font-bold text-center">Powered by Bunker</div>
