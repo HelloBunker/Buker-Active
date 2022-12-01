@@ -19,6 +19,7 @@ components:{NavBar,Button}
 </script>
 
 <style lang="scss" scoped>
+
 div.banner{
     background: 
     linear-gradient(

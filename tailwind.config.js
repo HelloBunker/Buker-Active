@@ -13,13 +13,16 @@ module.exports = {
       "secondary-100" : '#767676',
       "danger" : '#ff0000',
       
+      
     },
     background:{
       'transparent':'transparent',
+      
     },
     extend: {
       backgroungImage:{
         'banner': " url('./assets/banner1.jpg')",
+       
       }
     },
   },
