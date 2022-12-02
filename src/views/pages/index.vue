@@ -1,8 +1,7 @@
 <!-- This example requires Tailwind CSS v3.0+ -->
 <template>
   <div class="isolate ">
-    <!-- nav -->
-    <Navbar />
+   
     <!-- banner -->
     <Header />
 
