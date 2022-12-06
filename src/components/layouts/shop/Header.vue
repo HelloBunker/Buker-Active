@@ -1,6 +1,6 @@
 <template>
    <!-- Nav -->
-  <NavBar/>
+  
   <!-- carosel -->
   <section class="root relative">
         <!-- <div class="banner h-52 flex justify-center bg-cover  px-0 ">
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import NavBar  from '@/components/layouts/shop/NavBar.vue'
+// import NavBar  from '@/components/layouts/shop/NavBar.vue'
 import Button from "@/components/utilities/Button.vue"
 export default {
-components:{NavBar,Button}
+components:{Button}
 }
 </script>
 

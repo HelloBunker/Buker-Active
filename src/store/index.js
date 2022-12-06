@@ -1,16 +1,15 @@
-import {createStore} from "vuex";
+import { createStore } from "vuex";
+import {auth} from "./auth.module.js"
+import {AdminAuth} from "./AdminAuth.module.js"
+import {prod} from "./prod.module.js"
+import {customer} from "./customer.module.js"
 
-const store  = createStore({
-state:{
-    user:{
-        data:{},
-        token:{}
-    }
-},
-getter:{},
-actions:{},
-mutations:{},
-modules:{}
-})
-
+const store = createStore({
+    modules: {
+        auth,
+        prod,
+        AdminAuth,
+        customer,
+    },
+});
 export default store;

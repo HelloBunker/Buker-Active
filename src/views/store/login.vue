@@ -11,25 +11,46 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-secondary-100 md:text-2xl">
                         Sign in to your account
                     </h1>
-                    <form class="space-y-4 md:space-y-6" action="#">
+
+<!-- error msg -->
+                    <div class="">
+                                <div
+                                v-if="message"
+                                 class="bg-red-400 text-secondary  p-2 m-3  rounded-xl " role="alert">
+                                {{message}}
+                                </div>
+                            </div> 
+
+                    <Form class="space-y-4 md:space-y-6" @submit="handleLogin" :validation-schema="schema">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
                                 email</label>
-                            <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
-                                placeholder="name@company.com" required="">
+                            <Field 
+                            type="email" 
+                            name="email" 
+                            placeholder="name@company.com"
+                            class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
+                            />
+                            <ErrorMessage name="email" class="text-danger text-sm "/>
+                            
                         </div>
                         <div>
                             <label for="password"
                                 class="block mb-2 text-sm font-medium text-secondary-100 ">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••"
-                                class="bg-gray-50 border border-gray-300 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+                            <Field 
+                            type="password"
+                             name="password"
+                              placeholder="••••••••"
+                              class="bg-gray-50 border border-gray-300 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                              />
+                            <ErrorMessage name="password" class="text-danger text-sm "/>
+
                             <div class="flex items-center justify-between">
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">
                                         <input id="remember" aria-describedby="remember" type="checkbox"
                                             class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300  "
-                                            required="">
+                                            >
                                     </div>
                                     <div class="ml-3 text-sm">
                                         <label for="remember" class="text-gray-500">Remember
@@ -40,9 +61,18 @@
                                     class="text-sm font-medium text-primary hover:underline ">Forgot
                                     password?</a>
                             </div>
-                            <button type="submit"
-                                class="w-full text-secondary bg-primary hover:bg-primary-100 focus:ring-4 focus:outline-none focus:ring-primary-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign
-                                in</button>
+                            <button 
+                            type="submit"
+                            :disable="loading"
+                             class="w-full text-secondary bg-green-400 hover:bg-primary-100 focus:ring-4 focus:outline-none focus:ring-primary-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            <span
+                            v-show="loading"></span>
+                            <span>Login</span>
+
+
+                            </button>
+                           
+
                             <p class="text-sm font-light text-secondary-100 ">
                                 Don’t have an account yet? <router-link 
                               to="signup"
@@ -50,7 +80,7 @@
                                     up</router-link>
                             </p>
                         </div>
-                    </form>
+                    </Form>
                 </div>
             </div>
         </div>
@@ -59,11 +89,78 @@
 </template>
 
 <script>
-import Header from '@/components/layouts/shop/Header.vue'
-import Footer from '@/components/layouts/Footer.vue'
+import {Form, Field , ErrorMessage} from  "vee-validate";
+import * as yup from "yup";
 export default {
-    components: { Header, Footer }
+name:"Login",
+components: {
+    Form,
+    Field,
+    ErrorMessage,
+},    
+
+
+data(){
+
+const schema = yup.object().shape({ 
+    email: yup.string().email("emaill is invalid").required('Email is Required'),
+    password: yup.string().required('Password is Required'),
+
+});
+
+return{
+loading:false,
+message: "",
+schema,
+};
+
+},
+computed: {
+loggedIn(){
+    return this.$store.state.auth.status.loggedIn;
+},
+currentUser(){   
+return this.$store.state.auth.user ;
+
 }
+
+},
+
+
+mounted(){
+    
+    if(this.currentUser){
+        this.$router.push('/');
+    }
+},
+
+created(){
+if(this.loggedIn){
+    this.$router.push('/');
+
+}
+},
+
+
+methods: {
+handleLogin(user){
+    this.loading = true;
+    this.$store.dispatch('auth/login', user).then( () => {
+        this.$router.push("/home");
+
+    },
+
+    (error) => { 
+        this.loading = false; 
+        this.message = (error.response &&
+                         error.response.data &&  
+                           error.response.data.message )|| error.message || error.toString();       
+
+    }
+    );
+},
+},
+};
 </script>
 
 <style>

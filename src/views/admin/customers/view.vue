@@ -1,6 +1,6 @@
 <template>
-  <Navbar />
-  <h3 class="text-2xl font-bold mt-16 text-center  text-primary">Customer Name</h3> 
+  
+  <h3 class="text-2xl font-bold mt-16 text-center  text-primary">Customer Name {{id}}</h3> 
     <div class="flex flex-col justify-between my-10">
         <div class="flex justify-between items-center gap-4 mb-3">
             <div class="">
@@ -41,13 +41,41 @@
 </template>
 
 <script>
-  import Sidebar from '@/components/layouts/admin/Sidebar.vue'   
-  import Footer from '@/components/layouts/Footer.vue'
-  import Navbar from '@/components/layouts/admin/Navbar.vue'
+  import ProdService from "@/services/product.service";
   import Button from '@/components/utilities/Button.vue'
   export default {
-      components: { Sidebar, Footer, Button, Navbar }
+      components: {  Button, },
+        props: ['id'],
+        data() {
+      return {
+       customers: [],
+       loading:true,
+       errored:false
+      }
+    },
+    
+   
+
+
+  mounted()  {
+   
+ let param = this.id
+  ProdService.get_single_customer(param).then(
+response => {
+    console.log(response.data);
+    this.customer = response.data;
+    console.log(this.customer);
+} 
+      ).catch(error => {
+        console.log(error)
+        this.errored = true
+    }).finally( () => this.loading = false)
+    
+    },
+  
   }
+   
+  
 </script>
 
 <style>

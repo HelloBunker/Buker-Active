@@ -147,27 +147,98 @@
   <Footer />
 </template>
 
-<script>
+<script setup>
 import Header from '@/components/layouts/shop/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
-export default {
-    components: { Header, Footer },
+
     
-setup(){
-let Products = [
-{id:'1', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-{id:'2', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-{id:'3', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-{id:'4', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-{id:'5', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-{id:'6', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
-]
-return{Products}
+    
+
+// const Products = [
+// {id:'1', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// {id:'2', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// {id:'3', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// {id:'4', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// {id:'5', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// {id:'6', Link:'singleproduct',Brand:'Brand', Img:'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price:'500',Discount:'400'},
+// ]
+
+
+
+
+    
+
+</script>
+
+
+<script>
+// import axios from 'axios';
+// import authHeader from "@/services/auth-header";
+export default {
+  data() {
+      return {
+        // Products:[],
+        message:null,
+        loading:null,
+        // API_URL: "https://test-api.hellobunker.xyz/api/user/"
+      }
+    },
+    
+    computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+        },
+        currentUser(){   
+return this.$store.state.auth.user ;
+
+},
+
+products(){
+
+return  this.$store.state.prod.data; 
 }
 
+},
 
-    }
 
+  mounted()  {
+  //  fetch('https://test-api.hellobunker.xyz/api/user/all_product')
+  //  .then(res => res.json()) 
+  //  .then(data => this.Products = data)
+  //  .catch(err => console.log(err.message))
+
+  // axios.get(API_URL  + 'all_product')
+  // .then(response => response.json())
+  this.loading = true;
+    this.$store.dispatch('prod/fetch').then(
+                (data) => {
+                    this.message = data.message;
+                    this.succesful = true;
+                    this.loading = false;
+                    console.log(this.message);
+
+
+                },
+
+                (error) => {
+                    // this.loading = false; 
+                    this.message = (error.response &&
+                        error.response.data &&
+                        error.response.data.message) || error.message || error.toString();
+                    this.successful = false;
+                    this.loading = false;
+                    console.log(this.message);
+
+
+                }
+            );
+    console.log(this.$store.state.prod.data)
+  //   if(!this.currentUser){
+  //       this.$router.push('/');
+  //   } 
+  }
+    
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,12 +1,19 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import Home from '@/views/pages/index.vue'
+import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
+import AuthLayout from '@/components/layouts/AuthLayout.vue'
+import AdminLayout from '@/components/layouts/admin/AdminLayout.vue'
 import Shop from '@/views/store/index.vue'
 import Login from '@/views/store/login.vue'
+import  AdminLogin from '@/views/admin/auth/Login.vue'
 import Signup from '@/views/store/signup.vue'
 import Product from '@/views/store/product.vue'
 import Profile from '@/views/account/profile.vue'
 import Plan from '@/views/account/plan.vue'
-import  OrderHistory from '@/views/account/orderHistory.vue'
+import OrderHistory from '@/views/account/orderHistory.vue'
 import ChangePassword from '@/views/account/changePassword.vue'
 import Cart from '@/views/store/cart.vue'
 import Checkout from '@/views/store/checkout.vue'
@@ -23,147 +30,210 @@ import AdminCreateProductCategory from '@/views/admin/products/category/create.v
 import AdminEditProduct from '@/views/admin/products/edit.vue'
 import AdminEditProductCategory from '@/views/admin/products/category/edit.vue'
 import AdminViewOrders from '@/views/admin/orders/view.vue'
+import store from '@/store'
 const routes = [
+
+  // Shop Default Routes
   {
     path: '/',
+    redirect: '/home',
     name: 'Home',
-    component: Home,
-    props:true,
+    component: DefaultLayout,
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: Home
+      },
+      {
+        path: '/shop',
+        name: 'Shop',
+        component: Shop
+        
+      },
+      {
+        path: '/singleproduct',
+        name: 'Product',
+        component: Product
+      },
+      {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart,
+        meta:{requiresAuth: true},
+      },
+      {
+        path: '/checkout',
+        name: 'Checkout',
+        component: Checkout,
+        meta:{requiresAuth: true},
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        meta:{requiresAuth: true},
+      },
+      {
+        path: '/plan',
+        name: 'Plan',
+        component: Plan
+      },
+      {
+        path: '/changePassword',
+        name: 'ChangePassword',
+        component: ChangePassword
+      },
+      {
+        path: '/orders_history',
+        name: 'OrderHistory',
+        component: OrderHistory,
+        meta:{requiresAuth: true},
+
+      },
+     
+
+    ]
   },
+
+  
+
+
+
+// Auth Routes
+{
+path:'/auth',
+redirect: '/login',
+name:'Auth',
+component:AuthLayout,
+children: [
   {
-    path: '/shop',
-    name: 'Shop',
-    component: Shop,
-    props:true,
-  },
-  {
+
+
+
     path: '/login',
     name: 'Login',
     component: Login,
-    props:true,
+
   },
+ 
+  {
+
+
+
+    path: '/admin_login',
+    name: 'AdminLogin',
+    component:AdminLogin,
+
+  },
+
   {
     path: '/signup',
     name: 'Signup',
     component: Signup,
-    props:true,
+
+  },
+
+  // {
+  //       path: '/changePassword',
+  //       name: 'ChangePassword',
+  //       component: ChangePassword
+  //     },
+],
+
+  
+},
+
+  // Admin produccts
+  {
+    path:'/admin',
+    redirect: '/customer_index',
+    name:'AdminLayout',
+    component:AdminLayout,
+    children: [
+  
+  
+  {
+    path: '/admin_products',
+    name: 'AdminProduct',
+    component: AdminProduct,
+
   },
   {
-    path: '/singleproduct',
-    name: 'Product',
-    component: Product,
-    props:true,
-  },
-  {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart,
-    props:true,
-  },
-  {
-    path: '/checkout',
-    name: 'Checkout',
-    component: Checkout,
-    props:true,
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile,
-    props:true,
-  },
-  {
-    path: '/plan',
-    name: 'Plan',
-    component: Plan,
-    props:true,
-  },
-  {
-    path: '/changePassword',
-    name: 'ChangePassword',
-    component: ChangePassword,
-    props:true,
-  },
-  {
-    path: '/orders_history',
-    name: 'OrderHistory',
-    component: OrderHistory,
-    props:true,
+    path: '/admin_orders',
+    name: 'AdminOrders',
+    component: AdminOrders,
+
   },
   {
     path: '/customer_index',
     name: 'AdminCustomers',
-    component:AdminCustomers,
-    props:true,
+    component: AdminCustomers,
+   
   },
- 
- 
   {
-    path: '/customer_view',
+    path: '/admin/customer/:id',
     name: 'ViewAdminCustomers',
-    component:ViewAdminCustomers,
-    props:true,
+    component: ViewAdminCustomers,
+    props:true
   },
 
+  {
+    path: '/admin_products_category',
+    name: 'AdminProductCategory',
+    component: AdminProductCategory,
 
-  // Admin produccts
-{
-  path:'/admin_products',
-  name:'AdminProduct',
-  component:AdminProduct,
-  props:true,
-},
-{
-  path:'/admin_orders',
-  name:'AdminOrders',
-  component:AdminOrders,
-  props:true,
-},
-{
-  path:'/admin_products_category',
-  name:'AdminProductCategory',
-  component:AdminProductCategory,
-  props:true,
-},
-{
-  path:'/create_product',
-  name:'AdminCreateProduct',
-  component:AdminCreateProduct,
-  props:true,
-},
-{
-  path:'/create_product_category',
-  name:'AdminCreateProductCategory',
-  component:AdminCreateProductCategory,
-  props:true,
-},
-{
-  path:'/edit_product',
-  name:'AdminEditProduct',
-  component:AdminEditProduct,
-  props:true,
-},
-{
-  path:'/edit_product_category',
-  name:'AdminEditProductCategory',
-  component:AdminEditProductCategory,
-  props:true,
-},
-{
-  path:'/view_order',
-  name:'AdminViewOrders',
-  component:AdminViewOrders,
-  props:true,
-},
+  },
+  {
+    path: '/create_product',
+    name: 'AdminCreateProduct',
+    component: AdminCreateProduct,
 
+  },
+  {
+    path: '/create_product_category',
+    name: 'AdminCreateProductCategory',
+    component: AdminCreateProductCategory,
 
-  // store routes
+  },
+  {
+    path: '/edit_product',
+    name: 'AdminEditProduct',
+    component: AdminEditProduct,
+
+  },
+  {
+    path: '/edit_product_category',
+    name: 'AdminEditProductCategory',
+    component: AdminEditProductCategory,
+
+  },
+  {
+    path: '/view_order',
+    name: 'AdminViewOrders',
+    component: AdminViewOrders,
+
+  },
+
   
-]
+  // store routes
 
+]
+  }
+]
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
+router.beforeEach((to,from,next)=>{
+  if(to.meta.requiresAuth && !store.state.auth.user ){
+    next({name: 'Login'})
+  }else if(store.state.auth.user && (to.name === "AuthLayout") ){
+    next({name:'Home'})
+  }
+   else{
+next();
+  }
+})
 export default router

@@ -1,5 +1,5 @@
 <template>
-    <div class="nav px-6 py-4 lg:px-8  top-0 z-20  sticky md:relative animated"
+    <div class="nav px-6 py-4 lg:px-8  top-0 z-10  sticky md:relative animated"
       :class="{ 'change_color': scrollPosition > 50 }">
       <div>
         <nav class="flex h-9 items-center justify-between " aria-label="Global">
@@ -31,28 +31,47 @@
               class="font-semibold text-gray-900 hover:text-gray-900">{{ item.name }} </router-link>
             <!-- acc -->
             <span>
-              <button id="AccLink" data-dropdown-toggle="Account"
-                class="flex  justify-between w-full md:w-auto items-center font-semibold text-gray-900 hover:text-gray-900">Account<svg
-                  class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-                </svg></button>
-              <!-- Dropdown menu -->
-              <div id="Account" class="hidden z-10 w-44 font-normal bg-secondary rounded divide-y divide-gray-100 shadow"
-                data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
-                style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 10px);">
-                <ul class="py-1 text-sm text-gray-700 " aria-labelledby="AccLink">
-                  <li v-for="account in  Account" :key="account.name">
-                    <router-link :to="account.Link" class="block py-2 px-4 hover:bg-gray-100 ">
-                      {{ account.name }}
-                    </router-link>
-                  </li>
-  
-                </ul>
-  
-              </div>
+            
+              <Menu as="div" class="relative inline-block text-left">
+    <div v-if="currentUser">
+      <MenuButton class="inline-flex w-full justify-center font-semibold capitalize text-gray-900 hover:text-gray-900">
+        {{currentUser.useri.first_name}}
+        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+      </MenuButton>
+    </div>
+    <div v-else>
+      <MenuButton class="inline-flex w-full justify-center font-semibold text-gray-900 hover:text-gray-900">
+        Account
+        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+      </MenuButton>
+    </div>
+
+    <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+      <MenuItems class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1" v-if="currentUser">
+           <form  >
+            <MenuItem v-slot="{ active }">
+              <button type="submit" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full px-4 py-2 text-left text-sm']">
+                Logout
+              </button>
+
+            </MenuItem>
+
+            <MenuItem v-slot="{ active }" >
+            <router-link to="/profile" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']"> Profile</router-link>
+          </MenuItem>
+          </form>
+        </div>
+
+        <div class="py-1" v-else>
+          <MenuItem v-slot="{ active }" v-for="account in  Account" :key="account.name" >
+            <router-link :to="account.Link" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']"> {{ account.name }}</router-link>
+          </MenuItem>
+         
+        </div>
+      </MenuItems>
+    </transition>
+  </Menu>
             </span>
           </div>
   
@@ -106,7 +125,7 @@
         </Dialog>
       </div>
     </div>
-
+<!-- <span v-for="user in users" :key ="user.first_name">{{user.first_name}}</span> -->
     <!-- content -->
     <router-view></router-view>
   </template>
@@ -114,13 +133,22 @@
   
   
   <script setup>
-  import { ref } from "vue";
+  import { ref ,onMounted } from "vue";
+  import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+  import { ChevronDownIcon } from '@heroicons/vue/20/solid'
   import { Dialog, DialogPanel } from "@headlessui/vue";
   import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
-  
+  import  {useStore}  from 'vuex'
+  import  {computed}  from 'vue'
+
+// let user = computed(() => store.state.user.data );
+
+const store = useStore();
+
+
   const navigation = [
-    { name: "Shop", href: "#" },
-    { name: "Features", href: "#" },
+    { name: "Home", href: "/home" },
+    { name: "Shop", href: "/shop" },
     { name: "Contact", href: "#" },
     { name: "About", href: "#" },
   ];
@@ -147,10 +175,15 @@
         scrollPosition: null
       }
     },
-  
+
+  computed:  {
+    currentUser() {
+      return this.$store.state.auth.user;
+    }
+  },
     mounted() {
       window.addEventListener('scroll', this.updateScroll);
-      console.log(1);
+    //  console.log(this.currentUser.useri.first_name)
     },
     methods: {
       updateScroll() {
