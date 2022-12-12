@@ -1,19 +1,19 @@
 import AuthService from '../services/auth.service';
-const user = JSON.parse(localStorage.getItem('user'));
-const adminInitialState = user 
-? {status: {loggedIn:true}, user}
-:{status:  {loggedIn:false }, user:null};
+const admin = JSON.parse(localStorage.getItem('admin'));
+const adminInitialState = admin
+? {status: {loggedIn:true}, admin}
+:{status:  {loggedIn:false }, admin:null};
 
 
 export const AdminAuth = {
     namespaced: true,
     state: adminInitialState,
     actions: {
-        adminlogin({commit},user){
-            return AuthService.adminLogin(user).then(
-                user => {
-                    commit('loginSuccess', user);
-                    return  Promise.resolve(user); 
+        adminlogin({commit},admin){
+            return AuthService.adminLogin(admin).then(
+                admin => {
+                    commit('loginSuccess', admin);
+                    return  Promise.resolve(admin); 
                 },
                 error  =>  {
                     commit('loginFailure');
@@ -25,20 +25,9 @@ export const AdminAuth = {
             AuthService.logout();
             commit('logout');
         },
-        register({commit},user){
-            return AuthService.register(user).then(
-                response => {
-                    commit('registerSuccess');
-                    return  Promise.resolve(response.data); 
-                },
-                error  =>  {
-                    commit('registerFailure');
-                    return  Promise.reject(error); 
-                }
-            );
-        },
-       user_profile_update({commit},user){
-            return AuthService.user_update_profile(user).then(
+       
+       admin_profile_update({commit},admin){
+            return AuthService.admin_update_profile(admin).then(
                 response => {
                     commit('updateSuccess');
                     return  Promise.resolve(response.data); 
@@ -49,8 +38,8 @@ export const AdminAuth = {
                 }
             );
         },
-        password_update({commit},user){
-            return AuthService.password_update(user).then(
+        password_update({commit},admin){
+            return AuthService.password_update(admin).then(
                 response => {
                     commit('updateSuccess');
                     return  Promise.resolve(response.data); 
@@ -63,18 +52,18 @@ export const AdminAuth = {
         },
     },
     mutations: {
-        loginSuccess(state,user){
+        loginSuccess(state,admin){
             state.status.loggedIn = true;
-            state.user = user;
+            state.admin = admin;
 
         },
         loginFailure(state){
             state.status.loggedIn = false;
-            state.user  = null;
+            state.admin  = null;
         },
         logout(state){
             state.status.loggedIn = false;
-            state.user  = null;
+            state.admin  = null;
         },
         registerSuccess(state){
             state.status.loggedIn = false;

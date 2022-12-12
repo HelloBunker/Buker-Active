@@ -1,12 +1,10 @@
 <template>
-  <Header />
+  
 
   <div class="container  my-12">
     <div class="flex flex-col justify-between pt-10 pb-16 sm:pt-12 sm:pb-20 lg:flex-row lg:pb-24">
       <div class="lg:w-1/4">
-        <p class="pb-6 font-butler text-2xl capitalize text-secondary-100 sm:text-3xl lg:text-4xl">
-          {{ currentUser.useri.last_name }} {{ currentUser.useri.first_name }}
-        </p>
+        
         <div class="flex flex-col pl-3">
 
           <router-link to="changePassword"
@@ -46,26 +44,26 @@
             {{ message }}
           </div>
         </div>
-        <Form @submit="handleUpdateProfile" :validation-schema="schema">
-          <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <Form @submit="handleUpdateProfile" :validation-schema="schema" class="container px-6">
+          <div class="grid grid-cols-1 gap-5  md:grid-cols-2">
             <div class="">
               <label for="first_name" class="mb-2 block  text-secondary-100">First Name</label>
               <Field type="text" name="first_name"
-                class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                 :value="currentUser.useri.first_name" />
               <ErrorMessage name="first_name" class="text-danger text-sm" />
             </div>
             <div class="hidden">
               <label for="user_id" class="mb-2 block  text-secondary-100">First Name</label>
               <Field type="text" name="user_id"
-                class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                 :value="currentUser.useri.id" />
               <ErrorMessage name="user_id" class="text-danger text-sm" />
             </div>
             <div class="">
               <label for="last_name" class="mb-2 block  text-secondary-100">Last Name</label>
               <Field type="text" name="last_name"
-                class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                 :value="currentUser.useri.last_name" />
               <ErrorMessage name="last_name" class="text-danger text-sm" />
             </div>
@@ -75,14 +73,14 @@
             <!-- <div class="">
                 <label for="name_displayed" class="mb-2 block font-hk text-secondary-100">Name Displayed</label>
                 <input type="text"
-                  class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3" value=""
+                  class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3" value=""
                   id="name_displayed" />
               </div> -->
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
                 Email Address</label>
               <Field type="email" name="email"
-                class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                class=" w-full bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2.5"
                 :value="currentUser.useri.email" />
               <ErrorMessage name="email" class="text-danger text-sm" />
             </div>
@@ -92,7 +90,7 @@
               <label for="phone_no" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
                 phone </label>
               <Field type="phone" name="phone_no"
-                class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
+                class=" w-full bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2.5  "
                 :value="currentUser.useri.phone_no" />
               <ErrorMessage name="phone_no" class="text-danger text-sm" />
 
@@ -104,16 +102,16 @@
                   Shipping Address
                 </h4>
                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                  <div class="w-full">
+                  <div class="">
                     <label for="street" class="mb-2 block font-hk text-secondary-100">Street</label>
                     <input type="text"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="street" />
                   </div>
-                  <div class="w-full">
+                  <div class="">
                     <label for="street2" class="mb-2 block font-hk text-secondary-100">Street 2</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="street2" />
                   </div>
                 </div>
@@ -121,26 +119,26 @@
                   <div class="">
                     <label for="city" class="mb-2 block font-hk text-secondary-100">City</label>
                     <input type="text"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="city" />
                   </div>
                   <div class="">
                     <label for="state" class="mb-2 block font-hk text-secondary-100">State</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="state" />
                   </div>
                   <div class="">
                     <label for="zip" class="mb-2 block font-hk text-secondary-100">Zip Code</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="zip" />
                   </div>
                 </div>
                 <div class="mt-5">
                   <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">Select an option</label>
                   <select id="countries"
-                    class="bg-secondary border border-primary text-secondary-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-secondary border border-primary text-secondary-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected="">Choose a country</option>
                     <option value="US">United States</option>
                     <option value="CA">Canada</option>
@@ -154,16 +152,16 @@
                   Billing Address
                 </h4>
                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                  <div class="w-full">
+                  <div class="">
                     <label for="bstreet" class="mb-2 block font-hk text-secondary-100">Street</label>
                     <input type="text"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="bstreet" />
                   </div>
-                  <div class="w-full">
+                  <div class="">
                     <label for="bstreet2" class="mb-2 block font-hk text-secondary-100">Street 2</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="bstreet2" />
                   </div>
                 </div>
@@ -171,19 +169,19 @@
                   <div class="">
                     <label for="bcity" class="mb-2 block font-hk text-secondary-100">City</label>
                     <input type="text"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="bcity" />
                   </div>
                   <div class="">
                     <label for="bstate" class="mb-2 block font-hk text-secondary-100">State</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="bstate" />
                   </div>
                   <div class="">
                     <label for="bzip" class="mb-2 block font-hk text-secondary-100">Zip Code</label>
                     <input type="email"
-                      class="w-full bg-secondary text-secondary-100 border border-primary text-xs py-3 px-4 mb-3"
+                      class="w-full px-3 bg-secondary text-secondary-100 border border-primary text-xs py-3 mb-3"
                       id="bzip" />
                   </div>
                 </div>
@@ -191,7 +189,7 @@
 
                   <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">Select an option</label>
                   <select id="countries"
-                    class="bg-secondary border border-primary text-secondary-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-secondary border border-primary text-secondary-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected="">Choose a country</option>
                     <option value="US">United States</option>
                     <option value="CA">Canada</option>

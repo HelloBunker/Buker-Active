@@ -126,10 +126,10 @@ export default {
 
   computed: {
     loggedIn() {
-      return this.$store.state.Admin.status.loggedIn;
+      return this.$store.state.AdminAuth.status.loggedIn;
     },
     currentAdmin() {
-      return this.$store.state.AdminAuth.user;
+      return this.$store.state.AdminAuth.admin;
 
     }
 
@@ -137,8 +137,8 @@ export default {
 
 
   mounted() {
-    
-    if (!this.currentAdmin) {
+    console.log(this.loggedIn);
+    if (!this.loggedIn) {
       this.$router.push('/');
     }
   },

@@ -22,14 +22,17 @@ class AuthService {
         password: user.password
       });
     if (response.data.token) {
-      localStorage.setItem("user", JSON.stringify(response.data));
+      localStorage.setItem("admin", JSON.stringify(response.data));
     }
-    return response.data;
+    return response.data;   
   }
 
 
   logout() {
     localStorage.removeItem("user");
+  }
+  admin_logout() {
+    localStorage.removeItem("admin");
   }
 
   register(user) {

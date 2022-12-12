@@ -52,9 +52,10 @@ const routes = [
         
       },
       {
-        path: '/singleproduct',
+        path: '/singleproduct/:id',
         name: 'Product',
-        component: Product
+        component: Product,
+        props:true,
       },
       {
         path: '/cart',
@@ -197,15 +198,17 @@ children: [
 
   },
   {
-    path: '/edit_product',
+    path: '/edit_product/:id',
     name: 'AdminEditProduct',
     component: AdminEditProduct,
+    props:true,
 
   },
   {
-    path: '/edit_product_category',
+    path: '/edit_product_category/:id',
     name: 'AdminEditProductCategory',
     component: AdminEditProductCategory,
+    props: true,
 
   },
   {

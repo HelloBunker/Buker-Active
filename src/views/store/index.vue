@@ -89,25 +89,31 @@
 <section class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
 
  
-  <div v-for="prod in Products"  :key="prod.id"
+  <div v-for="prod in products.product"  :key="prod.id"
   class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-    <router-link :to="prod.Link">
-      <img :src="prod.Img" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+    <router-link :to="{name:'Product', params:{id: prod.id }}">
+      <img :src="BaseUrl + prod.product_image" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+     </router-link>
       <div class="px-4 py-3 w-72">
-        <span class="text-gray-400 mr-3 uppercase text-xs">{{prod.Brand}}</span>
-        <p class="text-lg font-bold text-black truncate block capitalize">Product Name</p>
+        <span class="text-gray-400 mr-3 uppercase text-xs">{{prod.category}}</span>
+        <p class="text-lg font-bold text-black truncate block capitalize">{{prod.product_name}}</p>
         <div class="flex items-center">
-          <p class="text-lg font-semibold text-black cursor-auto my-3">&#8358;{{prod.Price}}</p>
+          <p class="text-lg font-semibold text-black cursor-auto my-3">&#8358;{{prod.normal_price}}</p>
           <del>
-            <p class="text-sm text-gray-600 cursor-auto ml-2  text-danger">&#8358;{{prod.Discount}}</p>
+            <p class="text-sm text-gray-600 cursor-auto ml-2  text-danger">&#8358;{{prod.wholesale_price}}</p>
           </del>
-          <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+          
+          <div class="ml-auto">
+            <button class="hover:shadow-2xl hover:text-green-500" @click="addToCart(prod.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-plus"  viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-            </svg></div>
+            </svg>
+          </button>
+          </div>
         </div>
       </div>
-    </router-link>
+    
   </div>
  
  
@@ -173,72 +179,47 @@ import Footer from '@/components/layouts/Footer.vue'
 
 <script>
 // import axios from 'axios';
-// import authHeader from "@/services/auth-header";
+import ProdService from "@/services/product.service";
 export default {
+  // components: {  },
   data() {
-      return {
-        // Products:[],
-        message:null,
-        loading:null,
-        // API_URL: "https://test-api.hellobunker.xyz/api/user/"
-      }
-    },
-    
-    computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-        },
-        currentUser(){   
-return this.$store.state.auth.user ;
+    return {
+      products: [],
+     BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      loading: true,
+      errored: false,
+      message:[],
+    };
+  },
 
-},
+  mounted() {
+    ProdService.getAllProduct()
+      .then((response) => {
+        console.log(response.data);
+        this.products = response.data;
+        console.log(this.products);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
 
-products(){
-
-return  this.$store.state.prod.data; 
-}
-
-},
-
-
-  mounted()  {
-  //  fetch('https://test-api.hellobunker.xyz/api/user/all_product')
-  //  .then(res => res.json()) 
-  //  .then(data => this.Products = data)
-  //  .catch(err => console.log(err.message))
-
-  // axios.get(API_URL  + 'all_product')
-  // .then(response => response.json())
-  this.loading = true;
-    this.$store.dispatch('prod/fetch').then(
-                (data) => {
-                    this.message = data.message;
-                    this.succesful = true;
-                    this.loading = false;
-                    console.log(this.message);
-
-
-                },
-
-                (error) => {
-                    // this.loading = false; 
-                    this.message = (error.response &&
-                        error.response.data &&
-                        error.response.data.message) || error.message || error.toString();
-                    this.successful = false;
-                    this.loading = false;
-                    console.log(this.message);
-
-
-                }
-            );
-    console.log(this.$store.state.prod.data)
-  //   if(!this.currentUser){
-  //       this.$router.push('/');
-  //   } 
+  methods: {
+    addToCart(id){
+      ProdService.single_add_to_cart(id).then((response) =>{
+        console.log(response.data)
+      } ).catch((error) => {
+        console.log(error);
+      })
+    }
   }
-    
-}
+};
+
+// }
+  
+  
 </script>
 
 <style lang="scss" scoped>

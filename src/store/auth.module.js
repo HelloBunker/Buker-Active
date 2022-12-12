@@ -1,5 +1,5 @@
 import AuthService from '../services/auth.service';
-const user = JSON.parse(localStorage.getItem('user'));
+const user = JSON.parse( localStorage.getItem('user'));
 const initialState = user 
 ? {status: {loggedIn:true}, user}
 :{status:  {loggedIn:false }, user:null};
@@ -7,7 +7,7 @@ const initialState = user
 
 export const auth = {
     namespaced: true,
-    state: initialState,
+    state: initialState,    
     actions: {
         login({commit},user){
             return AuthService.login(user).then(
