@@ -1,7 +1,7 @@
   <template>
   <Header />
-  <main class="bg-gray-100 ">
-    <div class="">
+  <main class="bg-gray-100 container">
+    <div class="container">
       <div class="relative flex my-4">
         <!-- semi  bannner -->
         <div class=" semi-banner h-60 w-full lg:w-full bg-cover bg-center bg-no-repeat lg:h-70 "></div>
@@ -31,7 +31,7 @@
   <h1 class="text-3xl">Happy Shoping</h1>
 </div>
 
-<div class=" relative flex flex-col md:flex-row justify-between py-6  px-2">
+<div class=" relative flex flex-col md:flex-row justify-between py-6 container px-6 lg:px-9">
 <div> 
 <form>
     <div class="flex">
@@ -211,6 +211,7 @@ export default {
       this.$store.dispatch("add_cart", item).then( 
         (response) =>{
         console.log(response.data)
+        location.reload()
       } ).catch((error) => {
         console.log(error);
       })

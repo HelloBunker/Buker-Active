@@ -93,22 +93,23 @@
             min="1"
             value="1"/> -->
             <div class="flex items-center justify-between">
-          <button class="text-secondary bg-green-400 py-2 px-2 w-10" @click="decrease" type="button" name="button">
-          -
-          </button>
-          <input class="border text-center p-2" readonly type="number" name="name" min="1" :max="product.quantity" v-model="counter">
-          <button class="text-secondary bg-green-400 py-2 px-2 w-10 " @click="increase" type="button" name="button">
-            +
-          </button>
+              <div class="pr-8 flex">
+                        <button @click="increase" class="bg-green-500 text-secondary p-2">+</button>
+                        <button @click="decrease" class="bg-green-500 text-secondary p-2">-</button>
+                        <input class="border text-center p-1 w-10" readonly type="number" min="1"
+                          :value="counter">
+                       
+
+
+                      </div>
         </div>
        
         </div>
       </div>
       <div class="space-x-2 flex pb-8 ">
-     <router-link :to="{name:'Cart'}"> <button type="button" class="inline-block px-6 py-2.5 bg-green-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
- </router-link>
-     <router-link :to="{name:'Cart'}">     <button type="button" class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Buy now</button>
- </router-link>
+     <button type="button" @click="addToCart(product.id,counter)" class="inline-block px-6 py-2.5 bg-green-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
+
+          <!-- <button type="button" @click="checkOut"  class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Buy now</button> -->
         <!-- <a href="cart/index.html" class="btn btn-outline bg-primary text-secondary mr-4 md:mr-6">Add to cart</a> -->
         <!-- <a href="cart/index.html" class="btn btn-primary">BUY NOW</a> -->
       </div>
@@ -155,14 +156,44 @@ export default {
    methods: {
    increase(){
     this.counter++;
+    
     console.log(this.counter);
    },
    decrease(){
+    if(this.counter  < 1){
     this.counter--;
-   }
-   
-  },
+    }else{
+      this.counter = 1;
+    }
+   },
+  
+    addToCart(items,qty){
+// let item = [
 
+// {id:items,qty:qty}
+// ];
+ProdService.add_to_cart(items,qty).then( 
+        (response) =>{
+        console.log(response.data)
+        // location.reload()
+      } ).catch((error) => {
+        console.log(error);
+      })
+      // console.log(load)
+    
+  },
+  //  checkOut() {
+  //     this.$store.dispatch('checkOut').then(res => {
+  //       console.log(res.data);
+        
+  //     }).catch(err => {
+  //       console.log(err)
+  //     }).finally(() => {this.$router.push({name: 'Checkout'})}) 
+       
+  // }
+
+
+   },
   mounted()  {
    
  let param = this.id

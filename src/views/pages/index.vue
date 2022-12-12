@@ -331,6 +331,7 @@ export default {
       this.$store.dispatch("add_cart", item).then( 
         (response) =>{
         console.log(response.data)
+        location.reload();
       } ).catch((error) => {
         console.log(error);
       })

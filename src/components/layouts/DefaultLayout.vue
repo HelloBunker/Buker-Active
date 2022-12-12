@@ -9,7 +9,74 @@
             <img class="h-8" src="../../assets/logo1.png" alt="" />
           </a>
         </div>
+
+       
         <div class="flex lg:hidden">
+
+
+           <span class="lg:hidden">
+                  <Menu as="div" class="relative  inline-block text-left">
+                    <div>
+                      <MenuButton
+                        class="inline-flex w-full justify-center font-semibold capitalize text-gray-900 hover:text-gray-900">
+                        <i class="bi bi-person-circle text-xl"></i>
+                        <!-- <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> -->
+                      </MenuButton>
+                    </div>
+                    <!-- <div v-else>
+                      <MenuButton
+                        class="inline-flex w-full justify-center font-semibold text-gray-900 hover:text-gray-900">
+                        Account
+                        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+                      </MenuButton>
+                    </div> -->
+
+                    <transition enter-active-class="transition ease-out duration-100"
+                      enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+                      leave-active-class="transition ease-in duration-75"
+                      leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                      <MenuItems
+                        class="z-20 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div class="py-1" v-if="currentUser">
+                          <form @submit.prevent="Logout">
+                            <MenuItem v-slot="{ active }">
+                            <button type="submit" :class="[
+                              active
+                                ? 'bg-gray-100 text-primary'
+                                : 'text-gray-700',
+                              'block w-full px-4 py-2 text-left text-sm',
+                            ]">
+                              Logout
+                            </button>
+                            </MenuItem>
+
+                            <MenuItem v-slot="{ active }">
+                            <router-link to="/profile" :class="[
+                              active
+                                ? 'bg-gray-100  text-primary'
+                                : 'text-gray-700',
+                              'block px-4 py-2 text-sm',
+                            ]">
+                              Profile</router-link>
+                            </MenuItem>
+                          </form>
+                        </div>
+
+                        <div class="py-1" v-else>
+                          <MenuItem v-slot="{ active }" v-for="account in Account" :key="account.name">
+                          <router-link :to="account.Link" :class="[
+                            active
+                              ? 'bg-gray-100 text-gray-900'
+                              : 'text-gray-700',
+                            'block px-4 py-2 text-sm',
+                          ]">
+                            {{ account.name }}</router-link>
+                          </MenuItem>
+                        </div>
+                      </MenuItems>
+                    </transition>
+                  </Menu>
+                </span>
           <router-link :to="{ name: 'Cart' }">
             <button
               class="inline-flex justify-center items-center px-2 rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
@@ -94,7 +161,9 @@
           </span>
         </div>
 
-        <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+        <div class="hidden lg:flex lg:min-w-0 items-center lg:flex-1 lg:justify-end">
+          <button class="bg-green-500 text-secondary px-4 py-2 mx-6 rounded-lg hover:bg-secondary-100">Become A Member</button>
+
           <div class="hidden lg:block">
             <router-link :to="{ name: 'Cart' }">
               <button
@@ -134,7 +203,7 @@
                   }}</a>
               </div>
               <div class="py-6">
-                <span>
+                <!-- <span>
                   <Menu as="div" class="relative inline-block text-left">
                     <div v-if="currentUser">
                       <MenuButton
@@ -196,7 +265,9 @@
                       </MenuItems>
                     </transition>
                   </Menu>
-                </span>
+                </span> -->
+                <button class="bg-green-500 text-secondary px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
+
               </div>
             </div>
           </div>
@@ -223,15 +294,16 @@ const store = useStore();
 const navigation = [
   { name: "Home", href: "/home" },
   { name: "Shop", href: "/shop" },
-  { name: "Contact", href: "#" },
-  { name: "About", href: "#" },
+  { name: "Contact", href: "#contact" },
+  { name: "About", href: "#about" },
+  { name: "Billing", href: "#biling" },
 ];
 const Account = [
   { name: "Login", Link: "login" },
   { name: "Signup", Link: "signup" },
   // { name: "User Dashboard", Link: "/profile" },
   // { name: "Admin Dashboard", Link: "customer_ipndex" },
-  { name: "forget password", Link: "forgetpassword" },
+  // { name: "forget password", Link: "forgetpassword" },
 ];
 
 const mobileMenuOpen = ref(false);

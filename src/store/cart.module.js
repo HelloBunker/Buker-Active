@@ -6,16 +6,27 @@ export const cart = {
     cartCount:0,
   },
   actions:{
-     add_cart( {commit},item){
-        return productService.single_add_to_cart(item).then(
-            item => {
-              commit('ADD_TO_CART',item);
-              return  Promise.resolve(item);  
-            },
-            error => {
-              return  Promise.reject(error); 
-            }
-    );
+          add_cart( {commit},item){
+              return productService.single_add_to_cart(item).then(
+                  item => {
+                    commit('ADD_TO_CART',item);
+                    return  Promise.resolve(item);  
+                  },
+                  error => {
+                    return  Promise.reject(error); 
+                  }
+          );
+  },
+          normal_add_cart( {commit},item){
+              return productService.add_to_cart(item).then(
+                  item => {
+                    commit('ADD_TO_CART',item);
+                    return  Promise.resolve(item);  
+                  },
+                  error => {
+                    return  Promise.reject(error); 
+                  }
+          );
   },
 
   view_cart( {commit}){

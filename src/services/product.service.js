@@ -21,6 +21,16 @@ class ProductService {
       { headers: authHeader() }
     );
   }
+  add_to_cart(items,qty) {
+    return axios.post(
+      API_URL + "add_cart",
+      {
+        product_id: items.toString(),
+        quantity: qty.toString( ),
+      },
+      { headers: authHeader() }
+    );
+  }
 
   view_cart() {
     return axios.get(API_URL + "user_cart", { headers: authHeader() });

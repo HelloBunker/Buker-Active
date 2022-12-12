@@ -203,7 +203,7 @@ mounted(){
                     this.message = data.message;
                     this.succesful = true;
                     this.loading = false;
-                    // console.log(this.message);
+                    // this.$router.push()
                 },
 
                 (error) => {
@@ -215,7 +215,7 @@ mounted(){
                     this.loading = false;
                     // console.log(this.message);
                 }
-            );
+            ).finally(() => {this.$router.push({name: 'Login'})});
         },
     },
 
