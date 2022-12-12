@@ -169,39 +169,43 @@
         class="w-fit grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-2 mt-10 mx-10 mb-5">
 
 
-        <div v-for="prod in Products" :key="prod.id"
+        <div v-for="prod in products.product" :key="prod.id"
           class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-          <router-link :to="prod.Link">
-            <img :src="prod.Img" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
-            <div class="px-5 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">{{ prod.Brand }}</span>
-              <p class="text-lg font-bold text-black truncate block capitalize">Product Name</p>
-              <div class="flex items-center">
-                <p class="text-lg font-semibold text-black cursor-auto my-3">&#8358;{{ prod.Price }}</p>
-                <del>
-                  <p class="text-sm text-gray-600 cursor-auto ml-2  text-danger">&#8358;{{ prod.Discount }}</p>
-                </del>
-                <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="bi bi-bag-plus" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                      d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
-                    <path
-                      d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                  </svg></div>
-              </div>
-            </div>
-          </router-link>
+          <router-link :to="{name:'Product', params:{id: prod.id }}">
+      <img :src="BaseUrl + prod.product_image" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+     </router-link>
+     <div class="px-4 py-3 w-72">
+        <span class="text-gray-400 mr-3 uppercase text-xs">{{prod.category}}</span>
+        <p class="text-lg font-bold text-black truncate block capitalize">{{prod.product_name}}</p>
+        <div class="flex items-center">
+          <p class="text-lg font-semibold text-black cursor-auto my-3">&#8358;{{prod.normal_price}}</p>
+          <del>
+            <p class="text-sm text-gray-600 cursor-auto ml-2  text-danger">&#8358;{{prod.wholesale_price}}</p>
+          </del>
+          
+          <div class="ml-auto">
+            <button class="hover:shadow-2xl hover:text-green-500" @click="addToCart(prod.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-plus"  viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+            </svg>
+          </button>
+          </div>
         </div>
+      </div>
+      </div>
 
 
 
 
       </section>
       <div class="container flex justify-center items-center m-4 mx-auto">
+        
         <button type="button"
           class="mx-auto  w-1/2 inline-block px-6 py-2 border-2 border-primary text-primary font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-          See More..
+         <router-link :to="{name:'Shop'}"> See More..</router-link>
         </button>
+      
       </div>
     </div>
     <!-- End Top products:  co-->
@@ -285,24 +289,60 @@ import Header from "@/components/layouts/Header.vue";
 import Navbar from "../../components/layouts/NavBar.vue";
 import Footer from "../../components/layouts/Footer.vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
-import axios  from 'axios';
-const user = ref();
-// onMounted(async () => {
-//   const data = await axios.get('/api/user')
-//   console.log(data);
-// })
-const Products = [
-  { id: '1', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-  { id: '2', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-  { id: '3', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-  { id: '4', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-  { id: '5', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-  { id: '6', Link: 'singleproduct', Brand: 'Brand', Img: 'https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', Price: '500', Discount: '400' },
-]
+
 
 
 
 </script>
+
+
+
+<script>
+// import axios from 'axios';
+import ProdService from "@/services/product.service";
+export default {
+  // components: {  },
+  data() {
+    return {
+      products: [],
+     BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      loading: true,
+      errored: false,
+      message:[],
+    };
+  },
+
+  mounted() {
+    ProdService.getAllProduct()
+      .then((response) => {
+        console.log(response.data);
+        this.products = response.data;
+        console.log(this.products);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+
+  methods: {
+    addToCart(item){
+      this.$store.dispatch("add_cart", item).then( 
+        (response) =>{
+        console.log(response.data)
+      } ).catch((error) => {
+        console.log(error);
+      })
+    }
+  }
+};
+
+// }
+  
+  
+</script>
+
 <style>
 .zoom:hover img {
   transform: scale(1.1);

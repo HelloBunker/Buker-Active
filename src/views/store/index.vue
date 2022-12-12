@@ -1,4 +1,4 @@
-<template>
+  <template>
   <Header />
   <main class="bg-gray-100 ">
     <div class="">
@@ -207,8 +207,9 @@ export default {
   },
 
   methods: {
-    addToCart(id){
-      ProdService.single_add_to_cart(id).then((response) =>{
+    addToCart(item){
+      this.$store.dispatch("add_cart", item).then( 
+        (response) =>{
         console.log(response.data)
       } ).catch((error) => {
         console.log(error);

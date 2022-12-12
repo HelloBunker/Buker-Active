@@ -1,5 +1,6 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import adminAuthHeader from "./admin-header";
 const API_URL = "https://test-api.hellobunker.xyz/api/user/";
 const API_ADMIN = "https://test-api.hellobunker.xyz/api/admin/";
 
@@ -33,16 +34,43 @@ class ProductService {
       { headers: authHeader() }
     );
   }
+  delete_cart_item(id){
+    return axios.delete(API_URL + "delete_cart/" + id, {
+      headers: authHeader()});
+  }
+
+  checkOut(){
+    return axios.post(API_URL + "add_order", '', {headers:authHeader()});
+  }
+
+  Pay(details){
+    return axios.post(API_URL + "add_order", 
+    
+    {
+      payment_method: details.payment_method,
+      reciever:details.name,
+      phone_no:details.phone_no,
+      address:details.address
+    }
+    , {headers:authHeader()});
+  }
+
+
+
+
+
+
+  
   adminGetAllProduct() {
-    return axios.get(API_ADMIN + "all_product", { headers: authHeader() });
+    return axios.get(API_ADMIN + "all_product", { headers: adminAuthHeader() });
   }
   delete_product(id) {
     return axios.delete(API_ADMIN + "delete_product/" + id, {
-      headers: authHeader(),
+      headers:  adminAuthHeader(),
     });
   }
   get_all_customers() {
-    return axios.get(API_ADMIN + "getAllCustomers", { headers: authHeader() });
+    return axios.get(API_ADMIN + "getAllCustomers", { headers: adminAuthHeader() });
   }
   add_product(prods) {
     return axios.post(
@@ -57,12 +85,12 @@ class ProductService {
         quantity: prods.quantity,
         product_image: prods.img,
       },
-      { headers: authHeader() }
+      { headers:  adminAuthHeader() }
     );
   }
   get_single_customer(param) {
     return axios.get(API_ADMIN + "getAllCustomers/" + param, {
-      headers: authHeader(),
+      headers:  adminAuthHeader(),
     });
   }
 
@@ -72,12 +100,15 @@ class ProductService {
       {
         category: cate,
       },
-      { headers: authHeader() }
+      { headers:  adminAuthHeader() }
     );
   }
 
   get_all_category() {
-    return axios.get(API_ADMIN + "all_category", { headers: authHeader() });
+    return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
+  }
+  get_all_orders() {
+    return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
   }
 }
 

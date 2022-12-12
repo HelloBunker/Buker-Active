@@ -249,18 +249,41 @@ export default {
     currentUser() {
       return this.$store.state.auth.user;
     },
-  },
-  created() {
-    const savedcart = localStorage.getItem('cart');
-    if (savedcart  && this.currentUser ) {
+   cartCount()  {
+      return this.$store.state.cartCount
 
-      this.cartcount = JSON.parse(savedcart).length;
+    }
+  },
+  watch: {
+    cartcount(newValue, oldValue) {
+      // Code to run when the data changes
+      console.log(newValue,oldValue)
     }
   },
 
-  mounted() {
+  created() {
+    //  const savedcart = localStorage.getItem('cart');
+    // if (this.currentUser ) {
+    //   console.log(this.cartCount);
+    //   this.cartcount = this.cartCount; 
+    //   console.log(this.cartcount)
+    // }
+  },
+
+ created() {
     window.addEventListener("scroll", this.updateScroll);
     //  console.log(this.currentUser.useri.first_name)
+    this.$store.dispatch('view_cart')
+      .then(response => {
+        console.log(response.data.data);
+        if (this.currentUser ) {
+      // console.log(this.cartCount);
+      this.cartcount = response.data.data.length; 
+      console.log(this.cartcount)
+    }
+      }).catch(error => {
+        console.log(error);
+      });
   },
   methods: {
     updateScroll() {

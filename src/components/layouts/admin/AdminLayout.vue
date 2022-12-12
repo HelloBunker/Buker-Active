@@ -139,7 +139,7 @@ export default {
   mounted() {
     console.log(this.loggedIn);
     if (!this.loggedIn) {
-      this.$router.push('/');
+      this.$router.push('/admin_login');
     }
   },
 

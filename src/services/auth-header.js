@@ -8,9 +8,9 @@ export default function authHeader(){
     }else{  
         return {};
     }
-    if(admin && admin.token){
-        return {Authorization: 'Bearer ' + admin.token};
-    }else{  
-        return {};
-    }
+    // if(admin && admin.token){
+    //     return {Authorization: 'Bearer ' + admin.token};
+    // }else{  
+    //     return {};
+    // }
 }
