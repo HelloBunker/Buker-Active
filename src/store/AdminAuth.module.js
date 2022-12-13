@@ -21,8 +21,8 @@ export const AdminAuth = {
                 }
             );
         },
-        logout({commit}){
-            AuthService.logout();
+        adminlogout({commit}){
+            AuthService.admin_logout();
             commit('logout');
         },
        

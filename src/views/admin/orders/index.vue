@@ -1,129 +1,73 @@
 <template>
-    <Navbar />
-    <main class="pt-20 -mt-2">
-        <div class="mx-auto p-2">
-            <!-- row -->
-            <div class="flex flex-wrap flex-row">
-                <div class="flex-shrink max-w-full px-4 w-full">
-                    <p class="text-xl font-bold mt-3 mb-5">Manage Orders</p>
-                </div>
-                <div class="flex-shrink max-w-full px-4 w-full mb-6">
-                    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full">
-                        <div class="flex flex-wrap flex-row -mx-4">
-                            <div class="flex-shrink max-w-full px-4 w-full">
-                                <div class="md:flex md:justify-between">
-                                    <div>
-                                        <a href="#"
-                                            class="py-2 px-4 mb-3 block lg:inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Add
-                                            new <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                fill="currentColor" class="inline-block ml-1 bi bi-plus-lg"
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
-                                                </path>
-                                            </svg></a>
-                                    </div>
 
-                                    <div>
-                                        <div id="bulk-actions">
-                                            <label class="flex flex-wrap flex-row">
-                                                <select id="bulk_actions" name="bulk_actions"
-                                                    class="inline-block leading-5 relative py-2 ltr:pl-3 rtl:pr-3 pr-8 mb-3 rounded bg-gray-100 border border-gray-200 overflow-x-auto focus:outline-none focus:border-gray-300 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                                    <option value="" data-dialog-content="">Status</option>
-                                                    <option value="complete">complete</option>
-                                                    <option value="processing">processing</option>
-                                                    <option value="shipped">shipped</option>
-                                                    <option value="cancelled">cancelled</option>
-                                                    <option value="pending">pending</option>
-                                                    <option value="refund">refund</option>
-                                                </select>
-                                                <input type="submit" id="bulk_apply"
-                                                    class="ltr:ml-2 rtl:mr-2 py-2 px-4 inline-block text-center mb-3 rounded leading-5 border hover:bg-gray-300 dark:bg-gray-900 dark:bg-opacity-40 dark:border-gray-800 dark:hover:bg-gray-900 focus:outline-none focus:ring-0 cursor-pointer"
-                                                    value="Apply">
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-full mb-6 overflow-x-auto">
-                                    <form action="#">
-                                        <table
-                                            class="table-sorter table-bordered w-full ltr:text-left rtl:text-right text-gray-600 dark:text-gray-400">
-                                            <thead>
-                                                <tr class="bg-gray-100 dark:bg-gray-900 dark:bg-opacity-40">
-                                                    <th data-sortable="false"><input id="check_all" type="checkbox"
-                                                            class="form-checkbox w-4 h-4 text-indigo-500 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-700">
-                                                    </th>
-                                                    <th class="">Order ID</th>
-                                                    <th>Customers</th>
-                                                    <th class="">Order date</th>
-                                                    <th class="">Status</th>
-                                                    <th class="">invoice number</th>
-                                                    <th class="text-center">Total</th>
-                                                    <th data-sortable="false">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="border-b dark:border-gray-700">
-                                                    <td><input type="checkbox"
-                                                            class="checkedall form-checkbox w-4 h-4 text-indigo-500 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-700">
-                                                    </td>
-                                                    <td class="">INV025</td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <div class="flex flex-wrap flex-row items-center">
-                                                                <div class="self-center">
-                                                                    <div
-                                                                    class="leading-5 dark:text-gray-300 flex-1 ltr:ml-2 rtl:mr-2 mb-1">
-                                                                    John doe
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </a>
-                                                    </td>
-                                                    <td class="">27/05/2022</td>
-                                                   
-                                                    <td class="">
-                                                        <span
-                                                            class="text-sm px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">Processing</span>
-                                                    </td>
-                                                    <td class="">InV025</td>
-                                                    <td class="text-center">&#8358;165</td>
-                                                    <td class="text-center">
-                                                        <router-link to="javascript:;"
-                                                            class="inline-block ltr:mr-2 rtl:ml-2 hover:text-red-500"
-                                                            title="Delete">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-trash"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z">
-                                                                </path>
-                                                                <path fill-rule="evenodd"
-                                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z">
-                                                                </path>
-                                                            </svg>
-                                                        </router-link>
-                                                        <router-link to="view_order"
-                                                            class="inline-block ltr:mr-2 rtl:ml-2 hover:text-green-500"
-                                                            title="Edit">
-                                                            <i class="bi bi-eye text-xl "></i>
-                                                        </router-link>
-                                                    </td>
-                                                </tr>
-                                               
-                                              
-                                            </tbody>
-                                        </table>
+    <main class=" container ">
+        <div class="flex justify-center items-center pb-4 bg-white dark:bg-gray-900">
+        
+        <label for="table-search" class="sr-only">Search</label>
+        <div class="relative w-full px-2 container">
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+            </div>
+            <input type="text" v-model="searchTerm" class="block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for orders(orderid or status or paymentstatus or Email)">
+        </div>
+    </div>
 
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div v-if="errored">
+<p class="text-danger text-2xl font-bold capitalize">Product Fetch Error</p>
+    </div>
+        <div class="grid md:grid-cols-2 grid-cols-1 mb-2">
+            <div class="flex  md:justify-start justify-center">
+                <h3 class="text-xl text-secondary-100 text-left font-bold">ORDERS</h3>
+
+            </div>
+            <div class="md:flex md:justify-end hidden">
+                <h3 class="text-xl text-secondary-100 text-right font-bold">STATUS</h3>
+
+            </div>
+            
+        </div>
+
+
+        <div class="flex md:flex-row flex-col  justify-between items-center border-b mb-3 hover:bg-grey-300" v-for="order in ordersFilter" :key="order.email">
+           
+           
+            <div class="flex justify-start flex-col">
+                <h4 class="text-lg text-bold text-secondary-100">{{order.email}}</h4>
+                <h4 class="text-lg text-bold text-secondary-100">{{order.name}}</h4>
+                <p class="text-sm text-secondary-100">#{{order.order_id}}</p>
+                <p class="text-sm text-secondary-100">{{order.created_at}}</p>
+                <p class="text-sm text-secondary-100">{{order.products }}</p>
+                <p class="text-sm text-primary"> {{order.payment_status}}({{order.payment_method}})</p>
+                <p class="text-sm text-secondary-100">NGN {{order.total_price }}</p>
+
+
+            </div>
+            <div class="flex md:justify-end justify-start">
+                <div :class="{'bg-green-500': order.status == 'paid', 'bg-danger': order.status == 'failed', 'bg-yellow-400':order.status == 'pending'}" class="rounded px-2 py-2 text-center mb-3 max-h-9 text-secondary">{{order.status}}</div>
             </div>
         </div>
+<!-- 
+        <div class="flex md:flex-row flex-col  justify-between items-center border-b mb-3 hover:bg-grey-300" v-for="order in orders" :key="order.id">
+           
+           
+            <div class="flex justify-start flex-col">
+                <h4 class="text-lg text-bold text-secondary-100">{{order.email}}</h4>
+                <h4 class="text-lg text-bold text-secondary-100">{{order.name}}</h4>
+                <p class="text-sm text-secondary-100">#{{order.order_id}}</p>
+                <p class="text-sm text-secondary-100">format({{order.created_at}}, 'longDate')</p>
+                <p class="text-sm text-secondary-100">{{order.products }}</p>
+                <p class="text-sm text-primary"> {{order.payment_status}}({{order.payment_method}})</p>
+                <p class="text-sm text-secondary-100">NGN {{order.total_price }}</p>
+
+
+            </div>
+            <div class="flex md:justify-end justify-start">
+                <div :class="{'bg-green-500': order.status == 'paid', 'bg-danger': order.status == 'failed', 'bg-yellow-400':order.status == 'pending'}" class="rounded px-2 py-2 text-center mb-3 max-h-9 text-secondary">{{order.status}}</div>
+            </div>
+        </div> -->
+
+
 
     </main>
 </template>
@@ -133,9 +77,70 @@ import Sidebar from '@/components/layouts/admin/Sidebar.vue'
 import Footer from '@/components/layouts/Footer.vue'
 import Navbar from '@/components/layouts/admin/Navbar.vue'
 import Button from '@/components/utilities/Button.vue'
+import ProdService from "@/services/product.service";
+import { format } from 'date-fns';
 export default {
-    components: { Sidebar, Footer, Button, Navbar }
+    data() {
+        return {
+            orders: [],
+            loading: true,
+            errored: false,
+            searchTerm: '',
+        }
+    }, 
+    computed: {
+ordersFilter() {
+    
+    
+    // Process search input
+    if (this.searchTerm != '' && this.searchTerm) {
+        // console.log(tempRecipes);
+       
+          return  this.orders.filter(item => { 
+            return  item.email
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.status
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.order_id
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.payment_status
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase())
+        // return console.log(item.email, this.orders);
+       
+       } )
+      }else{
+        return this.orders;
+      }
+  }
+},
+
+ created() {
+
+
+        ProdService.get_all_orders().then(
+            response => {
+                // console.log(response.data);
+                this.orders = response.data.data;
+                console.log(this.orders);
+            }
+        ).catch(error => {
+            console.log(error)
+            this.errored = true
+        }).finally(() => this.loading = false)
+
+    },
+
+
+   
+  
 }
+
+// }
+
 </script>
 
 <style>

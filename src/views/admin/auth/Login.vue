@@ -131,35 +131,45 @@ export default {
       schema,
     };
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
-    },
+  // computed: {
+  //   loggedIn() {
+  //     return this.$store.state.auth.status.loggedIn;
+  //   },
    
 
-    AdminLoggedIn() {
+  //   AdminLoggedIn() {
+  //     return this.$store.state.AdminAuth.status.loggedIn;
+  //   },
+  //   currentUser() {
+  //     return this.$store.state.auth.user;
+  //   },
+  //   currentAdmin() {
+  //     return this.$store.state.AdminAuth.user;
+  //   },
+  // },
+  computed: {
+    loggedIn() {
       return this.$store.state.AdminAuth.status.loggedIn;
     },
-    currentUser() {
-      return this.$store.state.auth.user;
-    },
     currentAdmin() {
-      return this.$store.state.AdminAuth.user;
-    },
-  },
+      return this.$store.state.AdminAuth.admin;
 
+    }
+
+  },
   mounted() {
     if(this.currentAdmin){
    
        
     
-      this.$router.push("/home");
+      this.$router.push("/admin");
     
 
 }
   },
 
   created() {
+
     // if (this.AdminLoggedIn) {
     //   if ((this.AdminLoggedIn.status_code = 200)) {
     //     console.log(this.AdminLoggedIn);
@@ -174,10 +184,11 @@ export default {
       // console.log(user);
       this.loading = true;
       this.$store.dispatch("AdminAuth/adminlogin", user).then(
-        () => {
-          
+        (res) => {
+          if(res.status_code == 200){
             this.$router.push("/admin");
-          
+            // console.log(res.status_code)
+          }
         },
 
         (error) => {

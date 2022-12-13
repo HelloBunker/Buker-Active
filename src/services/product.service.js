@@ -8,6 +8,9 @@ class ProductService {
   getAllProduct() {
     return axios.get(API_URL + "fetch_guest_products");
   }
+  get_users_order() {
+    return axios.get(API_URL + "user_order_list", { headers: authHeader() });
+  }
   get_single_product(param) {
     return axios.get(API_URL + "single_guest_product/" + param);
   }
@@ -82,6 +85,9 @@ class ProductService {
   get_all_customers() {
     return axios.get(API_ADMIN + "getAllCustomers", { headers: adminAuthHeader() });
   }
+  get_all_orders() {
+    return axios.get(API_ADMIN + "all_transactions", { headers: adminAuthHeader() });
+  }
   add_product(prods) {
     return axios.post(
       API_ADMIN + "add_product",
@@ -117,9 +123,9 @@ class ProductService {
   get_all_category() {
     return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
   }
-  get_all_orders() {
-    return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
-  }
+  // get_all_orders() {
+  //   return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
+  // }
 }
 
 export default new ProductService();

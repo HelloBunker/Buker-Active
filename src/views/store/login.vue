@@ -127,7 +127,7 @@ return this.$store.state.auth.user ;
 },
 
 
-mounted(){
+w(){
     
     if(this.currentUser){
         this.$router.push('/');
@@ -145,8 +145,15 @@ if(this.loggedIn){
 methods: {
 handleLogin(user){
     this.loading = true;
-    this.$store.dispatch('auth/login', user).then( () => {
-        this.$router.push("/home");
+    this.$store.dispatch('auth/login', user).then( (res) => {
+        ;
+        if(res.status_code==200){
+            this.$router.push("/home")
+            // console.log(res)
+        }else{
+
+            this.message = res.message;
+        }
 
     },
 
