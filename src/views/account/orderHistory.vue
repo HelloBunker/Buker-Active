@@ -10,9 +10,7 @@
     </p>
     <div class="flex flex-col pl-3">
        
-      <router-link to="dashboard"
-             class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary   text-grey-darkest ">Dashboard</router-link>
-       
+     
       <router-link to="orders_history"
              class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary   text-primary ">Orders History</router-link>
        
