@@ -5,26 +5,37 @@
     <div
       class="flex flex-col justify-between pt-10 pb-16 sm:pt-12 sm:pb-20 lg:flex-row lg:pb-24">
       <div class="lg:w-1/4">
-    <p class="pb-6 font-butler text-2xl text-secondary-100 sm:text-3xl lg:text-4xl">
-      My Account
-    </p>
-    <div class="flex flex-col pl-3">
-       
-     
-      <router-link to="orders_history"
-             class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary   text-primary ">Orders History</router-link>
-       
-      <router-link to="plan"
-             class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary   text-gray-darkest">Membership Plan</router-link>
-       
-      <router-link to="profile"
-             class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary  text-grey-darkest font-bold  border-primary ">Account Details</router-link>
-      
-    </div>
-    <a
-      href="../index.html"
-      class="mt-8 inline-block rounded border border-primary px-8 py-3  font-bold text-y transition-all hover:bg-primary hover:text-white">Log Out</a>
-  </div>
+        <div class="flex flex-col pl-3">
+          <router-link
+            to="orders_history"
+            class="text-primary border-primary transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+          >
+            History</router-link
+          >
+          <router-link
+            to="changePassword"
+            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+            >Password</router-link
+          >
+
+          <router-link
+            to="plan"
+            class=" transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+            >Membership Plan</router-link
+          >
+
+          <router-link
+            to="profile"
+            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk font-bold  "
+            >Edit Profile
+          </router-link>
+        </div>
+        <router-link
+          to=""
+          class="mt-8 inline-block rounded border border-primary px-8 py-3 font-hk font-bold text-primary transition-all hover:bg-primary hover:text-white"
+          >Log Out</router-link
+        >
+      </div>
   <!-- content -->
 
 

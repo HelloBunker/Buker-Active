@@ -45,7 +45,7 @@
               </div>
               <div class="flex-shrink max-w-full px-4 w-1/2 mb-4">
                 <label for="wholesale_price" class="inline-block mb-2"
-                  >Product actual price</label
+                  >Product cost price</label
                 >
                 <input
                   type="number" required
@@ -55,7 +55,7 @@
               </div>
               <div class="flex-shrink max-w-full px-4 w-1/2 mb-4">
                 <label for="normal_price" class="inline-block mb-2"
-                  >Product cost price</label
+                  >Product selling Price</label
                 >
                 <input
                   type="number" required
@@ -99,7 +99,7 @@
                 >
                 <select
                   v-model="category"
-                  class=" border border-gray-300  text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                  class=" border border-gray-300   text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 >
                   <option :value="cate.category" v-for ="cate in category" :key="cate.id">{{cate.category}}</option>
                  
@@ -116,10 +116,10 @@
                 />
               </div>
 
-              <div class="flex-shrink max-w-full px-4 w-full">
+              <div class="flex-shrink flex justify-center items-center max-w-full px-4 w-full">
                 <button
                   type="submit" required
-                  class="py-2 px-4 block lg:inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"
+                  class="py-2 px-4 block lg:inline-block text-center rounded-xl leading-5 bg-gray-500 border border-secondary-100 hover:text-primary hover:bg-secondary hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"
                 >
                   Add Product
                   <svg
