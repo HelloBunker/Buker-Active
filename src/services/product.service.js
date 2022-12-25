@@ -77,6 +77,9 @@ class ProductService {
   adminGetAllProduct() {
     return axios.get(API_ADMIN + "all_product", { headers: adminAuthHeader() });
   }
+  admin_get_single_product(param) {
+    return axios.get(API_ADMIN + "single_product/" + param , {headers:  adminAuthHeader()});
+  }
   delete_product(id) {
     return axios.delete(API_ADMIN + "delete_product/" + id, {
       headers:  adminAuthHeader(),
@@ -100,6 +103,22 @@ class ProductService {
         category: prods.cate,
         quantity: prods.quantity,
         product_image: prods.img,
+      },
+      { headers:  adminAuthHeader() }
+    );
+  }
+  update_product(prods) {
+    return axios.post(
+      API_ADMIN + "product_update/"+ prods.id,
+      {
+        product_name: prods.product_name.toString(),
+        normal_price: prods.normal_price.toString(),
+        wholesale_price: prods.wholesale_price.toString(),
+        // description: prods.description.toString(),
+        product_unit: prods.product_unit.toString(),
+        category: prods.category.toString(),
+        quantity: prods.quantity.toString(),
+        product_image: prods.product_image.toString(),
       },
       { headers:  adminAuthHeader() }
     );

@@ -4,6 +4,7 @@ import {
 } from 'vue-router'
 import Home from '@/views/pages/index.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
+import ShopLayout from '@/components/layouts/shop/ShopLayout.vue'
 import AuthLayout from '@/components/layouts/AuthLayout.vue'
 import AdminLayout from '@/components/layouts/admin/AdminLayout.vue'
 import Shop from '@/views/store/index.vue'
@@ -45,6 +46,16 @@ const routes = [
         name: 'Home',
         component: Home
       },
+    ]
+  },
+   
+      {
+        path: '/shop',
+        name: 'Shop',
+        component: ShopLayout,
+        children: [
+        
+      
       {
         path: '/shop',
         name: 'Shop',

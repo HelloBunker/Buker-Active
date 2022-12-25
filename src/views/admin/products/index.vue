@@ -53,7 +53,7 @@
 
       <section
         class="grid md:grid-cols-2 my-9 gap-2"
-        v-for="prod in products"
+        v-for="prod in ProductFilter"
         :key="prod.id"
       >
         <div class="flex justify-start space-x-2 items-center">
@@ -81,14 +81,17 @@
         <div
           class="flex lg:justify-end md:justify-start sm:justify-start space-x-3 items-center"
         >
+        <router-link :to="{name:'AdminEditProduct', params: {id: prod.id} }">
           <button
-            @click="DeleteProduct(prod.id)"
+            
             class="bg-primary lg:h-12 h-10 sm:h-8 hover:bg-primary-100 text-secondary text-center px-2 py-2 lg:px-4 lg:py-3 lg:text-xl text-sm rounded uppercase"
           >
             Update
           </button>
+        </router-link>
           <button
-            class="bg-danger lg:h-12 h-10 sm:h-8 hover:bg-primary-100 text-center text-secondary px-2 py-2 lg:px-4 lg:py-3 lg:text-xl text-sm rounded uppercase"
+        @click="DeleteProduct(prod.id)"  
+        class="bg-danger lg:h-12 h-10 sm:h-8 hover:bg-primary-100 text-center text-secondary px-2 py-2 lg:px-4 lg:py-3 lg:text-xl text-sm rounded uppercase"
           >
             Delete
           </button>
@@ -109,10 +112,39 @@ export default {
       loading: true,
       errored: false,
       BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      searchTerm: '',
     };
   },
-
-  mounted() {
+  computed: {
+ProductFilter() {
+    
+    
+    // Process search input
+    if (this.searchTerm != '' && this.searchTerm) {
+        // console.log(tempRecipes);
+       
+          return  this.products.filter(item => { 
+            return  item.quantity
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.product_name
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.category
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) ||
+            item.normal_price
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase())
+        // return console.log(item.email, this.Products);
+       
+       } )
+      }else{
+        return this.products;
+      }
+  }
+},
+created() {
     ProdService.adminGetAllProduct()
       .then((response) => {
         console.log(response.data);
