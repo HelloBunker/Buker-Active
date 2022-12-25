@@ -89,6 +89,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 import {Form, Field , ErrorMessage} from  "vee-validate";
 import * as yup from "yup";
 export default {
@@ -136,6 +137,7 @@ w(){
 
 created(){
 if(this.loggedIn){
+    
     this.$router.push('/');
 
 }
@@ -148,20 +150,30 @@ handleLogin(user){
     this.$store.dispatch('auth/login', user).then( (res) => {
         ;
         if(res.status_code==200){
+
             this.$router.push("/home")
             // console.log(res)
         }else{
-
-            this.message = res.message;
+            Swal.fire({
+      title: 'Error!',
+      text: res.message,
+      icon: 'error'
+    });
+            // this.message = res.message;
         }
 
     },
 
     (error) => { 
-        this.loading = false; 
-        this.message = (error.response &&
-                         error.response.data &&  
-                           error.response.data.message )|| error.message || error.toString();       
+        Swal.fire({
+      title: 'Error!',
+      text: error.message,
+      icon: 'error'
+    });
+        // this.loading = false; 
+        // this.message = (error.response &&
+        //                  error.response.data &&  
+        //                    error.response.data.message )|| error.message || error.toString();       
 
     }
     );

@@ -299,6 +299,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 <script>
 // import axios from 'axios';
+import Swal from 'sweetalert2';
 import ProdService from "@/services/product.service";
 export default {
   // components: {  },
@@ -312,7 +313,7 @@ export default {
     };
   },
 
-  mounted() {
+  created() {
     ProdService.getAllProduct()
       .then((response) => {
         console.log(response.data);
@@ -330,10 +331,22 @@ export default {
     addToCart(item){
       this.$store.dispatch("add_cart", item).then( 
         (response) =>{
-        console.log(response.data)
-        location.reload();
+        console.log(response.data);
+        Swal.fire({
+      title: 'Success!',
+      text: response.data.message,
+      icon: 'success'
+    }).then(() => {
+  window.location.reload();
+});
+        // location.reload();
       } ).catch((error) => {
         console.log(error);
+        Swal.fire({
+      title: 'Error!',
+      text: error.message,
+      icon: 'error'
+    });
       })
     }
   }

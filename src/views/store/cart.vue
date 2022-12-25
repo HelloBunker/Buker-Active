@@ -1,11 +1,11 @@
 <template>
-  <div class="grid lg:grid-cols-2 container max-w-full">
+  <div class="grid lg:grid-cols-2 container max-w-full my-2">
 
-    <div class="hidden lg:block flex items-center justify-center bg-secondary-100">
-      <div>BUNKER</div>
+    <div class="hidden lg:flex items-center justify-center bg-secondary-100">
+      <img src="@/assets/cartbg.jpg" alt="cart bg" class="w-full h-full max-h-screen object-cover">
     </div>
 
-    <div class="container bg-gray-300 lg:shadow-xl">
+    <div class="container bg-gray-500 lg:shadow-2xl">
       <div class="py-0">
         <div class="max-w-full min-h-screen bg-gray-100 shadow-lg rounded-lg md:max-w-full">
           <div class="md:flex">
@@ -14,7 +14,7 @@
                 <div class="col-span-2 p-5">
                   <h1 class="text-xl font-medium">Shopping Cart</h1>
 
-                  <div v-for="item in cart" :key="item.id"
+                  <div v-if="cart.length > 0" v-for="item in cart" :key="item.id"
                     class="flex px-2 justify-between md:items-center my-2 py-6 flex-col md:flex-row">
                     <div class="flex items-center">
                       <img :src="BaseUrl + item.product_image" width="60" class="rounded-full" />
@@ -50,19 +50,22 @@
                       </div>
                     </div>
                   </div>
-
+                  <div v-else class="flex justify-center items-center py-6 px-3">
+                    <span class="text-2xl font-bold tetx-center text-danger">EMPTY CART!!</span>
+                  </div>
                   <div class="flex justify-between items-center mt-6 pt-6 border border-y-2">
+                    <router-link to="/shop">
                     <div class="flex items-center">
                       <i class="fa fa-arrow-left text-sm pr-2"></i>
                       <span class="text-md font-medium text-blue-500">Continue Shopping</span>
                     </div>
-
+                  </router-link>
                     <div class="flex justify-center items-end">
                       <span class="text-sm font-medium text-gray-400 mr-1">Total:</span>
                       <span class="text-lg font-bold text-gray-800"> {{ total }}</span>
                     </div>
                   </div>
-                  <button @click="checkOut" class="h-12 w-full bg-blue-500 rounded focus:outline-none text-white hover:bg-blue-600">
+                  <button v-if="cart.length > 0" @click="checkOut" class="h-12 w-full bg-blue-500 rounded focus:outline-none text-white hover:bg-blue-600">
                     Check Out
                   </button>
                 </div>

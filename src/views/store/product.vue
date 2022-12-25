@@ -134,11 +134,11 @@
 </template>
 
 <script>
-import Header from '@/components/layouts/shop/Header.vue'   
-import Footer from '@/components/layouts/Footer.vue'
+import Header from '@/components/layouts/shop/Header.vue';  
+import Footer from '@/components/layouts/Footer.vue';
 import ProdService from "@/services/product.service";
-import Button from '@/components/utilities/Button.vue'
-
+import Button from '@/components/utilities/Button.vue';
+import Swal from 'sweetalert2';
 export default {
       components: {  Button,Footer },
         props: ['id'],
@@ -175,9 +175,19 @@ export default {
 ProdService.add_to_cart(items,qty).then( 
         (response) =>{
         console.log(response.data)
+        Swal.fire({
+      title: 'Success!',
+      text: response.data.message,
+      icon: 'success'
+    });
         // location.reload()
       } ).catch((error) => {
         console.log(error);
+         Swal.fire({
+      title: 'Error!',
+      text: error.message,
+      icon: 'error'
+    });
       })
       // console.log(load)
     

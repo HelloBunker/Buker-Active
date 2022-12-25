@@ -4,7 +4,7 @@
         <form @submit.prevent="Pay">
             <div class="flex  md:flex-row flex-col justify-between m-2 mb-10 ">
                 <div class="md:w-2/5 w-full">
-                    <h2 class="font-bold text-primary text-2xl mb-4">Delivery Details</h2>
+                    <h2 class="font-bold text-primary text-center text-2xl mb-4">Delivery Details</h2>
 
 
 
@@ -33,10 +33,11 @@
 
                 </div>
 
-                <div class="w-full md:w-2/5 overflow-x-auto">
+                <div class="w-full md:w-2/5 flex flex-col  overflow-x-auto">
 
+                    <h2 class="font-bold text-primary text-center text-2xl mb-4">product ordered</h2>
 
-                    <table class="w-full  text-sm text-left text-secondary-100 o">
+                    <table v-if="cart.length > 0" class="w-full  text-sm text-left text-secondary-100 o">
                         <thead class="text-xs text-secondary-100 uppercase bg-seondary ">
                             <tr>
 
@@ -55,7 +56,7 @@
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             <tr class="bg-secondary border-b " v-for="item in cart" :key="item.id">
 
                                 <td class="py-4 px-6 font-semibold ">
@@ -81,9 +82,19 @@
 
 
                         </tbody>
-                    </table>
+
+
+                    </table> 
+                   
+                        <span v-else class="flex justify-center items-center ">
+                            <tr>
+                            <p class="text-danger text-center text-xl center">Empty cart</p>
+                            </tr>
+                        </span>
                 </div>
-                <div class="flex justify-end mx-5 flex-col">
+               
+            </div> 
+                <div class="flex justify-end mx-5 flex-col my-6" v-if="cart.length > 0">
 
 
                     <div class="flex justify-end">
@@ -125,7 +136,6 @@
 
 
                 </div>
-            </div>
         </form>
 
     </section>

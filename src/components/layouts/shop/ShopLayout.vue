@@ -21,7 +21,7 @@
                   <Menu as="div" class="relative  inline-block text-left">
                     <div>
                       <MenuButton
-                        class="inline-flex w-full justify-center font-semibold capitalize text-gray-900 hover:text-gray-900">
+                        class="-m-2.5 inline-flex w-full justify-center font-semibold capitalize  p-2.5 text-gray-900 hover:text-gray-900">
                         <i class="bi bi-person-circle text-xl"></i>
                         <!-- <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> -->
                       </MenuButton>
@@ -216,6 +216,15 @@
   
                 </div> -->
               </div>
+              <div class=" px-2  my-4 container">
+              
+              <input
+                type="text"
+                v-model="searchTerm"
+                class="block p-2 pl-10 w-2/3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="search"
+              />
+            </div>
             </div>
           </DialogPanel>
         </Dialog>
@@ -224,6 +233,7 @@
     <!-- <span v-for="user in users" :key ="user.first_name">{{user.first_name}}</span> -->
     <!-- content -->
     <router-view></router-view>
+    <Footer />
   </template>
   
   <script setup>
@@ -232,6 +242,8 @@
   import { ChevronDownIcon } from "@heroicons/vue/20/solid";
   import { Dialog, DialogPanel } from "@headlessui/vue";
   import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+  import Footer from "@/components/layouts/Footer.vue";
+
   import { useStore } from "vuex";
   import { computed } from "vue";
   
