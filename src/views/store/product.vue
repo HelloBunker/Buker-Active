@@ -130,7 +130,7 @@
 
  
 </div>
-<Footer />
+<!-- <Footer /> -->
 </template>
 
 <script>
@@ -182,10 +182,10 @@ ProdService.add_to_cart(items,qty).then(
     });
         // location.reload()
       } ).catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
          Swal.fire({
       title: 'Error!',
-      text: error.message,
+      text: error.response.data.message,
       icon: 'error'
     });
       })

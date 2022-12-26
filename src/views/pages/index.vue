@@ -96,7 +96,7 @@
       <!-- Section: about  us-->
       <section class="mb-32 text-gray-800">
         <!-- Jumbotron -->
-        <div class="container mx-auto xl:px-32 text-center lg:text-left">
+        <div class="container mx-auto xl:px-32 text-center lg:text-left" id="about">
           <div class="grid lg:grid-cols-2  items-center">
             <div class="mb-12 lg:mb-0">
               <div class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
@@ -280,7 +280,7 @@
     </div>
     <!-- Container for How 2 -->
 
-<Footer />
+<!-- <Footer /> -->
   </div>
 </template>
 <script setup>
@@ -341,10 +341,10 @@ export default {
 });
         // location.reload();
       } ).catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
         Swal.fire({
       title: 'Error!',
-      text: error.message,
+      text: error.response.data.message,
       icon: 'error'
     });
       })

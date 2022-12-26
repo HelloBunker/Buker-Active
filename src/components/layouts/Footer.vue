@@ -78,7 +78,10 @@ export default {
       },
     };
   },
-
+ mounted() {
+    // Scroll to the section with the specified ID
+    // this.$refs[this.$route.params.sectionID].scrollIntoView();
+  },
   methods: {
 
     createUser(ContactForm) {

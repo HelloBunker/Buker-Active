@@ -203,70 +203,7 @@
                   }}</a>
               </div>
               <div class="py-6">
-                <!-- <span>
-                  <Menu as="div" class="relative inline-block text-left">
-                    <div v-if="currentUser">
-                      <MenuButton
-                        class="inline-flex w-full justify-center font-semibold capitalize text-gray-900 hover:text-gray-900">
-                        {{ currentUser.useri.first_name }}
-                        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-                      </MenuButton>
-                    </div>
-                    <div v-else>
-                      <MenuButton
-                        class="inline-flex w-full justify-center font-semibold text-gray-900 hover:text-gray-900">
-                        Account
-                        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-                      </MenuButton>
-                    </div>
-
-                    <transition enter-active-class="transition ease-out duration-100"
-                      enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-                      leave-active-class="transition ease-in duration-75"
-                      leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                      <MenuItems
-                        class="z-20 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div class="py-1" v-if="currentUser">
-                          <form @submit.prevent="Logout">
-                            <MenuItem v-slot="{ active }">
-                            <button type="submit" :class="[
-                              active
-                                ? 'bg-gray-100 text-primary'
-                                : 'text-gray-700',
-                              'block w-full px-4 py-2 text-left text-sm',
-                            ]">
-                              Logout
-                            </button>
-                            </MenuItem>
-
-                            <MenuItem v-slot="{ active }">
-                            <router-link to="/profile" :class="[
-                              active
-                                ? 'bg-gray-100  text-primary'
-                                : 'text-gray-700',
-                              'block px-4 py-2 text-sm',
-                            ]">
-                              Profile</router-link>
-                            </MenuItem>
-                          </form>
-                        </div>
-
-                        <div class="py-1" v-else>
-                          <MenuItem v-slot="{ active }" v-for="account in Account" :key="account.name">
-                          <router-link :to="account.Link" :class="[
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm',
-                          ]">
-                            {{ account.name }}</router-link>
-                          </MenuItem>
-                        </div>
-                      </MenuItems>
-                    </transition>
-                  </Menu>
-                </span> -->
-                <button class="bg-green-500 text-secondary px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
+                             <button class="bg-green-500 text-secondary px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
 
               </div>
             </div>
@@ -278,10 +215,12 @@
   <!-- <span v-for="user in users" :key ="user.first_name">{{user.first_name}}</span> -->
   <!-- content -->
   <router-view></router-view>
+  <Footer />
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import Footer from "@/components/layouts/Footer.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { Dialog, DialogPanel } from "@headlessui/vue";
@@ -294,7 +233,7 @@ const store = useStore();
 const navigation = [
   { name: "Home", href: "/home" },
   { name: "Shop", href: "/shop" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/contact" },
   { name: "About", href: "#about" },
   { name: "Billing", href: "#biling" },
 ];
@@ -356,6 +295,8 @@ export default {
       }).catch(error => {
         console.log(error);
       });
+
+      // this.$refs[this.$route.params.sectionID].scrollIntoView();
   },
   methods: {
     updateScroll() {

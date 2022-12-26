@@ -21,17 +21,17 @@
 <p class="text-danger text-2xl font-bold capitalize">Product Fetch Error</p>
     </div>
 
-
-    <table v-else class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div v-else class="container">
+    <table class=" text-sm text-left text-gray-500 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
             <tr>
             
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" class="py-3 lg:px-6 px-2">
                     Name
                 </th>
                 
                
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" class="py-3 lg:px- px-2">
                     Action
                 </th>
             </tr>
@@ -53,7 +53,7 @@
                 </th>
                 
                 
-                <td class="py-4 px-6">
+                <td class="">
                     <a href="" class="font-medium  text-xl mx-3 hover:underline"><i class="bi bi-phone"></i></a>
                     <router-link to="#" class="font-medium text-xl mx-3 text-primary text-bold "><i class="bi bi-whatsapp"></i></router-link>
                     <!-- <router-link :to="{name:'ViewAdminCustomers', params: {id: customer.id }}" class="font-medium text-xl mx-3 text-secondary-100 "><i class="bi bi-eye"></i></router-link> -->
@@ -63,6 +63,7 @@
                         
         </tbody>
     </table>
+    </div>
 </div>
 
   

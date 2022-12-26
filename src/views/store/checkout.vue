@@ -140,17 +140,17 @@
 
     </section>
 
-    <Footer />
+    <!-- <Footer /> -->
 
 
 </template>
 
 <script>
 import Header from '@/components/layouts/shop/Header.vue'
-import Footer from '@/components/layouts/Footer.vue'
+// import Footer from '@/components/layouts/Footer.vue'
 import Button from '@/components/utilities/Button.vue'
 export default {
-    components: { Header, Footer, Button },
+    components: { Header,  Button },
 
     data() {
         return {

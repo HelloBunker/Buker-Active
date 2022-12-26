@@ -8,7 +8,7 @@
          <!-- mobile -->
           <div class="flex justify-between flex-row lg:hidden">
   
-           
+           <!-- mobile nav open icon -->
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               @click="mobileMenuOpen = true">
               <span class="sr-only">Open main menu</span>
@@ -16,7 +16,18 @@
             </button>
             
           </div>
+ <div class="w-24 ">
+              
+              <input
+                type="text"
+                v-model="searchTerm"
+                class="block   w-full  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="search"
+              />
+            </div>
+          <!-- mobile persion and cart icon -->
           <div>
+            <!-- mobile person -->
           <span class="lg:hidden">
                   <Menu as="div" class="relative  inline-block text-left">
                     <div>
@@ -34,6 +45,8 @@
                       </MenuButton>
                     </div> -->
 
+
+                    <!-- mobile user drop down -->
                     <transition enter-active-class="transition ease-out duration-100"
                       enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
                       leave-active-class="transition ease-in duration-75"
@@ -80,6 +93,8 @@
                     </transition>
                   </Menu>
           </span>
+
+          <!-- mobile cart icon  -->
          <span class="lg:hidden">
           <router-link :to="{ name: 'Cart' }">
             <button
@@ -92,22 +107,24 @@
           </span>
           </div>
 
-          
+          <!-- desktop section -->
           <div class="hidden lg:flex lg:min-w-0 items-center lg:flex-1 lg:justify-between lg:gap-x-12">
+            <!-- dektop links -->
             <router-link v-for="item in navigation" :key="item.name" :to="item.href"
               class="font-semibold text-gray-900 hover:text-gray-900">{{ item.name }}
             </router-link>
 
-            <!-- acc -->
+            <!-- destkop  serch bar -->
             <div class=" px-2  my-4 container">
               
               <input
                 type="text"
                 v-model="searchTerm"
-                class="block p-2 pl-10 w-2/3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block p-2 pl-10 w-2/3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="search for products"
               />
             </div>
+            <!-- dsktop cart -->
         <div class="hidden lg:block">
               <router-link :to="{ name: 'Cart' }">
                 <button
@@ -119,6 +136,8 @@
                 </button>
               </router-link>
             </div>
+
+            <!-- user account desktop -->
             <span>
               <Menu as="div" class="relative inline-block text-left">
                 <div v-if="currentUser">
@@ -216,15 +235,15 @@
   
                 </div> -->
               </div>
-              <div class=" px-2  my-4 container">
+              <!-- <div class=" px-2  my-4 container">
               
               <input
                 type="text"
                 v-model="searchTerm"
-                class="block p-2 pl-10 w-2/3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block p-2 pl-10 w-2/3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="search"
               />
-            </div>
+            </div> -->
             </div>
           </DialogPanel>
         </Dialog>
@@ -251,7 +270,7 @@
   
   const navigation = [
     { name: "Home", href: "/home" },
-    { name: "Contact", href: "" },
+    { name: "Contact", href: "/contact" },
     { name: "FAQ", href: "" },
    
   ];

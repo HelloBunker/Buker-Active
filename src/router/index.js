@@ -3,6 +3,7 @@ import {
   createWebHistory
 } from 'vue-router'
 import Home from '@/views/pages/index.vue'
+import Contact from '@/views/pages/contact.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
 import ShopLayout from '@/components/layouts/shop/ShopLayout.vue'
 import AuthLayout from '@/components/layouts/AuthLayout.vue'
@@ -19,6 +20,7 @@ import ChangePassword from '@/views/account/changePassword.vue'
 import Cart from '@/views/store/cart.vue'
 import Checkout from '@/views/store/checkout.vue'
 import AdminCustomers from '@/views/admin/customers/index.vue'
+import AdminDashboard from '@/views/admin/Dashboard.vue'
 // import AddAdminCustomers from '@/views/admin/customers/create.vue'
 import ViewAdminCustomers from '@/views/admin/customers/view.vue'
 // import EditAdminCustomers from '@/views/admin/customers/edit.vue'
@@ -31,6 +33,7 @@ import AdminCreateProductCategory from '@/views/admin/products/category/create.v
 import AdminEditProduct from '@/views/admin/products/edit.vue'
 import AdminEditProductCategory from '@/views/admin/products/category/edit.vue'
 import AdminViewOrders from '@/views/admin/orders/view.vue'
+// import Footer from '@/components/layouts/Footer.vue'
 import store from '@/store'
 const routes = [
 
@@ -46,6 +49,8 @@ const routes = [
         name: 'Home',
         component: Home
       },
+     
+
     ]
   },
    
@@ -55,7 +60,11 @@ const routes = [
         component: ShopLayout,
         children: [
         
-      
+       {
+        path: '/contact',
+        name: 'Contact',
+        component:Contact
+      },
       {
         path: '/shop',
         name: 'Shop',
@@ -68,6 +77,8 @@ const routes = [
         component: Product,
         props:true,
       },
+
+      
       {
         path: '/cart',
         name: 'Cart',
@@ -109,7 +120,6 @@ const routes = [
   },
 
   
-
 
 
 // Auth Routes
@@ -159,12 +169,18 @@ children: [
   // Admin produccts
   {
     path:'/admin',
-    redirect: '/customer_index',
+    redirect: '/admin_dashbord',
     name:'AdminLayout',
     component:AdminLayout,
     children: [
   
   
+  {
+    path: '/admin_dashboard',
+    name: 'AdminDashboard',
+    component: AdminDashboard,
+
+  },
   {
     path: '/admin_products',
     name: 'AdminProduct',

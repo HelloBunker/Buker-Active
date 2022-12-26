@@ -10,7 +10,7 @@
           At the lowest wholesale price delivered to your Doorstep for free. 
         </p>
         <div class="my-8 ">
-          <router-link :to="{name: 'Shop'}"
+          <router-link to="/shop"
             class="inline-block rounded-lg bg-primary px-7 py-4 text-base font-semibold leading-10 text-white shadow-sm ring-1 ring-primary hover:bg-indigo-700 hover:ring-indigo-700">
             Shop Now
             <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
