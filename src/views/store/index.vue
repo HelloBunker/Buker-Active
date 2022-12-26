@@ -14,14 +14,14 @@
             <div class="flex px-2  flex-row flex-wrap items-center justify-items-center py-3 justify-center">
               <h3 class="text-secondary-100 lg:text-2xl text-xl  font-bold uppercase my-3">categories</h3>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 my-2 hover:border-primary  border border-secondary-100">Cereals</button>
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Cereals</button>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 my-2 hover:border-primary  border border-secondary-100">Drinks</button>
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Drinks</button>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 my-2 hover:border-primary  border border-secondary-100">Breverages
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Breverages
               </button>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 my-2 hover:border-primary  border border-secondary-100">Others</button>
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Others</button>
             </div>
           </div>
           <h3 class="text-secondary-100 lg:text-2xl text-xl  text-center font-bold uppercase">Products</h3>
