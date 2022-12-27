@@ -15,7 +15,7 @@
               <h3
                 class="text-secondary-100 lg:text-2xl text-xl font-bold uppercase my-3"
               >
-                categories
+                Categories
               </h3>
               <button
                 class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary border border-secondary-100"
@@ -46,35 +46,31 @@
           </h3>
 
           <section
-            class="w-fit contaier my-3 mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
-          >
+            class="w-fit container my-3 mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
             <div
               v-for="prod in products.product"
               :key="prod.id"
-              class="w-fit border shadow-xl text-center flex flex-col justify-between items-center rounded-xl duration-500 hover:scale-105 hover:shadow-2xl"
-            >
+              class="w-fit border shadow-xl text-center flex flex-col justify-between items-center rounded-xl duration-500 hover:scale-105 hover:shadow-2xl">
               <router-link :to="{ name: 'Product', params: { id: prod.id } }">
                 <img
                   :src="BaseUrl + prod.product_image"
                   alt="Product"
-                  class="h-50 w-40 object-cover rounded-t-xl"
+                  class="h-50 w-80 object-cover rounded-t-xl"
                 />
               </router-link>
               <div
-                class="flex justify-center pb-2 justify-items-center items-center text-center"
-              >
+                class="flex justify-center pb-1 justify-items-center items-center text-center">
                 <p class="bold text-primary font-bold" v-if="prod.quantity > 0">
                   In Stock
                 </p>
                 <p class="bold text-danger" v-else>Out Of Stock</p>
               </div>
-              <div class="px-4 py-3 w-72">
+              <div class="px-4 py-2 w-72">
                 <span class="text-gray-400 text-center uppercase text-xs">{{
                   prod.category
                 }}</span>
                 <p
-                  class="text-lg font-bold text-black truncate block capitalize"
-                >
+                  class="text-lg font-bold text-black truncate block capitalize">
                   {{ prod.product_name }}
                 </p>
                 <div class="flex flex-row justify-center items-center">

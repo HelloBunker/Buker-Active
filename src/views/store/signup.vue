@@ -9,7 +9,7 @@
             <div class="w-full bg-secondary rounded-lg   md:mt-0 sm:max-w-md xl:p-0 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-secondary-100 md:text-2xl">
-                        Create An Account
+                        Create an Account
                     </h1>
 
 
@@ -24,14 +24,14 @@
                         <div v-if="!successful">
                             <div>
                                 <label for="first_name" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
-                                    firstname</label>
+                                    First name</label>
                                 <Field type="text" name="first_name"
                                     class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
                                 <ErrorMessage name="first_name" class="text-danger text-sm" />
                             </div>
                             <div>
                                 <label for="last_name" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
-                                    lastname</label>
+                                    Last name</label>
                                 <Field type="text" name="last_name"
                                     class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
                                 <ErrorMessage name="last_name" class="text-danger text-sm" />
@@ -48,7 +48,7 @@
                           
                             <div>
                                 <label for="phone_no" class="block mb-2 text-sm font-medium text-secondary-100 ">Your
-                                    phone </label>
+                                    Phone </label>
                                 <Field type="phone" name="phone_no"
                                     class="bg-gray-50 border border-secondary-100 text-secondary-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
                                    />
@@ -83,7 +83,7 @@
                                                 required="">
                                         </div>
                                         <div class="ml-3 text-sm">
-                                            <label for="terms" class="text-secondary-100">I agree to terms and codition
+                                            <label for="terms" class="text-secondary-100">I agree to terms and condition
                                                 me</label>
                                         </div>
                                     </div>
