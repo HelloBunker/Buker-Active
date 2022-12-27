@@ -98,7 +98,7 @@
                   v-if="prod.quantity > 0"
                     class="text-secondary text-sm bg-primary p-2 rounded"
                     @click="openModal(prod.id)">
-                    Buy Now
+                    Quantity
                   </button>
                   <button
                   v-else
@@ -112,14 +112,13 @@
                     class="modal-overlay"
                     v-if="showModal"
                     @click.self="closeModal">
-                    <div class="modal-content flex justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
+                    <div class="modal-content flex w-40justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
                       <!-- Modal content goes here -->
                       <img
                         :src="BaseUrl + product.product_image"
                         alt="Product"
-                        class="h-50 w-40 object-cover rounded-t-xl"
-                      />
-                      <h2 class="text-2xl font-bold mb-2">
+                        class="h-50 w-40 object-cover rounded-t-xl" />
+                      <h2 class="text-3xl font-bold mb-2">
                         {{ product.product_name }}
                       </h2>
 
@@ -135,18 +134,18 @@
                         <div class="flex">
                           <button
                             @click="increase"
-                            class="bg-green-500 text-secondary p-1"
+                            class="bg-green-500 text-secondary p-2"
                           >
                             +
                           </button>
                           <button
                             @click="decrease"
-                            class="bg-green-500 text-secondary p-1"
+                            class="bg-green-500 text-secondary p-2"
                           >
                             -
                           </button>
                           <input
-                            class="border text-center p-1 w-10"
+                            class="border text-center p-2 w-10"
                             readonly
                             type="number"
                             min="1"
