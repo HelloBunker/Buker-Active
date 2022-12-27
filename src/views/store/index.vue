@@ -9,58 +9,168 @@
       <section class="">
         <div class="">
           <div class="flex flex-col justify-center items-center mb-3">
-
-
-            <div class="flex px-2  flex-row flex-wrap items-center justify-items-center py-3 justify-center">
-              <h3 class="text-secondary-100 lg:text-2xl text-xl  font-bold uppercase my-3">categories</h3>
+            <div
+              class="flex px-2 flex-row flex-wrap items-center justify-items-center py-3 justify-center"
+            >
+              <h3
+                class="text-secondary-100 lg:text-2xl text-xl font-bold uppercase my-3"
+              >
+                categories
+              </h3>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Cereals</button>
-              <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Drinks</button>
-              <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Breverages
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary border border-secondary-100"
+              >
+                Cereals
               </button>
               <button
-                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary  border border-secondary-100">Others</button>
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary border border-secondary-100"
+              >
+                Drinks
+              </button>
+              <button
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary border border-secondary-100"
+              >
+                Breverages
+              </button>
+              <button
+                class="rounded-lg bg-white text-secondary-100 mx-3 px-4 py-2 my-3 hover:border-primary border border-secondary-100"
+              >
+                Others
+              </button>
             </div>
           </div>
-          <h3 class="text-secondary-100 lg:text-2xl text-xl  text-center font-bold uppercase">Products</h3>
+          <h3
+            class="text-secondary-100 lg:text-2xl text-xl text-center font-bold uppercase"
+          >
+            Products
+          </h3>
 
           <section
-            class="w-fit my-3 mx-auto grid grid-cols-1  lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-
-            <div v-for="prod in products.product" :key="prod.id"
-              class="w-72 border shadow-xl rounded-xl duration-500 hover:scale-105 hover:shadow-2xl">
+            class="w-fit contaier my-3 mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
+          >
+            <div
+              v-for="prod in products.product"
+              :key="prod.id"
+              class="w-fit border shadow-xl text-center flex flex-col justify-between items-center rounded-xl duration-500 hover:scale-105 hover:shadow-2xl"
+            >
               <router-link :to="{ name: 'Product', params: { id: prod.id } }">
-                <img :src="BaseUrl + prod.product_image" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                <img
+                  :src="BaseUrl + prod.product_image"
+                  alt="Product"
+                  class="h-50 w-40 object-cover rounded-t-xl"
+                />
               </router-link>
+              <div
+                class="flex justify-center pb-2 justify-items-center items-center text-center"
+              >
+                <p class="bold text-primary font-bold" v-if="prod.quantity > 0">
+                  In Stock
+                </p>
+                <p class="bold text-danger" v-else>Out Of Stock</p>
+              </div>
               <div class="px-4 py-3 w-72">
-                <span class="text-gray-400 mr-3 uppercase text-xs">{{
-                    prod.category
+                <span class="text-gray-400 text-center uppercase text-xs">{{
+                  prod.category
                 }}</span>
-                <p class="text-lg font-bold text-black truncate block capitalize">
+                <p
+                  class="text-lg font-bold text-black truncate block capitalize"
+                >
                   {{ prod.product_name }}
                 </p>
-                <div class="flex items-center">
+                <div class="flex flex-row justify-center items-center">
                   <p class="text-lg font-semibold text-black cursor-auto my-3">
                     &#8358;{{ prod.normal_price }}
                   </p>
                   <del>
-                    <p class="text-sm text-gray-600 cursor-auto ml-2 text-danger">
+                    <p
+                      class="text-sm cursor-auto ml-2 text-danger"
+                      v-if="prod.wholesale_price"
+                    >
                       &#8358;{{ prod.wholesale_price }}
                     </p>
                   </del>
+                </div>
 
-                  <div class="ml-auto">
-                    <button class="hover:shadow-2xl hover:text-green-500" @click="addToCart(prod.id)">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-bag-plus" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                          d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
-                        <path
-                          d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                      </svg>
-                    </button>
+                <div class="grid grid-cols-2">
+                  <button
+                    class="hover:shadow-2xl mx-2 max-w-20 text-secondary p-1 text-sm bg-secondary-100 rounded hover:text-green-500"
+                    @click="addToCart(prod.id)"
+                  >
+                    Add To Cart
+                  </button>
+
+                  <button
+                  v-if="prod.quantity > 0"
+                    class="text-secondary text-sm bg-primary p-2 rounded"
+                    @click="openModal(prod.id)"
+                  >
+                    Buy Now
+                  </button>
+                  <button
+                  v-else
+                    disabled
+                    class="text-secondary text-sm bg-danger p-2 rounded"
+                    @click="openModal(prod.id)"
+                  >
+                    out of stock
+                  </button>
+
+                  <div
+                    class="modal-overlay"
+                    v-if="showModal"
+                    @click.self="closeModal"
+                  >
+                    <div class="modal-content flex justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
+                      <!-- Modal content goes here -->
+                      <img
+                        :src="BaseUrl + product.product_image"
+                        alt="Product"
+                        class="h-50 w-40 object-cover rounded-t-xl"
+                      />
+                      <h2 class="text-2xl font-bold mb-2">
+                        {{ product.product_name }}
+                      </h2>
+
+                      <p class="text-lg mb-2">NGN {{ product.normal_price * counter}}</p>
+                      <p
+                        v-if="product.wholesale_price"
+                        class="text-lg mb-2 text-danger"
+                      >
+                        NGN {{ product.wholesale_price }}
+                      </p>
+
+                      <div class="flex items-center mb-2 justify-between">
+                        <div class="flex">
+                          <button
+                            @click="increase"
+                            class="bg-green-500 text-secondary p-1"
+                          >
+                            +
+                          </button>
+                          <button
+                            @click="decrease"
+                            class="bg-green-500 text-secondary p-1"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="border text-center p-1 w-10"
+                            readonly
+                            type="number"
+                            min="1"
+                            :value="counter"
+                          />
+                        </div>
+                      </div>
+     <button type="button" @click="popupAddToCart(product.id,counter)" class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
+
+                      <button
+                        class="bg-danger text-white px-4 py-2 rounded-full hover:bg-green-600"
+                        @click="closeModal"
+                      >
+                        Close
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -71,32 +181,44 @@
         <!-- pagination -->
         <div class="mx-auto flex justify-center py-16">
           <span
-            class="cursor-pointer pr-5 font-hk font-semibold text-grey-darkest transition-colors hover:text-black">Previous</span>
+            class="cursor-pointer pr-5 font-hk font-semibold text-grey-darkest transition-colors hover:text-black"
+            >Previous</span
+          >
           <span
-            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">1</span>
+            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white"
+            >1</span
+          >
           <span
-            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">2</span>
+            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white"
+            >2</span
+          >
           <span
-            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">3</span>
+            class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white"
+            >3</span
+          >
           <span
-            class="cursor-pointer pl-2 font-hk font-semibold text-grey-darkest transition-colors hover:text-black">Next</span>
+            class="cursor-pointer pl-2 font-hk font-semibold text-grey-darkest transition-colors hover:text-black"
+            >Next</span
+          >
         </div>
       </section>
     </div>
   </main>
   <!-- <Footer /> -->
-
 </template>
 
 <script>
 // import axios from 'axios';
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import ProdService from "@/services/product.service";
 export default {
   // components: { Footer },
   data() {
     return {
       products: [],
+      product: [],
+      counter: 1,
+      showModal: false,
       BaseUrl: "https://test-api.hellobunker.xyz/product/",
       loading: true,
       errored: false,
@@ -119,15 +241,29 @@ export default {
   },
 
   methods: {
+
+    increase(){
+    this.counter++;
+    
+    console.log(this.counter);
+   },
+   decrease(){
+    if(this.counter  < 1){
+    this.counter--;
+    }else{
+      this.counter = 1;
+    }
+   },
+  
     addToCart(item) {
       this.$store
         .dispatch("add_cart", item)
         .then((response) => {
           console.log(response.data);
           Swal.fire({
-            title: 'Success!',
+            title: "Success!",
             text: response.data.message,
-            icon: 'success'
+            icon: "success",
           }).then(() => {
             window.location.reload();
           });
@@ -136,15 +272,62 @@ export default {
         .catch((error) => {
           console.log(error.response.data.message);
           Swal.fire({
-            title: 'Error!',
+            title: "Error!",
             text: error.response.data.message,
-            icon: 'error'
+            icon: "error",
           });
-        })
+        });
     },
-  }
+   popupAddToCart(items,qty){
+// let item = [
 
-}
+// {id:items,qty:qty}
+// ];
+ProdService.add_to_cart(items,qty).then( 
+        (response) =>{
+        console.log(response.data)
+        Swal.fire({
+      title: 'Success!',
+      text: response.data.message,
+      icon: 'success'
+    }).then(() => {
+            window.location.reload();
+          });;
+        // location.reload()
+      } ).catch((error) => {
+        console.log(error.response.data.message);
+         Swal.fire({
+      title: 'Error!',
+      text: error.response.data.message,
+      icon: 'error'
+    });
+      })
+      // console.log(load)
+    
+  },
+
+    openModal(id) {
+      // let param = this.id
+
+      ProdService.get_single_product(id)
+        .then((response) => {
+          console.log(response.data);
+          this.product = response.data.message;
+          console.log(this.product);
+          this.showModal = true;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    },
+
+    closeModal() {
+      this.showModal = false;
+    },
+  },
+};
 </script>
 <script setup>
 import { ref } from "vue";
@@ -171,5 +354,26 @@ const open = ref(false);
     url("~@/assets/banner1.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 640px;
+  padding: 20px;
 }
 </style>

@@ -11,8 +11,8 @@
 
   <div class="mx-5 flex flex-col justify-between pt-16 pb-6 lg:flex-row">
     <div
-      class="flex flex-col-reverse justify-between px-5 sm:flex-row-reverse lg:w-1/2 lg:flex-row"
-      x-data="{ selectedImage: '/assets/img/unlicensed/backpack-2.png' }">
+      class="flex flex-col-reverse justify-between px-5 sm:flex-row-reverse lg:w-1/2 lg:flex-row">
+      
      <div class="relative  w-full pb-5 sm:pb-0">
         <div
           class=" h relative flex items-center justify-center rounded ">
@@ -41,15 +41,15 @@
           <span class="ml-2  text-sm text-secondary-100">( {{product.quantity}} )</span>
         </div>
       </div>
-      <div class="flex pb-5">
-        <p class=" text-secondary-100">Availability:</p>
-        <p class="bold pl-3 text-primary font-bold" v-if="product.quantity > 0">
-          In Stock
-        </p>
-        <p class="bold pl-3 text-danger" v-else>
-         Out Of Stock
-        </p>
-      </div>
+        <div class="flex pb-5">
+          <p class=" text-secondary-100">Availability:</p>
+          <p class="bold pl-3 text-primary font-bold" v-if="product.quantity > 0">
+            In Stock
+          </p>
+          <p class="bold pl-3 text-danger" v-else>
+          Out Of Stock
+          </p>
+        </div>
       <div class="flex justify-between pb-4">
         <!-- <div class="w-1/3 sm:w-1/5">
           <p class=" text-secondary-100">Color</p>
@@ -109,9 +109,7 @@
       <div class="space-x-2 flex pb-8 ">
      <button type="button" @click="addToCart(product.id,counter)" class="inline-block px-6 py-2.5 bg-green-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
 
-          <!-- <button type="button" @click="checkOut"  class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Buy now</button> -->
-        <!-- <a href="cart/index.html" class="btn btn-outline bg-primary text-secondary mr-4 md:mr-6">Add to cart</a> -->
-        <!-- <a href="cart/index.html" class="btn btn-primary">BUY NOW</a> -->
+         
       </div>
      
       <p class=" text-secondary-100">

@@ -16,7 +16,7 @@
             </button>
             
           </div>
- <div class="w-24 ">
+ <div class="w-24 md:w-1/2 lg:hidden block">
               
               <input
                 type="text"
