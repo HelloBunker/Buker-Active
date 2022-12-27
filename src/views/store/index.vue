@@ -87,30 +87,31 @@
                   </del>
                 </div>
 
-                <div class="grid ">
-                 
+                <div class="grid grid-cols-2">
+                  <button
+                    class="hover:shadow-2xl mx-2 max-w-20 text-secondary p-1 text-sm bg-secondary-100 rounded hover:text-green-500"
+                    @click="addToCart(prod.id)">
+                    Add To Cart
+                  </button>
 
                   <button
                   v-if="prod.quantity > 0"
-                    class="text-secondary text-sm bg-primary p-2 rounded-xl"
-                    @click="openModal(prod.id)"
-                  >
-                    Add To Cart
+                    class="text-secondary text-sm bg-primary p-2 rounded"
+                    @click="openModal(prod.id)">
+                    Buy Now
                   </button>
                   <button
                   v-else
                     disabled
                     class="text-secondary text-sm bg-danger p-2 rounded"
-                    @click="openModal(prod.id)"
-                  >
+                    @click="openModal(prod.id)">
                     out of stock
                   </button>
 
                   <div
                     class="modal-overlay"
                     v-if="showModal"
-                    @click.self="closeModal"
-                  >
+                    @click.self="closeModal">
                     <div class="modal-content flex justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
                       <!-- Modal content goes here -->
                       <img
@@ -153,12 +154,11 @@
                           />
                         </div>
                       </div>
-     <button type="button" @click="popupAddToCart(product.id,counter)" class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
+                      <button type="button" @click="popupAddToCart(product.id,counter)" class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add to cart</button>
 
                       <button
                         class="bg-danger text-white px-4 py-2 rounded-full hover:bg-green-600"
-                        @click="closeModal"
-                      >
+                        @click="closeModal">
                         Close
                       </button>
                     </div>
