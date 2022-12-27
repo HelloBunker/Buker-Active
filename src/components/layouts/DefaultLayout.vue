@@ -235,7 +235,7 @@ const navigation = [
   { name: "Shop", href: "/shop" },
   { name: "Contact", href: "/contact" },
   { name: "About", href: "#about" },
-  { name: "Billing", href: "#biling" },
+  // { name: "Billing", href: "#biling" },
 ];
 const Account = [
   { name: "Login", Link: "login" },

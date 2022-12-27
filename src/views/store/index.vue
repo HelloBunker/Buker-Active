@@ -87,20 +87,15 @@
                   </del>
                 </div>
 
-                <div class="grid grid-cols-2">
-                  <button
-                    class="hover:shadow-2xl mx-2 max-w-20 text-secondary p-1 text-sm bg-secondary-100 rounded hover:text-green-500"
-                    @click="addToCart(prod.id)"
-                  >
-                    Add To Cart
-                  </button>
+                <div class="grid ">
+                 
 
                   <button
                   v-if="prod.quantity > 0"
-                    class="text-secondary text-sm bg-primary p-2 rounded"
+                    class="text-secondary text-sm bg-primary p-2 rounded-xl"
                     @click="openModal(prod.id)"
                   >
-                    Buy Now
+                    Add To Cart
                   </button>
                   <button
                   v-else
@@ -260,6 +255,7 @@ export default {
             title: "Success!",
             text: response.data.message,
             icon: "success",
+            confirmButtonColor: '#7DAB2E'
           }).then(() => {
             window.location.reload();
           });
@@ -291,12 +287,18 @@ ProdService.add_to_cart(items,qty).then(
           });;
         // location.reload()
       } ).catch((error) => {
-        console.log(error.response.data.message);
+        console.log(error.response);
+        if(error.response.data.message == "Unauthenticated."){
+
+        
          Swal.fire({
       title: 'Error!',
-      text: error.response.data.message,
-      icon: 'error'
+      text: "LOGIN TO ADD TO CART",
+      icon: 'error',  
+      confirmButtonColor: '#7DAB2E',
+
     });
+  }
       })
       // console.log(load)
     

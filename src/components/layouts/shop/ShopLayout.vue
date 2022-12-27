@@ -6,33 +6,66 @@
          
   
          <!-- mobile -->
-          <div class="flex justify-between flex-row lg:hidden">
+          <div class="inline-flex justify-between flex-row lg:hidden">
   
            <!-- mobile nav open icon -->
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-1 text-gray-700"
               @click="mobileMenuOpen = true">
               <span class="sr-only">Open main menu</span>
               <Bars3Icon class="h-6 w-6" aria-hidden="true" />
             </button>
             
           </div>
- <div class="w-24 md:w-1/2 lg:hidden block">
-              
-              <input
-                type="text"
-                v-model="searchTerm"
-                class="block   w-full  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="search"
-              />
-            </div>
+
           <!-- mobile persion and cart icon -->
-          <div>
+          <div class="flex justify-end items-center "> 
+            <span class=" px-6 inline-flex items-center justify-center lg:hidden">
+            
+              
+  <div class=" ">
+    <button @click="showInput = !showInput" class="h-5 w-5 ">
+      <svg
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </button>
+    <div v-if="showInput" class="absolute z-20 mt-2  left-0 rounded-md shadow-sm">
+      <form @submit.prevent="handleSearch">
+        <input
+          v-model="searchTerm"
+          type="search"
+          class="form-input py-2 px-4 block w-full leading-5 rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          placeholder="Search"
+        />
+      </form>
+      <div
+        v-if="showDropdown"
+        class="mt-1 rounded-md bg-white shadow-xs absolute z-10 w-full"
+      >
+        <ul v-if="searchResults.length > 0" class="py-2">
+          <li v-for="result in searchResults" :key="result.id" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+            {{ result.title }}
+          </li>
+        </ul>
+        <div v-else class="px-4 py-2 text-sm leading-5 text-gray-700">No results found</div>
+      </div>
+    </div>
+  </div>
+
+        
+            </span>
             <!-- mobile person -->
           <span class="lg:hidden">
-                  <Menu as="div" class="relative  inline-block text-left">
+                  <Menu as="div" class="relative px-4 inline-block text-left">
                     <div>
                       <MenuButton
-                        class="-m-2.5 inline-flex w-full justify-center font-semibold capitalize  p-2.5 text-gray-900 hover:text-gray-900">
+                        class="-m-2.5 inline-flex w-full justify-center font-semibold capitalize  text-gray-900 hover:text-gray-900">
                         <i class="bi bi-person-circle text-xl"></i>
                         <!-- <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> -->
                       </MenuButton>
@@ -52,7 +85,7 @@
                       leave-active-class="transition ease-in duration-75"
                       leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                       <MenuItems
-                        class="z-20 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        class="z-20 absolute mt-2 w-20 origin-top-left left-1/2 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div class="py-1" v-if="currentUser">
                           <form @submit.prevent="Logout">
                             <MenuItem v-slot="{ active }">
@@ -98,7 +131,7 @@
          <span class="lg:hidden">
           <router-link :to="{ name: 'Cart' }">
             <button
-              class="inline-flex justify-center items-center px-2 rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+              class="  inline-flex  justify-start items-center hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
               <i class="bi bi-cart text-xl mb-1"></i>
               <span class="px-2 rounded-lg bg-primary text-xs text-secondary ml-[-10px] align-top">{{ cartcount
               }}</span>
@@ -109,6 +142,12 @@
 
           <!-- desktop section -->
           <div class="hidden lg:flex lg:min-w-0 items-center lg:flex-1 lg:justify-between lg:gap-x-12">
+<div class="flex">
+                <a href="#" class="-m-1.5 p-1.5">
+                  <span class="sr-only">Your Company</span>
+                  <img class="h-8" src="@/assets/logo1.png" alt="" />
+                </a>
+              </div>
             <!-- dektop links -->
             <router-link v-for="item in navigation" :key="item.name" :to="item.href"
               class="font-semibold text-gray-900 hover:text-gray-900">{{ item.name }}
@@ -126,6 +165,8 @@
             </div>
             <!-- dsktop cart -->
         <div class="hidden lg:block">
+
+          
               <router-link :to="{ name: 'Cart' }">
                 <button
                   class="flex justify-between items-center rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
@@ -207,12 +248,12 @@
         <Dialog as="div" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
           <DialogPanel focus="true" class="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
             <div class="flex h-9 items-center justify-between">
-              <!-- <div class="flex">
+              <div class="flex">
                 <a href="#" class="-m-1.5 p-1.5">
                   <span class="sr-only">Your Company</span>
-                  <img class="h-8" src="../../assets/logo1.png" alt="" />
+                  <img class="h-8" src="@/assets/logo1.png" alt="" />
                 </a>
-              </div> -->
+              </div>
               <div class="flex">
                 <button type="button"
                   class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -291,6 +332,10 @@
       return {
         scrollPosition: null,
         cartcount: 0,
+        searchTerm: '',
+      searchResults: [],
+      showInput: false,
+      showDropdown: false,
       }
     },
     computed: {

@@ -342,11 +342,17 @@ export default {
         // location.reload();
       } ).catch((error) => {
         console.log(error.response.data.message);
-        Swal.fire({
-      title: 'Error!',
-      text: error.response.data.message,
-      icon: 'error'
-    });
+        if(error.response.data.message == "Unauthenticated."){
+
+        
+Swal.fire({
+title: 'Error!',
+text: "LOGIN TO ADD TO CART",
+icon: 'error',  
+confirmButtonColor: '#7DAB2E',
+
+});
+}
       })
     }
   }
