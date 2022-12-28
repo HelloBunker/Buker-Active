@@ -1,5 +1,5 @@
 <template>
-    <div class="nav px-6 py-4 lg:px-8 top-0 z-10 sticky md:relative animated"
+    <div class="nav px-6 py-4 lg:px-8 top-0 z-10  sticky md:relative animated"
       :class="{ change_color: scrollPosition > 50 }">
       <div>
         <nav class="flex h-9 items-center justify-between" aria-label="Global">
