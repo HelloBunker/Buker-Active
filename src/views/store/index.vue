@@ -112,7 +112,7 @@
                     class="modal-overlay"
                     v-if="showModal"
                     @click.self="closeModal">
-                    <div class="modal-content flex w-40justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
+                    <div class="modal-content flex lg:w-80 w-40 container justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
                       <!-- Modal content goes here -->
                       <img
                         :src="BaseUrl + product.product_image"
@@ -370,7 +370,7 @@ const open = ref(false);
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 640px;
+  max-width: 240px;
   padding: 20px;
 }
 </style>
