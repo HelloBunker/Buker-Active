@@ -4,7 +4,7 @@
         class=" bg-secondary text-gray-100 py-3 6 px-6 md:shadow-none sm:shadow md:flex justify-between items-center top-0 z-50  sticky md:relative">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <router-link to="/" class="flex items-center">
-                <img src="@/assets/logo1.png" class="mr-3 h-6 sm:h-12" alt=" Logo">
+                <img src="@/assets/logo1.png" class="mr-3 h-4 sm:h-12" alt=" Logo">
             </router-link>
             <div class="md:hidden ml-3 inline-flex justify-center items-center">
                 <router-link to="cart">
