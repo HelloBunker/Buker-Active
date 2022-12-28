@@ -1,48 +1,14 @@
 <template>
-  <main class="lg:grid-cols-2 grid gap-2 bg-gray-100 mb-6 border-t-2">
-    <div class="grid lg:grid-cols-2  my-6">
-      
-      <div class="flex flex-col justify-center items-center px-2 py-3 text-center">
-        <img src="@/assets/phoneicon.svg" class="w-10 h-10" />
-        <p class="text-center font-bold text-xl">Phone</p>
-        <p class="text-center text-sm text-secondary-100">
-          +234 701-0287-897 <br />
-          +234-80-992244-21
-        </p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center px-2 py-3 text-center">
-        <img src="@/assets/mailicons.svg" class="w-10 h-10" />
-        <p class="text-center text-secondary-100 font-bold text-xl">Mail Us</p>
-        <p class="text-center text-sm text-secondary-100">
-          info@hellobunker.com
-        </p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center px-3 py-3 text-center">
-        <img src="@/assets/location.svg" class="w-10 h-10" />
-        <p class="text-center text-primart-100 font-bold text-xl">Address</p>
-        <p class="text-center text-sm text-secondary-100">
-          11 Adetoun Close, Off College Road, Ogba, Lagos state
-        </p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center px-3 py-3 text-center">
-        <img src="@/assets/fastdelivery.svg" class="w-10 h-10" />
-        <p class="text-center text-secondary-100 font-bold text-xl">
-          Delivery Hours
-        </p>
-        <p class="text-center text-sm text-secondary-100">Monday to Saturday: 6am - 10pm <br>
-        Sunday: 12pm - 10pm</p>
-      </div>
-    </div>
-
-    <div class="px-3 shadow-2xl">
-      <h3 class="text-secondary-100 text-xl font-bold text-center">
-        contact us
-      </h3>
-      <ContactForm @on-submit="createUser" />
-    </div>
+  <main class=" grid  bg-gray-100 mb-6 container">
+    <iframe
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15852.252278391283!2d3.3146443963050922!3d6.639090301909926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b915bca683fff%3A0x260ff568c8ea166c!2sBunker!5e0!3m2!1sen!2sng!4v1672213871363!5m2!1sen!2sng" 
+     width="100%"
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </main>
 </template>
 

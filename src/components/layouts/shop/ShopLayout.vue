@@ -311,6 +311,7 @@
   
   const navigation = [
     { name: "Home", href: "/home" },
+    { name: "Shop", href: "/shop" },
     { name: "Contact", href: "/contact" },
     { name: "FAQ", href: "" },
    

@@ -2,7 +2,7 @@
     <Header />
     <section>
         <form @submit.prevent="Pay">
-            <div class="flex  md:flex-row flex-col justify-between m-2 mb-10 ">
+            <div class="flex  md:flex-row flex-col justify-between px-2 mb-10 lg:space-x-2.5 gap-x-3 ">
                 <div class="md:w-2/5 w-full">
                     <h2 class="font-bold text-primary text-center text-2xl mb-4">Delivery Details</h2>
 
@@ -33,12 +33,12 @@
 
                 </div>
 
-                <div class="w-full md:w-2/5 flex flex-col  overflow-x-auto">
+                <div class="w-full md:w-2/5 flex flex-col md:my-16 overflow-x-auto">
 
-                    <h2 class="font-bold text-primary text-center text-2xl mb-4">product ordered</h2>
+                    <!-- <h2 class="font-bold text-primary text-center text-2xl mb-4">product ordered</h2> -->
 
-                    <table v-if="cart.length > 0" class="w-full  text-sm text-left text-secondary-100 o">
-                        <thead class="text-xs text-secondary-100 uppercase bg-seondary ">
+                    <table v-if="cart.length > 0" class="w-full shadow border- bg-gray-200 text-sm text-left text-secondary-100 ">
+                        <thead class="text-xs text-secondary-100 uppercase bg-secondary ">
                             <tr>
 
                                 <th scope="col" class="py-3 px-6">
@@ -57,19 +57,19 @@
                             </tr>
                         </thead>
                         <tbody >
-                            <tr class="bg-secondary border-b " v-for="item in cart" :key="item.id">
+                            <tr class="bg-secondary  " v-for="item in cart" :key="item.id">
 
-                                <td class="py-4 px-6 font-semibold ">
+                                <td class="py-4 px-6 font-semibold border-2">
                                     {{ item.product_name }}
                                 </td>
-                                <td class="py-4 px-6 font-semibold ">
+                                <td class="py-4 px-6 font-semibold border-2">
                                     {{ item.quantity }}
                                 </td>
 
-                                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                <td class="py-4 px-6 font-semibold text-gray-900 border-2">
                                     {{ item.price }}
                                 </td>
-                                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                <td class="py-4 px-6 font-semibold text-gray-900 border-2">
                                     {{ item.quantity * item.price }}
                                 </td>
 
@@ -98,7 +98,7 @@
 
 
                     <div class="flex justify-end">
-                        <span class="p-3 text-primary text-lg"> Delivery Fee: <span class="text-secondary-100">
+                        <span class="p-3 text-primary lg:text-lg text-sm"> Delivery Fee: <span class="text-secondary-100">
                                 free</span>
                         </span><br>
                     </div>
@@ -107,11 +107,11 @@
                     </span><br>
                 </div> -->
                     <div class="flex justify-end">
-                        <span class="p-3 text-primary text-lg"> Total: <span class="text-secondary-100">NGN
+                        <span class="p-3 text-primary lg:text-lg text-sm"> Total: <span class="text-secondary-100">NGN
                                 {{ total }}</span>
                         </span><br>
                     </div>
-                    <h2 class="text-secondary-100 text-lg underlined text-right text-bold mb-3">payment method</h2>
+                    <!-- <h2 class="text-secondary-100 text-lg underlined text-right text-bold mb-3">payment method</h2> -->
                     <div class="flex justify-end mb-3">
 
                         <!-- <div class="flex items-center px-4 rounded border border-primary-100 mx-3">
@@ -131,7 +131,7 @@
 
                     </div>
                     <button
-                        class="bg-primary border border-secondary-100 p-3 rounded-lg text-secondary hover:bg-primary-100 ">Make
+                        class="bg-primary  ml-auto border-secondary-100 p-3 rounded-lg lg:w-1/4 md:w-1/4 sm:w-2/4 text-secondary hover:bg-primary-100 ">Make
                         Order</button>
 
 
