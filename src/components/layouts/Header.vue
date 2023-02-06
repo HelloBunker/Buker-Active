@@ -1,7 +1,7 @@
 <template>
 
   <main>
-    <div class="container grid md:grid-cols-2 grid-cols-1 gap-4  max-w-100 mt-40 mx-20">
+    <div class="container grid md:grid-cols-2 grid-cols-1 gap-1  max-w-100 md:mt-40 md:mx-20">
       <div class="flex  center-item flex-col justify-center  my-2 px-10 lg:mx-6">
         <p class="   text-5xl font-bold tracking-tight   lg:text-5xl  ">RETAILING FOODSTUFF AT <span class="text-primary">WHOLESALE PRICES</span></p>
 
@@ -20,8 +20,8 @@
       </div>
 
 
-      <div>
-        <img src="../../assets/grocimg.png" />
+      <div class="">
+        <img src="../../assets/combo.png" />
       </div>
     </div>
   </main>
