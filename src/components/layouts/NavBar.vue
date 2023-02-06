@@ -1,11 +1,11 @@
 <template>
-  <div class="nav px-6 py-4 lg:px-8  top-0 z-20  sticky md:relative animated"
+  <div class="nav px-6  py-4 lg:px-8  top-0 z-20  sticky md:relative animated"
     :class="{ 'change_color': scrollPosition > 50 }">
     <div>
       <nav class="flex h-9 items-center justify-between " aria-label="Global">
         <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
+            <span class="sr-only">Bunker</span>
             <img class="h-8" src="../../assets/logo1.png" alt="" />
           </a>
         </div>

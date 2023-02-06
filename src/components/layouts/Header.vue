@@ -1,8 +1,8 @@
 <template>
 
   <main>
-    <div class="grid md:grid-cols-2 grid-cols-1 gap-4  max-w-100 my-8  ">
-      <div class="flex  center-item flex-col justify-center  my-2 px-6 lg:mx-6">
+    <div class="container grid md:grid-cols-2 grid-cols-1 gap-4  max-w-100 mt-40 mx-20">
+      <div class="flex  center-item flex-col justify-center  my-2 px-10 lg:mx-6">
         <p class="   text-5xl font-bold tracking-tight   lg:text-5xl  ">RETAILING FOODSTUFF AT <span class="text-primary">WHOLESALE PRICES</span></p>
 
         <p class=" my-3 text-xl lg:text-3xl font-bold capitalize text-secondary-100 tracking-tight">
@@ -21,7 +21,7 @@
 
 
       <div>
-        <img src="../../assets/heroimg.svg" />
+        <img src="../../assets/grocimg.png" />
       </div>
     </div>
   </main>
