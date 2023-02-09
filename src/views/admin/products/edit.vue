@@ -176,7 +176,7 @@ export default {
       // category: "",
       // image: "",
       errored: null,
-      BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      BaseUrl: "https://bunker-api.hellobunker.com//product/",
 
     };
   },

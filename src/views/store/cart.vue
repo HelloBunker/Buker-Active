@@ -91,7 +91,7 @@ export default {
   setup() {
     const cart = ref({});
 
-    const BaseUrl = ref("https://test-api.hellobunker.xyz/product/");
+    const BaseUrl = ref("https://bunker-api.hellobunker.com//product/");
 
 
     const router = useRouter();

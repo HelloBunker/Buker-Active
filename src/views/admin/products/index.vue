@@ -111,7 +111,7 @@ export default {
       products: [],
       loading: true,
       errored: false,
-      BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      BaseUrl: "https://bunker-api.hellobunker.com//product/",
       searchTerm: '',
     };
   },

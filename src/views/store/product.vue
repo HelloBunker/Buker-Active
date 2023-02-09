@@ -147,7 +147,7 @@ export default {
        loading:true,
        errored:false,
        counter: 1,
-       BaseUrl: "https://test-api.hellobunker.xyz/product/",
+       BaseUrl: "https://bunker-api.hellobunker.com//product/",
       }
     },
     

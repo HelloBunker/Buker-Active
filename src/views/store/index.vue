@@ -209,7 +209,7 @@ export default {
       product: [],
       counter: 1,
       showModal: false,
-      BaseUrl: "https://test-api.hellobunker.xyz/product/",
+      BaseUrl: "https://bunker-api.hellobunker.com//product/",
       loading: true,
       errored: false,
       message: [],

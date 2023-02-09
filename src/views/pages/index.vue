@@ -306,7 +306,7 @@ export default {
   data() {
     return {
       products: [],
-     BaseUrl: "https://test-api.hellobunker.xyz/product/",
+     BaseUrl: "https://bunker-api.hellobunker.com//product/",
       loading: true,
       errored: false,
       message:[],

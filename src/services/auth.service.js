@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-const API_URL = "https://test-api.hellobunker.xyz/api/user/";
-const API_ADMIN = "https://test-api.hellobunker.xyz/api/admin/";
+const API_URL = "https://bunker-api.hellobunker.com/api/user/";
+const API_ADMIN = "https://bunker-api.hellobunker.com/api/admin/";
 
 class AuthService {
   async login(user) {
