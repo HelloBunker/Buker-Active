@@ -169,7 +169,7 @@ children: [
   // Admin produccts
   {
     path:'/admin',
-    redirect: '/admin_dashbord',
+    redirect: '/admin_dashboard',
     name:'AdminLayout',
     component:AdminLayout,
     children: [
