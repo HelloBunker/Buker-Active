@@ -167,14 +167,7 @@ export default {
       loading: false,
       message: "",
       category: [],
-      // product_name: "",
-      // wholesale_price: "",
-      // normal_price: "",
-      // desc: "",
-      // qty: "",
-      // product_unit: "",
-      // category: "",
-      // image: "",
+      
       errored: null,
       BaseUrl: "https://bunker-api.hellobunker.com//product/",
 

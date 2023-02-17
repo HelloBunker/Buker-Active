@@ -142,9 +142,17 @@ class ProductService {
   get_all_category() {
     return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
   }
+  // get_single_category(category_id) {
+  //   return axios.get(API_ADMIN + "single_product/" + category_id , {headers:  adminAuthHeader()});
+  // }
   // get_all_orders() {
   //   return axios.get(API_ADMIN + "all_category", { headers:  adminAuthHeader() });
   // }
+  delete_category(id) {
+    return axios.delete(API_ADMIN + "delete_category" + id, {
+      headers:  adminAuthHeader(),
+    });
+  }
 }
 
 export default new ProductService();
