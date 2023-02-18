@@ -8,7 +8,7 @@
 
 
 
-      <div class="w-screen px-7 md:py-4 py-2">
+      <div class=" px-7 md:py-4 py-2">
         <h3 class="text-lg text-primary">Shop</h3>
         <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -50,7 +50,7 @@
           <h3 class='text-sm  text-primary font-bold'>Bunker Shop Items</h3>
           <small class="text-secondary-100 italic text-xs">20 products</small>
         </div>
-        <div class="md:flex-row lg:flex flex-col justify-start lg:px-20 hidden ">
+        <div class="md:flex-row lg:flex flex-col justify-start  hidden ">
           <div class="flex flex-row justify-center items-center">
             <span class="text-primary text-xs font-bold">Per Page:</span>
 
