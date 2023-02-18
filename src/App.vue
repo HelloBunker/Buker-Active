@@ -10,9 +10,9 @@
 #app{
   max-width:100vw;
   box-sizing:border-box;
-  margin:0px;
-  // padding:0px 10px;
-  font-family:Arial, Helvetica, sans-serif;
+  margin:0;
+  padding:0;
+  font-family:Quicksand;
 
 
 }
