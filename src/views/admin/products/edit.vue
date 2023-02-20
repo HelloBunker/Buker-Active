@@ -232,7 +232,7 @@ let ProdId = this.id;
         console.log(this.errored);
       }else{
         this.message = response.data.message;
-        console.log(this.message)
+        console.log(response)
       };
 
        }).catch((error) => {

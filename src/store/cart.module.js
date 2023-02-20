@@ -74,12 +74,12 @@ checkOut({commit}){
 Pay({commit},details){
   return productService.Pay(details)
   .then(
-    data => {
-      commit('Pay', data);
-      return Promise.resolve(data);
+    details => {
+      commit('Pay', details);
+      return Promise.resolve(details);
     },
     error => {
-      return Promise.reject(data);
+      return Promise.reject(details);
     }
   )  
 }
@@ -108,8 +108,8 @@ Pay({commit},details){
       CheckOut(state,data){
         console.log(data);
       },
-      Pay(state,data){
-        console.log(data);
+      Pay(state,details){
+        console.log(details);
       }
   }
   

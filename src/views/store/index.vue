@@ -81,13 +81,19 @@
             class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
             <div class="relative w-full h-full max-w-md md:h-auto">
               <!--content-->
-              <div
-                class="relative bg-white rounded-lg shadow ">
+              <div class="relative bg-white rounded-lg shadow ">
                 <!--header-->
-                <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" @click="toggleFilter()">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Close modal</span>
-            </button>
+                <button type="button"
+                  class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                  @click="toggleFilter()">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
                 <section class="grid p-7  justify-between  ">
                   <div class="">
                     <div class="mb-4">
@@ -216,7 +222,7 @@
 
 
 
-                  
+
 
 
 
@@ -264,7 +270,7 @@
 
 
 
-    <section class="grid p-7 my-7 lg:grid-cols-3 justify-between  ">
+    <section class="lg:grid p-7 my-7 lg:grid-cols-4 justify-between  ">
       <div class="lg:col-span-1  lg:block hidden">
         <div class="mb-4">
 
@@ -386,8 +392,80 @@
 
 
 
+      <div
+        class="lg:col-span-3  grid md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-10  lg:mx-0 mx-auto md:mx-0 ">
+       
+        <div v-for="prod in products.product" :key="prod.id" class="w-52 mx-auto bg-secondary  drop-shadow-md rounded-lg">
+          <router-link :to="{ name: 'Product', params: { id: prod.id } }">
+            <img class="object-cover rounded-tl-lg rounded-tr-lg" :src="BaseUrl + prod.product_image" alt="Product" />
+          </router-link>
+          <div class="px-0 py-1 space-y-2">
+            <h3 class="text-sm">{{ prod.product_name }}</h3>
+            <div class="space-x-2">
+              <span class="px-3 py-0.5 border border-blue-500 text-xs text-blue-500">Free Ship</span>
+              <span class="px-3 py-0.5 border border-primary text-xs text-primary" v-if="prod.quantity > 0">In
+                Stock</span>
+              <span class="px-3 py-0.5 border border-danger text-xs text-danger" v-if="prod.quantity < 1">Out Of
+                Stock</span>
+            </div>
+            <p class="space-x-2">
+              <span class="text-lg font-semibold"> &#8358;{{ prod.normal_price }}</span>
+              <!-- <span class="text-sm line-through text-gray-500">$1000</span> -->
+              <!-- <span class="text-sm text-red-700">40% off</span> -->
+            </p>
+            <div class="flex justify-between items-center pt-3 pb-2">
+              <a href="#"
+              v-if="prod.quantity > 0"
+                class="px-3 py-2 bg-primary hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
+                @click="addToCart(prod.id)">
+                Add to Cart</a>
 
-      <div class="lg:col-span-2 bg-green-100">products</div>
+              <a href="#" @click="openModal(prod.id)"
+                class="px-3 py-2 bg-secondary-100 hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
+                v-if="prod.quantity > 0">
+                Quantity</a>
+              <a href="#"
+                class="px-3 py-2 bg-danger hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
+                v-if="prod.quantity < 1">
+                Out of stock</a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-overlay" v-if="showModal" @click.self="closeModal">
+          <div
+            class="modal-content flex lg:w-80 w-40 container justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
+
+            <img :src="BaseUrl + product.product_image" alt="Product" class="h-50 w-40 object-cover rounded-t-xl" />
+            <h2 class="text-3xl font-bold mb-2">
+              {{ product.product_name }}
+            </h2>
+
+            <p class="text-lg mb-2">NGN {{ product.normal_price * counter }}</p>
+            <p v-if="product.wholesale_price" class="text-lg mb-2 text-danger">
+              NGN {{ product.wholesale_price }}
+            </p>
+
+            <div class="flex items-center mb-2 justify-between">
+              <div class="flex">
+                <button @click="increase" class="bg-green-500 text-secondary p-2">
+                  +
+                </button>
+                <button @click="decrease" class="bg-green-500 text-secondary p-2">
+                  -
+                </button>
+                <input class="border text-center p-2 w-10" readonly type="number" min="1" :value="counter" />
+              </div>
+            </div>
+            <button type="button" @click="popupAddToCart(product.id, counter)"
+              class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add
+              to cart</button>
+
+            <button class="bg-danger text-white px-4 py-2 rounded-full hover:bg-green-600" @click="closeModal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -410,7 +488,7 @@ export default {
       product: [],
       counter: 1,
       showModal: false,
-      BaseUrl: "https://bunker-api.hellobunker.com//product/",
+      BaseUrl: "https://bunker-api.hellobunker.com/product/",
       loading: true,
       errored: false,
       message: [],
@@ -582,4 +660,5 @@ const open = ref(false);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 240px;
   padding: 20px;
-}</style>
+}
+</style>

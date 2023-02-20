@@ -57,13 +57,15 @@ class ProductService {
   }
 
   Pay(details){
-    return axios.post(API_URL + "add_order", 
+    // console.log(details[0].reciever);
+
+    return axios.post(API_URL + "pay", 
     
     {
-      payment_method: details.payment_method,
-      reciever:details.name,
-      phone_no:details.phone_no,
-      address:details.address
+      payment_method: details[0].payment_method,
+      receiver:details[0].reciever,
+      phone_no:details[0].phone_no,
+      address:details[0].address
     }
     , {headers:authHeader()});
   }
@@ -108,6 +110,7 @@ class ProductService {
     );
   }
   update_product(prods) {
+    console.log( prods.product_name)
     return axios.post(
       API_ADMIN + "product_update/"+ prods.id,
       {
