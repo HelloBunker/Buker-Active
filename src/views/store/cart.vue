@@ -17,7 +17,7 @@
             <div class="w-full">
               <div class="md:grid gap-2">
                 <div class="col-span-2 p-5">
-                  <h1 class="text-xl font-medium">Shopping Cart</h1>
+                  <h1 class="text-xl font-medium">My Shopping Basket</h1>
 
                   <div
                     v-if="cart.length > 0"
@@ -103,7 +103,7 @@
                     <router-link to="/shop">
                       <div class="flex items-center">
                         <i class="fa fa-arrow-left text-sm pr-2"></i>
-                        <span class="text-md font-medium text-blue-500"
+                        <span class="text-md font-medium text-red-500"
                           >Continue Shopping</span
                         >
                       </div>
@@ -123,7 +123,7 @@
                    
                   >
                   <button
-                   class="h-12 w-full bg-blue-500 rounded focus:outline-none text-white hover:bg-blue-600">
+                   class="h-12 w-full px-20 bg-green-500 rounded focus:outline-none text-white hover:bg-gray-900">
 
                     Check Out
                     </button>

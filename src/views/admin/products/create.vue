@@ -35,7 +35,7 @@
             >
               <div class="flex-shrink max-w-full px-4 w-full mb-4">
                 <label for="product_name" class="inline-block mb-2"
-                  >Project Name</label
+                  >Product Name</label
                 >
                 <input
                   type="text"
@@ -45,7 +45,7 @@
               </div>
               <div class="flex-shrink max-w-full px-4 w-1/2 mb-4">
                 <label for="wholesale_price" class="inline-block mb-2"
-                  >Product cost price</label
+                  >Product discount price</label
                 >
                 <input
                   type="number" required
@@ -55,7 +55,7 @@
               </div>
               <div class="flex-shrink max-w-full px-4 w-1/2 mb-4">
                 <label for="normal_price" class="inline-block mb-2"
-                  >Product selling Price</label
+                  >Product Normal Price</label
                 >
                 <input
                   type="number" required
