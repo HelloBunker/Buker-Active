@@ -110,7 +110,6 @@ class ProductService {
     );
   }
   update_product(prods) {
-    console.log( prods.product_name)
     return axios.post(
       API_ADMIN + "product_update/"+ prods.id,
       {
@@ -119,9 +118,9 @@ class ProductService {
         wholesale_price: prods.wholesale_price.toString(),
         // description: prods.description.toString(),
         product_unit: prods.product_unit.toString(),
-        category: prods.category.toString(),
+        // category: prods.category.toString(),
         quantity: prods.quantity.toString(),
-        product_image: prods.product_image.toString(),
+        // product_image: prods.product_image.toString(),
       },
       { headers:  adminAuthHeader() }
     );
