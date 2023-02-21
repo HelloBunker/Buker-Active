@@ -393,7 +393,7 @@
 
 
       <div
-        class="lg:col-span-3  grid md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-10  lg:mx-0 mx-auto md:mx-0 ">
+        class="lg:col-span-3  grid md:grid-cols-3 lg:grid-cols-4 gap-3 gap-y-10  lg:mx-0 mx-auto md:mx-0 ">
        
         <div v-for="prod in products.product" :key="prod.id" class="w-52 mx-auto bg-secondary  drop-shadow-md rounded-lg">
           <router-link :to="{ name: 'Product', params: { id: prod.id } }">

@@ -6,7 +6,7 @@
         <b
           class="uppercase text-secondary-100 lg:text-xl text-sm border border-secondary-100 font-extrabold lg:p-6 p-2"
         >
-          &#60; products</b
+          Products</b
         >
         <b class="uppercase text-primary lg:text-xl text-sm lg:p-6 p-2">
           All products</b
@@ -19,7 +19,7 @@
             class="flex absolute inset-y-0 px-6 left-0 items-center pl-3 pointer-events-none"
           >
             <svg
-              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              class="w-10 h-6  text-gray-500 dark:text-gray-400"
               aria-hidden="true"
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -36,7 +36,7 @@
             type="text"
             v-model="searchTerm"
             class="block p-2 py-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-full border border-secondary-100 border-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Search..."
+            placeholder="Search Product..."
           />
         </div>
         <div class="">

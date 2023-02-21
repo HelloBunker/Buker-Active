@@ -132,8 +132,7 @@
 
                 </div>
                 <button
-                    class="bg-primary  ml-auto border-secondary-100 p-3 rounded-lg lg:w-1/4 md:w-1/4 sm:w-2/4 text-secondary hover:bg-primary-100 ">Make
-                    Order</button>
+                    class="bg-primary  ml-auto border-secondary-100 p-3 rounded-lg lg:w-1/4 md:w-1/4 sm:w-2/4 text-secondary hover:bg-primary-100 ">Place Order </button>
 
 
             </div>
@@ -197,18 +196,18 @@ export default {
                     // this.cart = response.data.data;
                     // console.log(this.cart)
                     Swal.fire({
-                        title: "Message!",
+                        title: "Order Placed",
                         text: response.data.message,
                         icon: "success",
                         confirmButtonColor: '#7DAB2E'
                     }).then(() => {
 
                       Swal.fire({
-                            title: 'Do you want to go to Orders or Continue shopping',
+                            title: 'See Orders History or Continue shopping',
                             showDenyButton: true,
-                            confirmButtonText: `orders`,
+                            confirmButtonText: `My Orders`,
                             confirmButtonColor: '#7DAB2E',
-                            denyButtonText: `continue shopping`,
+                            denyButtonText: `Continue shopping`,
                         }).then((result) => {
 
                         if (result.isConfirmed) {
