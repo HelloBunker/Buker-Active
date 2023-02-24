@@ -42,7 +42,7 @@
                             <MenuItem v-slot="{ active }">
                             <button type="submit" :class="[
                               active
-                                ? 'bg-gray-100 text-primary'
+                                ? 'bg-gray-100 text-primary-100'
                                 : 'text-gray-700',
                               'block w-full px-4 py-2 text-left text-sm',
                             ]">
@@ -53,7 +53,7 @@
                             <MenuItem v-slot="{ active }">
                             <router-link to="/profile" :class="[
                               active
-                                ? 'bg-gray-100  text-primary'
+                                ? 'bg-gray-100  text-primary-100'
                                 : 'text-gray-700',
                               'block px-4 py-2 text-sm',
                             ]">
@@ -79,9 +79,9 @@
                 </span>
           <router-link :to="{ name: 'Cart' }">
             <button
-              class="inline-flex justify-center items-center px-2 rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+              class="inline-flex justify-center items-center px-2 rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-100">
               <i class="bi bi-cart text-xl mb-1"></i>
-              <span class="px-2 rounded-lg bg-primary text-xs text-secondary ml-[-10px] align-top">{{ cartcount
+              <span class="px-2 rounded-lg bg-primary-100 text-xs text-secondary-50 ml-[-10px] align-top">{{ cartcount
               }}</span>
             </button>
           </router-link>
@@ -162,14 +162,14 @@
         </div>
 
         <div class="hidden lg:flex lg:min-w-0 items-center lg:flex-1 lg:justify-end">
-          <button class="bg-green-500 text-secondary px-4 py-2 mx-6 rounded-lg hover:bg-secondary-100">Become A Member</button>
+          <button class="bg-primary-100  text-secondary-50 px-4 py-2 mx-6 rounded-lg hover:bg-secondary-100">Become A Member</button>
 
           <div class="hidden lg:block">
             <router-link :to="{ name: 'Cart' }">
               <button
-                class="inline-flex justify-center items-center rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+                class="inline-flex justify-center items-center rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-100">
                 <i class="bi bi-cart text-2xl mb-1"></i>
-                <span class="px-2 rounded-lg bg-primary text-xs text-secondary ml-[-10px] align-top">{{ cartcount
+                <span class="px-2 rounded-lg bg-primary-100 text-xs text-secondary-50 ml-[-10px] align-top">{{ cartcount
                 }}</span>
               </button>
             </router-link>
@@ -203,7 +203,7 @@
                   }}</a>
               </div>
               <div class="py-6">
-                             <button class="bg-green-500 text-secondary px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
+                             <button class="bg-primary-100  text-secondary-50 px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
 
               </div>
             </div>
@@ -219,16 +219,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import Footer from "@/components/layouts/Footer.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
-import { useStore } from "vuex";
-import { computed } from "vue";
 
-const store = useStore();
 
 const navigation = [
   { name: "Home", href: "/home" },
@@ -272,14 +269,7 @@ export default {
     }
   },
 
-  created() {
-    //  const savedcart = localStorage.getItem('cart');
-    // if (this.currentUser ) {
-    //   console.log(this.cartCount);
-    //   this.cartcount = this.cartCount; 
-    //   console.log(this.cartcount)
-    // }
-  },
+
 
  created() {
     window.addEventListener("scroll", this.updateScroll);

@@ -9,12 +9,12 @@
 
 
       <div class=" px-7 md:py-4 py-2">
-        <h3 class="text-lg text-primary">Shop</h3>
+        <h3 class="text-lg text-primary-100">Shop</h3>
         <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
               <router-link :to="{ name: 'Home' }"
-                class="inline-flex items-center text-xs font-medium text-gray-700 hover:text-primary ">
+                class="inline-flex items-center text-xs font-medium text-gray-700 hover:text-primary-100 ">
                 <svg aria-hidden="true" class="w-2 h-2 mr-2" fill="currentColor" viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -47,12 +47,12 @@
 
       <div class="lg:row-span-1  px-7  lg:pt-24 py-5 flex flex-row  justify-between md:items-center">
         <div>
-          <h3 class='text-sm  text-primary font-bold'>Bunker Shop Items</h3>
+          <h3 class='text-sm  text-primary-100 font-bold'>Bunker Shop Items</h3>
           <small class="text-secondary-100 italic text-xs">20 products</small>
         </div>
         <div class="md:flex-row lg:flex flex-col justify-start  hidden ">
           <div class="flex flex-row justify-center items-center">
-            <span class="text-primary text-xs font-bold">Per Page:</span>
+            <span class="text-primary-100 text-xs font-bold">Per Page:</span>
 
             <select class="w-4 form-select text-secondary-100 border-0 h-4">
               <option>10</option>
@@ -61,7 +61,7 @@
             </select>
           </div>
           <div class="flex flex-row justify-center items-center">
-            <span class="text-primary text-xs font-bold">Sort By:</span>
+            <span class="text-primary-100 text-xs font-bold">Sort By:</span>
 
             <select class="w-4 form-select focus:text-secondary-100 text-secondary-100 border-0 h-4">
               <option>A-Z</option>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="block lg:hidden">
-          <button class="bg-secondary-100 hover:bg-green-400 text-base text-secondary p-2" v-on:click="toggleFilter()">
+          <button class="bg-primary-100 hover:bg-secondary-100 text-base text-secondary-50 p-2" v-on:click="toggleFilter()">
             <i class="bi bi-filter"></i>Filter
           </button>
           <div v-if="ShowFilter"
@@ -98,7 +98,7 @@
                   <div class="">
                     <div class="mb-4">
 
-                      <h3 class=" font-semibold text-primary  text-sm underline-secondary-100">Categories</h3>
+                      <h3 class=" font-semibold text-primary-100  text-sm underline-secondary-50">Categories</h3>
                       <p class="mb-4 ">
                         <svg width="70" height="1" viewBox="0 0 134 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <line y1="0.5" x2="134" y2="0.5" stroke="black" />
@@ -108,7 +108,7 @@
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="vue-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="vue-checkbox"
                               class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Milk</label>
                           </div>
@@ -116,25 +116,25 @@
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="react-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="react-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Beverages</label>
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Beverages</label>
                           </div>
                         </li>
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="Snacks-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="Snacks-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Snacks</label>
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Snacks</label>
                           </div>
                         </li>
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="Eggs-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="Eggs-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Eggs</label>
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Eggs</label>
                           </div>
                         </li>
                       </ul>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="mb-4">
 
-                      <h3 class=" font-semibold pl-5 text-primary  text-sm underline-secondary-100">Price Filter</h3>
+                      <h3 class=" font-semibold pl-5 text-primary-100  text-sm underline-secondary-50">Price Filter</h3>
                       <p class="mb-4 ">
                         <svg width="70" height="1" viewBox="0 0 134 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <line y1="0.5" x2="134" y2="0.5" stroke="black" />
@@ -155,36 +155,36 @@
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="vue-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="vue-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;0.00 -
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;0.00 -
                               &#8358;1000</label>
                           </div>
                         </li>
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="react-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="react-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;1000 -
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;1000 -
                               &#8358;10000</label>
                           </div>
                         </li>
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="Snacks-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="Snacks-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;10000
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;10000
                               - &#8358;50000</label>
                           </div>
                         </li>
                         <li class="w-full  rounded-t-lg ">
                           <div class="flex items-center">
                             <input id="Eggs-checkbox" type="checkbox" value=""
-                              class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                              class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                             <label for="Eggs-checkbox"
-                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;50000+</label>
+                              class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;50000+</label>
                           </div>
                         </li>
                       </ul>
@@ -208,7 +208,7 @@
                           </svg>
                         </div>
                         <input type="search" id="default-search"
-                          class="block w-full p-1 pl-10 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-primary focus:border-primary ">
+                          class="block w-full p-1 pl-10 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-primary-100 focus:border-primary-100 ">
                       </div>
 
                     </div>
@@ -240,7 +240,7 @@
                     Close
                   </button>
                   <button
-                    class="text-primary background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    class="text-primary-100 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button" v-on:click="toggleFilter()">
                     Filter
                   </button>
@@ -274,7 +274,7 @@
       <div class="lg:col-span-1  lg:block hidden">
         <div class="mb-4">
 
-          <h3 class=" font-semibold text-primary  text-sm underline-secondary-100">Categories</h3>
+          <h3 class=" font-semibold text-primary-100  text-sm underline-secondary-50">Categories</h3>
           <p class="mb-4 ">
             <svg width="70" height="1" viewBox="0 0 134 1" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line y1="0.5" x2="134" y2="0.5" stroke="black" />
@@ -284,31 +284,31 @@
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="vue-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
-                <label for="vue-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Milk</label>
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
+                <label for="vue-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Milk</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="react-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                 <label for="react-checkbox"
-                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Beverages</label>
+                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Beverages</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="Snacks-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                 <label for="Snacks-checkbox"
-                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Snacks</label>
+                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Snacks</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="Eggs-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
-                <label for="Eggs-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">Eggs</label>
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
+                <label for="Eggs-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">Eggs</label>
               </div>
             </li>
           </ul>
@@ -319,7 +319,7 @@
         </div>
         <div class="mb-4">
 
-          <h3 class=" font-semibold pl-5 text-primary  text-sm underline-secondary-100">Price Filter</h3>
+          <h3 class=" font-semibold pl-5 text-primary-100  text-sm underline-secondary-50">Price Filter</h3>
           <p class="mb-4 ">
             <svg width="70" height="1" viewBox="0 0 134 1" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line y1="0.5" x2="134" y2="0.5" stroke="black" />
@@ -329,33 +329,33 @@
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="vue-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
-                <label for="vue-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;0.00 -
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
+                <label for="vue-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;0.00 -
                   &#8358;1000</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="react-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
-                <label for="react-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;1000 -
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
+                <label for="react-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;1000 -
                   &#8358;10000</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="Snacks-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
-                <label for="Snacks-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;10000
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
+                <label for="Snacks-checkbox" class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;10000
                   - &#8358;50000</label>
               </div>
             </li>
             <li class="w-full  rounded-t-lg ">
               <div class="flex items-center">
                 <input id="Eggs-checkbox" type="checkbox" value=""
-                  class="w-4 h-4 text-blue-600 bg-secondary-100 border-primary rounded focus:ring-primary">
+                  class="w-4 h-4 text-blue-600 bg-secondary-50 border-primary-100 rounded focus:ring-primary-100">
                 <label for="Eggs-checkbox"
-                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100">&#8358;50000+</label>
+                  class="w-full py-3 ml-2 text-xs font-medium text-secondary-100 ">&#8358;50000+</label>
               </div>
             </li>
           </ul>
@@ -379,7 +379,7 @@
               </svg>
             </div>
             <input type="search" id="default-search"
-              class="block w-3/4 p-1 pl-10 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-primary focus:border-primary ">
+              class="block w-3/4 p-1 pl-10 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-primary-100 focus:border-primary-100 ">
           </div>
 
         </div>
@@ -392,30 +392,31 @@
 
 
 
-      <!-- <div
+      <div
         class="lg:col-span-3  grid md:grid-cols-2 lg:grid-cols-3 gap-3 gap-y-10  lg:mx-0 mx-auto md:mx-0 ">
        
-        <div v-for="prod in products.product" :key="prod.id" class="w-52  mx-auto bg-secondary  drop-shadow-md rounded-lg">
+        <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
+        <div v-if="products.product" v-for=" prod in products.product" :key="prod.id" class="w-52  mx-auto bg-secondary-50 shadow-xl shadow-slate-300  drop-shadow-md rounded-lg">
           <router-link :to="{ name: 'Product', params: { id: prod.id } }">
-            <img class="object-cover h-52 w-52 rounded-tl-lg rounded-tr-lg" :src="BaseUrl + prod.product_image" alt="Product" />
+            <img class="object-cover h-52 w-52 rounded-tl-lg rounded-tr-lg " :src="BaseUrl + prod.product_image" alt="Product" />
           </router-link>
-          <div class="px-0 py-1 space-y-2">
+          <div class=" py-1 space-y-2 p-2">
             <h3 class="text-sm">{{ prod.product_name }}</h3>
             <div class="space-x-2">
               <span class="px-3 py-0.5 border border-blue-500 text-xs text-blue-500">Free Ship</span>
-              <span class="px-3 py-0.5 border border-primary text-xs text-primary" v-if="prod.quantity > 0">In
+              <span class="px-3 py-0.5 border border-primary-100 text-xs text-primary-100" v-if="prod.quantity > 0">In
                 Stock</span>
-              <span class="px-3 py-0.5 border border-danger text-xs text-danger" v-if="prod.quantity < 1">Out Of
+              <span class="px-3 py-0.5 border border-danger-50 text-xs text-danger-50" v-if="prod.quantity < 1">Out Of
                 Stock</span>
             </div>
             <p class="space-x-2">
               <span class="text-lg font-semibold"> &#8358;{{ prod.normal_price }}</span>
               
             </p>
-            <div class="flex justify-evenly items-center pt-3 pb-2">
+            <div class="flex justify-between items-center pt-3 pb-2">
               <a href="#"
               v-if="prod.quantity > 0"
-                class="px-3 py-2 bg-primary hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
+                class="px-3 py-2 bg-primary-100 hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
                 @click="addToCart(prod.id)">
                 Add to Cart</a>
 
@@ -424,12 +425,16 @@
                 v-if="prod.quantity > 0">
                 Quantity</a>
               <a href="#"
-                class="px-3 py-2 bg-danger hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
+                class="px-3 py-2 bg-danger-50 hover:bg-amber-600 text-center text-xs text-white rounded duration-300"
                 v-if="prod.quantity < 1">
                 Out of stock</a>
             </div>
           </div>
         </div>
+        <div class=" mx-auto text-secondary-100 " v-else>LOADING....</div>
+        
+
+
         <div class="modal-overlay" v-if="showModal" @click.self="closeModal">
           <div
             class="modal-content flex lg:w-80 w-40 container justify-items-center flex-col items-center rounded-lg shadow-lg p-4">
@@ -446,63 +451,44 @@
 
             <div class="flex items-center mb-2 justify-between">
               <div class="flex">
-                <button @click="increase" class="bg-green-500 text-secondary p-2">
+                <button @click="increase" class="bg-green-500 text-secondary-50  p-2">
                   +
                 </button>
-                <button @click="decrease" class="bg-green-500 text-secondary p-2">
+                <button @click="decrease" class="bg-green-500 text-secondary-50 p-2">
                   -
                 </button>
                 <input class="border text-center p-2 w-10" readonly type="number" min="1" :value="counter" />
               </div>
             </div>
             <button type="button" @click="popupAddToCart(product.id, counter)"
-              class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out">Add
+              class="inline-block  mb-3 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-100 active:shadow-lg transition duration-150 ease-in-out">Add
               to cart</button>
 
-            <button class="bg-danger text-white px-4 py-2 rounded-full hover:bg-green-600" @click="closeModal">
+            <button class="bg-danger-100 text-white px-4 py-2 rounded-full hover:bg-green-600" @click="closeModal">
               Close
             </button>
           </div>
         </div>
-      </div> -->
+      </div> 
 
-<div class="lg:col-span-3   bg-green-200">
-  <div class="grid lg:grid-cols-3 md:grid-cols-2 justify-between ">
-      <div class="bg-red-200">12345678900<br>
-        qwerty
 
-      </div>
-      <div class="bg-red-200">
-        12345678900<br>
-        qwerty
-        12345678900<br>
-        qwerty
-      </div>
-      <div class="bg-red-200">
-        12345678900<br>
-        qwerty
-        12345678900<br>
-        qwerty
-        12345678900<br>
-        qwerty
-      </div>
-  </div>
-
-</div>
 
 
 
     </section>
-
+    <div class="flex justify-center mb-3">
+      <Pagination :itemsPerPage="10" :currentPage="2" :total="97" />
+</div>
   </main>
 </template>
 
 <script>
-// import axios from 'axios';
 import Swal from "sweetalert2";
 import ProdService from "@/services/product.service";
+import Pagination from '@/components/utilities/PaginationComponent.vue'
+
 export default {
-  // components: { Footer },
+  components: { Pagination },
   data() {
     return {
       products: [],
@@ -631,19 +617,7 @@ export default {
   },
 };
 </script>
-<script setup>
-import { ref } from "vue";
-import {
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-  TransitionChild,
-  TransitionRoot,
-} from "@headlessui/vue";
-import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
-// import Footer from "@/components/layouts/Footer.vue";
-const open = ref(false);
-</script>
+
 <style lang="scss" scoped>
 .dash {
   border-bottom-width: 4px;

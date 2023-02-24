@@ -1,9 +1,8 @@
-<!-- This example requires Tailwind CSS v3.0+ -->
 <template>
-  <div class="isolate ">
+  <div class="lg:px-[3.5rem] px-[1.5rem]">
    
     <!-- banner -->
-    <Header />
+    <IndexHeader />
 
 
     <!-- body -->
@@ -11,7 +10,7 @@
 
 
     <!-- Container for topcategory -->
-    <div class="container my-24 px-6 mx-auto">
+    <div class=" my-24  lg:mx-0 mx-auto">
 
       <!-- Section: top category -->
       <section class="mb-32 text-gray-800">
@@ -25,7 +24,7 @@
           <div class="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
             style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark">
             <img src="../../assets/drinks.jpg"
-              class="w-full transition duration-300 ease-linear align-middle" />
+              class="w-full transition duration-300 ease-linear align-middle object-cover h-full" />
             <a href="#!">
               <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
                 style="background-color: rgba(0, 0, 0, 0.5)">
@@ -44,7 +43,7 @@
           <div class="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
             style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark">
             <img src="../../assets/cereals.jpg"
-              class="w-full  transition duration-300 ease-linear align-middle" />
+              class="w-full  transition duration-300 ease-linear align-middle object-cover h-full" />
             <a href="#!">
               <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
                 style="background-color: rgba(0, 0, 0, 0.5)">
@@ -63,7 +62,7 @@
           <div class="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
             style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark">
             <img src="../../assets/foodstuff.jpg"
-              class="w-full transition duration-300 ease-linear align-middle" />
+              class="w-full transition duration-300 ease-linear align-middle object-cover h-full" />
             <a href="#!">
               <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
                 style="background-color: rgba(0, 0, 0, 0.5)">
@@ -91,15 +90,15 @@
 
 
     <!-- Container for about Us -->
-    <div class="container my-24 lg:px-6 px-0 mx-auto">
+    <div class=" my-24  mx-auto">
 
       <!-- Section: about  us-->
       <section class="mb-32 text-gray-800">
         <!-- Jumbotron -->
-        <div class="container mx-auto xl:px-32 text-center lg:text-left" id="about">
+        <div class="  text-center lg:text-left" id="about">
           <div class="grid lg:grid-cols-2  items-center">
             <div class="mb-12 lg:mb-0">
-              <div class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
+              <div class="block rounded-lg lg:shadow-2xl lg:shadow-secondary-100 px-6 py-12 md:px-12 lg:-mr-14"
                 style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)">
                 <h2 class="text-3xl font-bold mb-6">About Us</h2>
                 <p class="text-gray-500 mb-6 pb-2 lg:pb-0">
@@ -163,10 +162,10 @@
     <div>
       <div class="text-center p-10">
         <h1 class="font-bold text-4xl mb-4">Top <u class="text-primary-100"> Products </u></h1>
-        <h1 class="text-3xl">Happy Shoping</h1>
+        <small class="text-lg font-bold font-italic  text-secondary-100">Happy Shoping</small>
       </div>
       <section
-        class="w-fit grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-2 mt-10 mx-10 mb-5">
+        class="w-full grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-2 mt-10 mb-5">
 
 
         <div v-for="prod in products.product" :key="prod.id"
@@ -176,7 +175,7 @@
      </router-link>
      <div class="px-4 py-3 w-72">
         <span class="text-gray-400 mr-3 uppercase text-xs">{{prod.category}}</span>
-        <p class="text-lg font-bold text-black truncate block capitalize">{{prod.product_name}}</p>
+        <h6 class="text-lg font-bold text-black  block capitalize">{{prod.product_name}}</h6>
         <div class="flex items-center">
           <p class="text-lg font-semibold text-black cursor-auto my-3">&#8358;{{prod.normal_price}}</p>
           <del>
@@ -201,10 +200,9 @@
       </section>
       <div class="container flex justify-center items-center m-4 mx-auto">
         
-        <button type="button"
-          class="mx-auto  w-1/2 inline-block px-6 py-2 border-2 border-primary-100 text-primary-100 font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-         <router-link :to="{name:'Shop'}"> See More..</router-link>
-        </button>
+        
+
+        <Pagination :itemsPerPage="10" :currentPage="2" :total="97" />
       
       </div>
     </div>
@@ -290,10 +288,11 @@
 <script>
 // import axios from 'axios';
 import Swal from 'sweetalert2';
+import Pagination from '@/components/utilities/PaginationComponent.vue'
 import ProdService from "@/services/product.service";
-import  Header from "@/layouts/Header.vue";
+import IndexHeader from "@/components/layouts/IndexHeader.vue"
 export default {
-  components: {Header,Swal  },
+  components: {IndexHeader,Pagination},
   data() {
     return {
       products: [],

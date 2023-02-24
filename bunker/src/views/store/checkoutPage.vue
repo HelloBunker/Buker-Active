@@ -4,27 +4,27 @@
         <form @submit.prevent="Pay()">
             <div class="flex  md:flex-row flex-col justify-between px-2 mb-10 lg:space-x-2.5 gap-x-3 ">
                 <div class="md:w-2/5 w-full">
-                    <h2 class="font-bold text-primary text-center text-2xl mb-4">Delivery Details</h2>
+                    <h2 class="font-bold text-primary-100  text-center text-2xl mb-4">Delivery Details</h2>
 
 
 
                     <div class="mb-6">
                         <label for="name" class="block mb-2 text-sm font-medium text-secondary-100 ">Name</label>
                         <input type="text" v-model="name"
-                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary-100  focus:border-primary-100  block w-full p-2.5"
                             placeholder="" required>
                     </div>
                     <div class="mb-6">
                         <label for="phone" class="block mb-2 text-sm font-medium text-secondary-100 ">Phone
                             number</label>
                         <input type="text" v-model="phone_no"
-                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary-100  focus:border-primary-100  block w-full p-2.5"
                             required>
                     </div>
                     <div class="mb-6">
                         <label for="address" class="block mb-2 text-sm font-medium text-secondary-100 ">address</label>
                         <input type="address" v-model="address"
-                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                            class="bg-secondary border border-secondary-100 text-secondary-100 text-sm rounded-lg focus:ring-primary-100  focus:border-primary-100  block w-full p-2.5"
                             required>
                     </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="w-full md:w-2/5 flex flex-col md:my-16 overflow-x-auto">
 
-                    <!-- <h2 class="font-bold text-primary text-center text-2xl mb-4">product ordered</h2> -->
+                    <!-- <h2 class="font-bold text-primary-100  text-center text-2xl mb-4">product ordered</h2> -->
 
                     <table v-if="cart.length > 0"
                         class="w-full shadow border- bg-gray-200 text-sm text-left text-secondary-100 ">
@@ -99,32 +99,32 @@
 
 
                 <div class="flex justify-end">
-                    <span class="p-3 text-primary lg:text-lg text-sm"> Delivery Fee: <span class="text-secondary-100">
+                    <span class="p-3 text-primary-100  lg:text-lg text-sm"> Delivery Fee: <span class="text-secondary-100">
                             free</span>
                     </span><br>
                 </div>
                 <!-- <div class="flex justify-end">
-                                    <span class="p-3 text-primary text-lg"> Sub Total: <span class="text-secondary-100"> 5000</span>
+                                    <span class="p-3 text-primary-100  text-lg"> Sub Total: <span class="text-secondary-100"> 5000</span>
                                     </span><br>
                                 </div> -->
                 <div class="flex justify-end">
-                    <span class="p-3 text-primary lg:text-lg text-sm"> Total: <span class="text-secondary-100">NGN
+                    <span class="p-3 text-primary-100  lg:text-lg text-sm"> Total: <span class="text-secondary-100">NGN
                             {{ total }}</span>
                     </span><br>
                 </div>
                 <!-- <h2 class="text-secondary-100 text-lg underlined text-right text-bold mb-3">payment method</h2> -->
                 <div class="flex justify-end mb-3">
 
-                    <!-- <div class="flex items-center px-4 rounded border border-primary-100 mx-3">
+                    <!-- <div class="flex items-center px-4 rounded border border-primary-100 -100 mx-3">
                                         <input v-model="payment_type" type="radio" value="paynow" name="bordered-radio"
-                                            class="w-4 h-4 text-primary  bg-secondary border-primary-100 focus:ring-secondary-100  focus:ring-2 ">
+                                            class="w-4 h-4 text-primary-100   bg-secondary border-primary-100 -100 focus:ring-secondary-100  focus:ring-2 ">
                                         <label for="bordered-radio-1"
                                             class="py-4 ml-2 w-full text-sm font-medium text-secondary-100 ">make order</label>
                                     </div> -->
-                    <!-- <div class="flex items-center px-4 rounded border border-primary-100 mx-3">
+                    <!-- <div class="flex items-center px-4 rounded border border-primary-100 -100 mx-3">
                                         <input checked="" disable v-model="payment_type" type="radio" value="paylater"
                                             name="bordered-radio"
-                                            class="w-4 h-4 text-primary  bg-secondary border-primary-100 focus:ring-secondary-100  focus:ring-2 ">
+                                            class="w-4 h-4 text-primary-100   bg-secondary border-primary-100 -100 focus:ring-secondary-100  focus:ring-2 ">
                                         <label for="bordered-radio-2"
                                             class="py-4 ml-2 w-full text-sm font-medium text-secondary-100 ">Pay Later</label>
                                     </div> -->
@@ -132,7 +132,7 @@
 
                 </div>
                 <button
-                    class="bg-primary  ml-auto border-secondary-100 p-3 rounded-lg lg:w-1/4 md:w-1/4 sm:w-2/4 text-secondary hover:bg-primary-100 ">Place Order </button>
+                    class="bg-primary-100   ml-auto border-secondary-100 p-3 rounded-lg lg:w-1/4 md:w-1/4 sm:w-2/4 text-secondary-50 hover:bg-primary-100 -100 ">Place Order </button>
 
 
             </div>
@@ -142,11 +142,9 @@
 <!-- <Footer /> --></template>
 
 <script>
-import Header from '@/components/layouts/shop/Header.vue'
 import Swal from "sweetalert2";
-import Button from '@/components/utilities/Button.vue'
 export default {
-    components: { Header, Button,Swal},
+   
 
     data() {
         return {

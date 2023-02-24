@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-reserved-component-names -->
 <template>
     <Header />
     <section class="bg-white-500 shadow-2xl">
@@ -120,7 +121,8 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 export default {
-    name: "Signup",
+    
+    // eslint-disable-next-line vue/no-reserved-component-names
     components: { Form, Field, ErrorMessage },
     data() {
         const schema = yup.object().shape({

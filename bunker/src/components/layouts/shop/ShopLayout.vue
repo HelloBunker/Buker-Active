@@ -1,5 +1,5 @@
 <template>
-    <div class="nav px-6 py-4 lg:px-8 top-0 z-10  sticky md:relative animated"
+    <div class="nav px-6 py-4 lg:px-8 top-0 z-10  sticky lg:relative animated"
       :class="{ change_color: scrollPosition > 50 }">
       <div>
         <nav class="flex h-9 items-center justify-between" aria-label="Global">
@@ -35,12 +35,12 @@
         />
       </svg>
     </button>
-    <div v-if="showInput" class="absolute z-20 mt-2  left-0 rounded-md shadow-sm">
-      <form @submit.prevent="handleSearch">
+    <div v-if="showInput" class="absolute z-20 mt-2 flex w-full left-0 rounded-md shadow-sm">
+      <form @submit.prevent="handleSearch" class="w-full px-3 py-2">
         <input
           v-model="searchTerm"
           type="search"
-          class="form-input py-2 px-4 block w-full leading-5 rounded-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          class="form-input py-2 px-4 block w-full border-secondary-100 leading-5  transition duration-150 ease-in-out sm:text-sm sm:leading-5text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search"
         />
       </form>
@@ -91,7 +91,7 @@
                             <MenuItem v-slot="{ active }">
                             <button type="submit" :class="[
                               active
-                                ? 'bg-gray-100 text-primary'
+                                ? 'bg-gray-100 text-primary-100 '
                                 : 'text-gray-700',
                               'block w-full px-4 py-2 text-left text-sm',
                             ]">
@@ -102,7 +102,7 @@
                             <MenuItem v-slot="{ active }">
                             <router-link to="/profile" :class="[
                               active
-                                ? 'bg-gray-100  text-primary'
+                                ? 'bg-gray-100  text-primary-100 '
                                 : 'text-gray-700',
                               'block px-4 py-2 text-sm',
                             ]">
@@ -133,7 +133,7 @@
             <button
               class="  inline-flex  justify-start items-center hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
               <i class="bi bi-cart text-xl mb-1"></i>
-              <span class="px-2 rounded-lg bg-primary text-xs text-secondary ml-[-10px] align-top">{{ cartcount
+              <span class="px-2 rounded-lg bg-primary-100  text-xs text-secondary-50   ml-[-10px] align-top">{{ cartcount
               }}</span>
             </button>
           </router-link>
@@ -169,10 +169,10 @@
           
               <router-link :to="{ name: 'Cart' }">
                 <button
-                  class="flex justify-between items-center rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+                  class="flex justify-between items-center rounded-lg hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-100 ">
                   <i class="bi bi-cart text-2xl mb-1"></i>
                 
-                  <span class="px-2 rounded-lg bg-primary text-xs text-secondary ml-[-10px] align-top">{{ cartcount
+                  <span class="px-2 rounded-lg bg-primary-100  text-xs text-secondary-50   ml-[-10px] align-top">{{ cartcount
                   }}</span>
                 </button>
               </router-link>
@@ -272,7 +272,7 @@
                     }}</a>
                 </div>
                 <!-- <div class="py-6">
-<button class="bg-green-500 text-secondary px-9 py-4 rounded-lg hover:bg-secondary-100">Become A Member</button>
+<button class="bg-green-500 text-secondary-50   px-9 py-4 rounded-lg hover:bg-secondary-50  -100">Become A Member</button>
   
                 </div> -->
               </div>
@@ -297,17 +297,14 @@
   </template>
   
   <script setup>
-  import { ref, onMounted } from "vue";
+  import { ref} from "vue";
   import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
   import { ChevronDownIcon } from "@heroicons/vue/20/solid";
   import { Dialog, DialogPanel } from "@headlessui/vue";
   import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
   import Footer from "@/components/layouts/Footer.vue";
 
-  import { useStore } from "vuex";
-  import { computed } from "vue";
   
-  const store = useStore();
   
   const navigation = [
     { name: "Home", href: "/home" },
@@ -355,14 +352,7 @@
       }
     },
   
-    created() {
-      //  const savedcart = localStorage.getItem('cart');
-      // if (this.currentUser ) {
-      //   console.log(this.cartCount);
-      //   this.cartcount = this.cartCount; 
-      //   console.log(this.cartcount)
-      // }
-    },
+    
   
    created() {
       window.addEventListener("scroll", this.updateScroll);

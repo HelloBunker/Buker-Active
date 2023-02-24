@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-use-v-if-with-v-for -->
 <template>
   <div class="grid lg:grid-cols-2 container max-w-full my-2">
     <div class="hidden lg:flex items-center justify-center bg-secondary-100">
@@ -47,13 +48,13 @@
                       <div class="pr-8 flex">
                         <button
                           @click="updateQuantity(item.id, 1)"
-                          class="bg-green-500 text-secondary p-2"
+                          class="bg-green-500 text-secondary-50  p-2"
                         >
                           +
                         </button>
                         <button
                           @click="updateQuantity(item.id, -1)"
-                          class="bg-green-500 text-secondary p-2"
+                          class="bg-green-500 text-secondary-50  p-2"
                         >
                           -
                         </button>
@@ -103,7 +104,7 @@
                     <router-link to="/shop">
                       <div class="flex items-center">
                         <i class="fa fa-arrow-left text-sm pr-2"></i>
-                        <span class="text-md font-medium text-red-500"
+                        <span class="text-md font-medium text-primary-100"
                           >Continue Shopping</span
                         >
                       </div>
@@ -142,7 +143,6 @@
 import { ref, onMounted, computed } from "vue";
 import ProdService from "@/services/product.service";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -150,7 +150,6 @@ export default {
 
     const BaseUrl = ref("https://bunker-api.hellobunker.com//product/");
 
-    const router = useRouter();
     const store = useStore();
     const updateQuantity = (id, delta) => {
       const item = cart.value.find((i) => i.id === id);
