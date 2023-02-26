@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    
   
     <div class="container  my-12">
     <div
@@ -8,31 +8,31 @@
         <div class="flex flex-col pl-3">
           <router-link
             to="orders_history"
-            class="text-primary border-primary transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+            class="text-primary-100 border-primary-100 transition-all hover:font-bold hover:text-primary-50 px-4 py-3 border-l-2  hover:border-primary-100  "
           >
             History</router-link
           >
           <router-link
             to="changePassword"
-            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2  hover:border-primary  "
             >Password</router-link
           >
 
           <router-link
             to="plan"
-            class=" transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk text-grey-darkest"
+            class=" transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2  hover:border-primary  "
             >Membership Plan</router-link
           >
 
           <router-link
             to="profile"
-            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2 border-primary-lighter hover:border-primary font-hk font-bold  "
+            class="transition-all hover:font-bold hover:text-primary px-4 py-3 border-l-2  hover:border-primary  font-bold  "
             >Edit Profile
           </router-link>
         </div>
         <router-link
           to=""
-          class="mt-8 inline-block rounded border border-primary px-8 py-3 font-hk font-bold text-primary transition-all hover:bg-primary hover:text-white"
+          class="mt-8 inline-block rounded border border-primary px-8 py-3  font-bold text-primary transition-all hover:bg-primary hover:text-white"
           >Log Out</router-link
         >
       </div>
@@ -40,7 +40,7 @@
 
 
   <div class="mt-12 lg:mt-0 lg:w-3/4">
-      <div class="bg-grey-light py-8 px-5 md:px-8">
+      <!-- <div class="bg-grey-light py-8 px-5 md:px-8">
         <h1
           class=" pb-6 text-center text-2xl text-secondary-100 sm:text-left">
           Order List
@@ -69,13 +69,13 @@
             class="w-full border-b border-grey-dark pb-4 text-center sm:w-1/5 sm:border-b-0 sm:pb-0">
             <span
               class="font-hkbold block pt-3 pb-2 text-center text-sm uppercase text-secondary-100 sm:hidden">{{}}</span>
-            <span class="font-hk text-secondary-100">{{order.id}}</span>
+            <span class=" text-secondary-100">{{order.id}}</span>
           </div>
           <div
             class="w-full border-b border-grey-dark pb-4 text-center sm:w-1/6 sm:border-b-0 sm:pr-6 sm:pb-0 sm:text-right xl:w-1/5 xl:pr-16">
             <span
               class="font-hkbold block pt-3 pb-2 text-center text-sm uppercase text-secondary-100 sm:hidden">Price</span>
-            <span class="font-hk text-secondary-100">{{order}}</span>
+            <span class=" text-secondary-100">{{order}}</span>
           </div>
           <div
             class="w-full text-center sm:w-3/10 sm:text-right md:w-1/4 xl:w-1/5">
@@ -85,7 +85,7 @@
                 Status
               </p>
               <span
-                class="bg-primary-lightest border border-primary-light px-4 py-3 inline-block rounded font-hk text-primary">{{order.status}}</span>
+                class="bg-primary-lightest border border-primary-light px-4 py-3 inline-block rounded  text-primary">{{order.status}}</span>
             </div>
           </div>
         </div>
@@ -95,33 +95,31 @@
         
         <div class="flex justify-center pt-6 md:justify-end">
           <span
-  class="cursor-pointer pr-5 font-hk font-semibold text-grey-darkest transition-colors hover:text-black">Previous</span>
+  class="cursor-pointer pr-5  font-semibold  transition-colors hover:text-black">Previous</span>
 <span
-  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">1</span>
+  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full  text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">1</span>
 <span
-  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">2</span>
+  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full  text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">2</span>
 <span
-  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-hk text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">3</span>
+  class="mr-3 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full  text-sm font-semibold text-black transition-colors hover:bg-primary hover:text-white">3</span>
 <span
-  class="cursor-pointer pl-2 font-hk font-semibold text-grey-darkest transition-colors hover:text-black">Next</span>
+  class="cursor-pointer pl-2  font-semibold  transition-colors hover:text-black">Next</span>
 
         </div>
-      </div>
+      </div> -->
     </div>
      
     </div>
   </div>
   
-    <Footer />
+   
   </template>
   
   <script>
-  import Header from '@/components/layouts/shop/Header.vue'   
-  import Footer from '@/components/layouts/Footer.vue'
-  import Button from '@/components/utilities/Button.vue'
+ 
   import ProdService from "@/services/product.service";
   export default {
-      components: { Header, Footer, Button },
+     
       data() {
         return {
             orders: [],

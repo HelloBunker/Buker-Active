@@ -64,7 +64,7 @@ class ProductService {
     {
       payment_method: details[0].payment_method,
       receiver:details[0].reciever,
-      phone_no:details[0].phone_no,
+      phone_no:details[0].phone_no.toString(),
       address:details[0].address
     }
     , {headers:authHeader()});

@@ -170,27 +170,27 @@
                 <div class="grid  lg:grid-col-2 gap-3 lg:grid-flow-col grid-flow-row  grid-col-1  ">
 
                     <div class="order-2 lg:order-1 px-6">
-                        
+
                         <h6 class="text-xs text-secondary-100  mb-2 uppercase">Shipping Details</h6>
 
 
-                        <form @submit.prevent="Pay()" class="">
+                        <form @submit.prevent="pay()" class="">
                             <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="fullname" id="fullname"
+                                <input type="text" name="fullname" id="fullname" v-model="name"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-primary-100 peer"
                                     placeholder=" " required />
                                 <label for="fullname"
                                     class="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-100  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fullname</label>
                             </div>
                             <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="address" id="address"
+                                <input type="text" name="address" id="address" v-model="address"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-primary-100 peer"
                                     placeholder=" " required />
                                 <label for="address"
                                     class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-100  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
                             </div>
                             <div class="relative z-0 w-full mb-6 group">
-                                <input type="number" name="phone_number" id="phone_number"
+                                <input type="number" name="phone_number" id="phone_number" v-model="phone_no"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-primary-100 peer"
                                     placeholder=" " required />
                                 <label for="phone_number"
@@ -198,18 +198,18 @@
                                     number</label>
                             </div>
                             <div class="relative z-0 w-full mb-6 group">
-                                <input type="Email" name="emaill" id="emaill"
+                                <input type="Email" name="email" id="email" v-model="email"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-primary-100 peer"
                                     placeholder=" " required />
                                 <label for="emaill"
                                     class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-100  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                             </div>
-                            <button type="button"
+                            <button type="Submit" @click="paynowClicked()"
                                 class="text-white bg-blue-500 hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2">
                                 <img class="w-5 h-3 mx-1" src="@/assets/paystack-2.svg" />
                                 Pay Now
                             </button>
-                            <button type="button"
+                            <button type="Submit" @click="paylaterClicked()"
                                 class="text-white bg-primary-100 hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2">
                                 <i class="bi bi-clock px-1 text-blue-900 font-bold "></i>
                                 Pay later
@@ -221,63 +221,45 @@
                     </div>
                     <div class="order-1 lg:order-2 ">
                         <h6 class="text-xs font-semibold text-secondary-100 uppercase px-6">Your Order</h6>
-                        <table class="w-full table-auto text-sm text-left text-gray-500 ">
+                        <table class="w-full table-auto text-sm text-left text-gray-500 " v-if="cart.length > 0">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                                 <tr>
-                                    
+
                                     <th scope="col" class="px-6 py-0">
-                                       
+
                                     </th>
                                     <th scope="col" class="px-6 py-0">
-                                       
+
                                     </th>
                                     <th scope="col" class="px-6 py-0">
-                                       
+
                                     </th>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bg-white border-b  hover:bg-gray-50 ">
-                                   
+                                <tr class="bg-white border-b  hover:bg-gray-50 " v-for="item in cart" :key="item.id">
+
                                     <th scope="row"
                                         class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img class="w-10 h-10" src="@/assets/drinks.jpg" alt="Jese image">
+                                        <img class="w-10 h-10" :src="BaseUrl + item.product_image" alt="Jese image">
                                         <div class="pl-3">
-                                            <div class="text-base text-secondary-100 font-semibold">Product Name</div>
+                                            <div class="text-base text-secondary-100 font-semibold"> {{ item.product_name }}
+                                            </div>
                                             <div class="font-normal text-gray-500 lowercase">Product Category</div>
                                         </div>
                                     </th>
                                     <td class="px-6 py-4">
-                                        3
+                                        {{ item.quantity }}
                                     </td>
-                                    
+
                                     <td class="px-6 py-4 text-right">
-                                        600
+                                        {{ item.price }}
                                     </td>
-                                    
-                                  
+
+
                                 </tr>
-                                <tr class="bg-white border-b  hover:bg-gray-50 ">
-                                   
-                                    <th scope="row"
-                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img class="w-10 h-10" src="@/assets/drinks.jpg" alt="Jese image">
-                                        <div class="pl-3">
-                                            <div class="text-base text-secondary-100 font-semibold">Product Name</div>
-                                            <div class="font-normal text-gray-500 lowercase">Product Category</div>
-                                        </div>
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        3
-                                    </td>
-                                    
-                                    <td class="px-6 py-4 text-right">
-                                        600
-                                    </td>
-                                    
-                                  
-                                </tr>
+
 
 
                                 <tr class="bg-white font-bold hover:bg-gray-50 ">
@@ -286,32 +268,32 @@
                                     </td>
                                     <td></td>
                                     <td class="px-6 pt-2 pb-0 text-right">
-                                        1000N
+                                        {{ total }}
                                     </td>
-                                 </tr>
-                                 <tr class="bg-white font-bold   hover:bg-gray-50 ">
+                                </tr>
+                                <tr class="bg-white font-bold   hover:bg-gray-50 ">
                                     <td class="px-6 pt-2 pb-0 ">
-                                       Shipping
+                                        Shipping
                                     </td>
-                                      <td></td>
+                                    <td></td>
                                     <td class="px-6 pt-2 text-right pb-0">
-                                    0.00N
+                                        0.00N
                                     </td>
                                 </tr>
                                 <tr class="bg-white font-bold   hover:bg-gray-50 ">
                                     <td class="px-6 pt-2 pb-0">
-                                       Total
+                                        Total
                                     </td>
                                     <td></td>
                                     <td class="px-6 text-right pt-2 pb-0">
-                                    1000N
+                                        {{ total }}
                                     </td>
 
                                 </tr>
-                               
+
                             </tbody>
                         </table>
-                        
+
                     </div>
                 </div>
 
@@ -339,7 +321,9 @@ export default {
             name: "",
             phone_no: "",
             address: "",
-            payment_type: "pay_now",
+            email: "",
+            BaseUrl: "https://bunker-api.hellobunker.com/product/",
+            payment_type: "null",
 
         }
     },
@@ -368,42 +352,61 @@ export default {
     },
 
     methods: {
-        Pay() {
-            let details = [
-                { reciever: this.name, address: this.address, phone_no: this.phone_no, payment_method: this.payment_type },
-            ];
+        paynowClicked() {
+            this.payment_type = "pay_now"
+        },
 
 
-            this.$store.dispatch('Pay', details)
-                .then(response => {
-                    console.log(response);
+        paylaterClicked() {
+            this.payment_type = "pay_later"
+        },
 
-                    Swal.fire({
-                        title: "Order Placed",
-                        text: response.data.message,
-                        icon: "success",
-                        confirmButtonColor: '#7DAB2E'
-                    }).then(() => {
+        pay() {
+
+            if (this.payment_type === "pay_later") {
+                let details = [
+                    { reciever: this.name, address: this.address, phone_no: this.phone_no, payment_method: this.payment_type },
+                ];
+
+
+                this.$store.dispatch('Pay', details)
+                    .then(response => {
+                        console.log(response);
 
                         Swal.fire({
-                            title: 'See Orders History or Continue shopping',
-                            showDenyButton: true,
-                            confirmButtonText: `My Orders`,
-                            confirmButtonColor: '#7DAB2E',
-                            denyButtonText: `Continue shopping`,
-                        }).then((result) => {
+                            title: "Order Placed",
+                            text: response.data.message,
+                            icon: "success",
+                            confirmButtonColor: '#7DAB2E'
+                        }).then(() => {
 
-                            if (result.isConfirmed) {
-                                console.log('true');
-                                this.$router.push({ name: 'OrderHistory' });
-                            } else if (result.isDenied) {
-                                this.$router.push({ name: 'Shop' });
-                            }
+                            Swal.fire({
+                                title: 'See Orders History or Continue shopping',
+                                showDenyButton: true,
+                                confirmButtonText: `My Orders`,
+                                confirmButtonColor: '#7DAB2E',
+                                // denyButtonColor: '#7DAB2E',
+                                denyButtonText: `Continue shopping`,
+                            }).then((result) => {
+
+                                if (result.isConfirmed) {
+                                    console.log('true');
+                                    this.$router.push({ name: 'OrderHistory' });
+                                    
+                                } else  {
+                                    this.$router.push({ name: 'Shop' });
+                                }
+                            });
                         });
-                    });
-                }).catch(error => {
-                    console.log(error);
-                });
+                    }).catch(error => {
+                        console.log(error);
+                    })
+            } else if (this.payment_type === "pay_now") {
+                // handle paystack logic
+            } else {
+                // if none of the buttons where clicked
+            }
+
         }
 
     }
